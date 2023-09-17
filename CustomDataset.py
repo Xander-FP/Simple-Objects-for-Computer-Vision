@@ -1,6 +1,7 @@
+from typing import Any, Tuple
 import torch
 from torch.utils.data import Dataset
-from torchvision.datasets import DatasetFolder
+from torchvision.datasets import DatasetFolder, CIFAR10
 from PIL import Image
 
 class CustomDataset(Dataset):
@@ -28,5 +29,18 @@ class CustomDataset(Dataset):
 
         return image, label
     
+    def reorder(self, new_order):
+        self.new_order = new_order
+
+class CustomCIFAR10(CIFAR10):
+    def __init__(self, root, train=True, transform=None, target_transform=None, download=False):
+        super().__init__(root, train=train, transform=transform, target_transform=target_transform, download=download)
+        self.new_order = None
+
+    def __getitem__(self, index: int) -> Tuple[Any, Any]:
+        if self.new_order is not None:
+            index = self.new_order[index][1]
+        return super().__getitem__(index)
+
     def reorder(self, new_order):
         self.new_order = new_order

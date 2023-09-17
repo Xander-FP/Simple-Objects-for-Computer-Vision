@@ -1,10 +1,7 @@
-import os
+import itertools
 
-print('results are created in the results folder')
-
-os.makedirs('results', exist_ok=True)
-
-f = open("results/results.txt", "w+")
-f.write("Results\n")
-
-print('Directory created')
+for idx, val in enumerate(itertools.cycle(range(4))):
+    print(val)
+    print(idx)
+    if idx>20:
+        break

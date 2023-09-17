@@ -2,8 +2,9 @@ from DataPrep import DataPrep
 from DB import DB
 from EarlyStopping import EarlyStopping
 from torchvision import transforms
-from torch.utils.data.sampler import SubsetRandomSampler
 from ray import train
+from Scheduler import BabyStep, RootP, Scheduler
+from torch.utils.data.sampler import SubsetRandomSampler
 import torch
 import torch.nn as nn
 import numpy as np
@@ -25,32 +26,72 @@ class Trainer:
         self.early_stopping = EarlyStopping()
         self.valid_size = 0.1
         self.data_prep = DataPrep()
+        size = len(data_dirs)
+
+        self.train_sets = [None] * size
+        self.valid_sets = [None] * size
+        self.test_sets = [None] * size
+        self.train_samplers = [None] * size
+        self.valid_samplers = [None] * size
         self._load_data()
-        self._prepare_data()
     
-    def train(self, options, tune, wandb, report_logs, should_tune):
-        # Options have all the hyperparameters
+    def start(self, options, tune, wandb):
+        train_options = options
         model = self.model.to(self.device)
-        criterion = options['criterion']
-        optimizer = torch.optim.SGD(model.parameters(), lr=options['learning_rate'], weight_decay=options['weight_decay'], momentum=options['momentum'])
+        # maybe not needed
+        # max_epochs = options['epochs']
 
         for i in range(len(self.data_dirs)):
-            epochs = self.data_dirs[i]['epochs']
-            print('Training on dataset: ' + self.data_dirs[i]['dataset'])
+            data_path = self.data_dirs[i]['path']
+            print('Training on dataset: ' + data_path)
+            self._prepare_data(i)
 
             if options['curriculum']:
-                self._bootstrap_data(self.train_sets[i], criterion, options['batch_size'])
+                self._bootstrap_data(self.train_sets[i], options['criterion'], options['batch_size'])
 
-            train_loader = torch.utils.data.DataLoader(self.train_sets[i], batch_size=options['batch_size'])
-            valid_loader = torch.utils.data.DataLoader(
-                self.valid_sets[i], batch_size=options['batch_size'], sampler=self.valid_samplers[i]
+            data_size = len(self.train_sets[i]) 
+
+            if options['scheduler'] == 'R':
+                scheduler = RootP(data_size=data_size, max_epochs=options['epochs'], start=0.2)
+            elif options['scheduler'] == 'B':
+                scheduler = BabyStep(data_size=data_size, num_buckets=10, max_epochs=options['epochs'])
+            else:
+                scheduler = Scheduler(data_size=data_size)
+
+            train_idx, valid_idx = scheduler.get_initial_indexes()
+            train_loader = torch.utils.data.DataLoader(self.train_sets[i], batch_size=options['batch_size'], sampler=SubsetRandomSampler(train_idx))
+            valid_loader = torch.utils.data.DataLoader(self.valid_sets[i], batch_size=options['batch_size'], sampler=SubsetRandomSampler(valid_idx))
+
+            train_options['scheduler_object'] = scheduler
+
+            # TODO: Add augmentation here in a seperate function
+            self._train(
+                model = model,
+                train_loader = train_loader,
+                valid_loader = valid_loader,
+                tune = tune,
+                wandb = wandb,
+                options = train_options
                 )
 
-            total_step = len(train_loader)
-            for epoch in range(epochs):
+            if i != len(self.data_dirs) - 1:
+                self._replace_classifier(self.data_dirs[i+1]['classes'])
+            print(self.early_stopping.history)
+
+    def _train(self, model, tune, wandb, train_loader, valid_loader, options):
+        # SETUP PHASE
+        optimizer = torch.optim.SGD(model.parameters(), lr=options['learning_rate'], weight_decay=options['weight_decay'], momentum=options['momentum'])
+        scheduler = options['scheduler_object']
+        criterion = options['criterion']
+        max_epochs = options['epochs']
+        model.train()
+        total_step = len(train_loader)
+        
+        # TRAINING PHASE
+        while not scheduler.converged:
+            print('Training started')
+            for epoch in range(max_epochs):
                 for i, (images, labels) in enumerate(train_loader):  
-                    # print(labels)
-                    # Move tensors to the configured device
                     images = images.to(self.device)
                     labels = labels.to(self.device)
                     
@@ -62,25 +103,27 @@ class Trainer:
                     optimizer.zero_grad()
                     loss.backward()
                     optimizer.step()
-                self.early_stopping.save_checkpoint(model, optimizer, epoch)
 
-                print(loss.item())
-                curr_loss = loss.item()
-                loss, acc = self._validate(valid_loader, criterion)
-                # print ('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}' 
-                #             .format(epoch+1, epochs, i+1, total_step, curr_loss))
+                train_loss = loss.item()
+                valid_loss, acc = self._validate(valid_loader, criterion)
+                print ('Epoch [{}/{}], Step [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
+                            .format(epoch+1, max_epochs, i+1, total_step, train_loss, valid_loss))
+                
+                self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+                converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
-                if should_tune:
-                    tune.report({"validation_loss": loss, "training_loss": curr_loss, "accuracy": acc})
+                if converged:
+                    break
 
-                if report_logs:
-                    wandb.log({"validation_loss": loss, "training_loss": curr_loss, "epoch": epoch, "accuracy": acc})
+                if options['should_tune']:
+                    tune.report({"validation_loss": valid_loss, "training_loss": train_loss, "accuracy": acc})
 
-                # Check if converged
+                if options['report_logs']:
+                    wandb.log({"validation_loss": valid_loss, "training_loss": train_loss, "epoch": epoch, "accuracy": acc})
+        print('Training finished')
+        
 
-            self._replace_classifier(10)
-
-    def test(self):
+    def _test(self):
         with torch.no_grad():
             correct = 0
             total = 0
@@ -109,66 +152,51 @@ class Trainer:
                 total += labels.size(0)
                 correct += (predicted == labels).sum().item()
                 del images, labels, outputs
-            # print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
+            print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
         return loss.item(), 100 * correct / total
     
     def _load_data(self):
         print('loading the data')
-        self.train_sets = []
-        self.valid_sets = []
-        self.test_sets = []
+        i = 0
         for dir in self.data_dirs:
-            train_set, valid_set = self.data_prep.get_datasets(data_dir=dir['dataset'], model=self.model)
-            # test_set = DataPrep.get_test_set(data_dir=dir['dataset'])
-            self.train_sets.append(train_set)
-            self.valid_sets.append(valid_set)
-            # self.test_sets.append(test_set)
+            train_set, valid_set = self.data_prep.get_datasets(data_dir=dir['path'], model=self.model)
+            # test_set = DataPrep.get_test_set(data_dir=dir['path'])
+            self.train_sets[i] = train_set
+            self.valid_sets[i] = valid_set
+            # self.test_sets[i] = test_set
+            i = i + 1
 
-    def _prepare_data(self, augment = False):
+    def _prepare_data(self, i):
         # Calculate mean and std on training set and use that throughout the training and testing process
-        print('preparing the data')
-        self.train_samplers = []
-        self.valid_samplers = []
-        for i in range(len(self.data_dirs)):
-            # TODO: Add the mean and std to the DB and load them here if they exist
-            # print(sha256(self.data_dirs[i]['datasets'].encode('utf-8')).hexdigest())
-            result = self.data_prep.compute_mean_std(self.train_sets[i])
-            normalize = transforms.Normalize(
-                mean= result['mean'],
-                std= result['std'],
-            )
-            size = 227
-       
-            test_transform = transforms.Compose([
-                transforms.Resize((size,size)),
-                transforms.ToTensor(),
-                normalize,
-            ])
-            valid_transform = transforms.Compose([
-                transforms.Resize((size,size)),
-                transforms.ToTensor(),
-                normalize,
-            ])
-            if augment:
-                train_transform = transforms.Compose([
-                    transforms.RandomCrop(32, padding=4),
-                    transforms.RandomHorizontalFlip(),
-                    transforms.Resize((size,size)),
-                    transforms.ToTensor(),
-                    normalize,
-                ])
-            else:
-                train_transform = transforms.Compose([
-                    transforms.Resize((size,size)),
-                    transforms.ToTensor(),
-                    normalize,
-                ])
+        print('Preparing the data: Adding transforms')
+        # TODO: Add the mean and std to the DB and load them here if they exist
+        # print(sha256(self.data_dirs[i]['paths'].encode('utf-8')).hexdigest())
+        result = self.data_prep.compute_mean_std(self.train_sets[i])
+        normalize = transforms.Normalize(
+            mean= result['mean'],
+            std= result['std'],
+        )
+        size = 227
+    
+        test_transform = transforms.Compose([
+            transforms.Resize((size,size)),
+            transforms.ToTensor(),
+            normalize,
+        ])
+        valid_transform = transforms.Compose([
+            transforms.Resize((size,size)),
+            transforms.ToTensor(),
+            normalize,
+        ])
+        train_transform = transforms.Compose([
+            transforms.Resize((size,size)),
+            transforms.ToTensor(),
+            normalize,
+        ])
 
-            self.train_sets[i].transform = train_transform
-            self.valid_sets[i].transform = valid_transform
-            # self.test_sets[i].transform = test_transform
-
-            self._split_train_valid(self.train_sets[i])
+        self.train_sets[i].transform = train_transform
+        self.valid_sets[i].transform = valid_transform
+        # self.test_sets[i].transform = test_transform
         
     def _replace_classifier(self, num_classes):
         self.model.to('cpu')
@@ -189,20 +217,8 @@ class Trainer:
         # AlexNet: fc, fc1, fc2
         # ResNet50: fc
 
-    def _split_train_valid(self, train_set, shuffle=True):
-        num_train = len(train_set)
-        indices = list(range(num_train))
-        split = int(np.floor(self.valid_size * num_train))
-
-        if shuffle:
-            np.random.seed(self.random_seed)
-            np.random.shuffle(indices)
-
-        train_idx, valid_idx = indices[split:], indices[:split]
-        self.train_samplers.append(SubsetRandomSampler(train_idx))
-        self.valid_samplers.append(SubsetRandomSampler(valid_idx))
-
     def _bootstrap_data(self, data_set, criterion, batches):
+        print('Ordering data')
         # TODO: You can access the class, so the solution is to compute the error values and then reorder the data items in the class
         data_loader = torch.utils.data.DataLoader(data_set)
         self.model.eval()
@@ -220,14 +236,18 @@ class Trainer:
                 correct += (predicted == label).sum().item()
         self.model.train()
         sorted_predictions = self.sort_by_error(predictions)
-        print(sorted_predictions)
+        # print(sorted_predictions)
         data_set.reorder(sorted_predictions)
+        print('data ordered')
 
     def sort_by_error(self, predictions):
         return sorted(predictions, key=lambda x: x[0])
-
-    def _save_model(self):
-        pass
-
-    def _load_model(self):
-        pass
+    
+    def _augment_data(self):
+        train_transform = transforms.Compose([
+            transforms.RandomCrop(32, padding=4),
+            transforms.RandomHorizontalFlip(),
+            transforms.Resize((size,size)),
+            transforms.ToTensor(),
+            normalize,
+        ])

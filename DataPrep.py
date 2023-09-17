@@ -3,7 +3,7 @@ from torchvision import datasets
 from torchvision import transforms
 import numpy as np
 from torch.utils.data.sampler import SubsetRandomSampler
-from CustomDataset import CustomDataset
+from CustomDataset import CustomDataset, CustomCIFAR10
 from PIL import ImageStat
 
 class DataPrep:
@@ -13,8 +13,8 @@ class DataPrep:
             train_set = CustomDataset(data_path=data_dir, model=model)
             valid_set = CustomDataset(data_path=data_dir, model=model)
         else:
-            train_set = datasets.CIFAR10(root=data_dir, train=True, download=False)
-            valid_set = datasets.CIFAR10(root=data_dir, train=True, download=False)
+            train_set = CustomCIFAR10(root=data_dir, train=True, download=False)
+            valid_set = CustomCIFAR10(root=data_dir, train=True, download=False)
 
         return train_set, valid_set
 
