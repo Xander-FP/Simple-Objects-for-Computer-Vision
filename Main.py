@@ -29,7 +29,7 @@ OPTIONS = {
         'curriculum': True,
         'report_logs': False,
         'should_tune': False,
-        'scheduler': 'N' # N for no scheduler, B for BabyStep, R for RootP
+        'scheduler': 'R' # N for no scheduler, B for BabyStep, R for RootP
     }
 
 def experiment(conf):
