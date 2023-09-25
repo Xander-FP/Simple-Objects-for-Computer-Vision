@@ -56,22 +56,15 @@ def experiment(conf):
 
 if __name__ == "__main__":
     if OPTIONS['should_tune']:
-
-        # {
-        #     "dropout": pyhopper.float(0, 0.5, precision=1),
-        #     "weight_decay": pyhopper.choice([0, 1e-5, 1e-4, 1e-3], is_ordinal=True),
-        # }
-
         OPTIONS['learning_rate'] = pyhopper.float(1e-5, 1e-2, log=True, precision=1)
         OPTIONS['weight_decay'] = pyhopper.float(0.001, 0.1, log=True, precision=1)
         OPTIONS['momentum'] = pyhopper.float(0.1, 0.9, precision=2, init = 0.9)
-        # OPTIONS['opt'] = pyhopper.choice(["adam", "sgd"], init="adam")
+
         search = pyhopper.Search(
             OPTIONS
         )
 
         search.run(pyhopper.wrap_n_times(experiment,10), "min", "4h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
-        # search.save("run_completed.ckpt")
     else:
         experiment(OPTIONS)
 

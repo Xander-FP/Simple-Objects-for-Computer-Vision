@@ -8,6 +8,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 import os
+import time
 from hashlib import sha256
 
 
@@ -129,7 +130,12 @@ class Trainer:
                 if options['report_logs']:
                     wandb.log({"validation_loss": valid_loss, "training_loss": train_loss, "epoch": epoch, "accuracy": acc})
         print('Training finished')
-        print(options)
+        if options['should_tune']:
+            if not os.path.exists('h_results'):
+                os.makedirs('h_results')
+            path = 'h_results/results.txt' 
+            file = open(path, 'a')
+            file.write(str(options) + '\n\n')
         return valid_loss
         
 
@@ -231,13 +237,6 @@ class Trainer:
 
     def _bootstrap_data(self, data_set, criterion, batches, name):
         print('Ordering data')
-        # path = 'predictions/' + name + '.txt'
-        # if os.path.exists(path):
-        #     print('data already ordered')
-        #     ordered_data = np.loadtxt(path, dtype=int)
-        #     data_set.reorder(ordered_data)
-        #     return
-        
         data_loader = torch.utils.data.DataLoader(data_set)
         self.model.eval()
         total = 0
@@ -254,10 +253,13 @@ class Trainer:
                 correct += (predicted == label).sum().item()
         self.model.train()
         sorted_predictions = self.sort_by_error(predictions)
+
         # Write the sorted predictions to a file
-        # if not os.path.exists('predictions'):
-        #     os.makedirs('predictions')
-        # np.savetxt(path, sorted_predictions, fmt='%i')
+        path = 'predictions/' + name + str(time.time()) +'.txt'
+        if not os.path.exists('predictions'):
+            os.makedirs('predictions')
+        if not os.path.exists(path):
+            np.savetxt(path, sorted_predictions, fmt='%i')
         data_set.reorder(sorted_predictions)
         print('data ordered')
 
