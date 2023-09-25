@@ -3,7 +3,7 @@ A2
 all_cnn_env
 all_cnn_env2
 checkpoints
-data
+datasets
 Example
 OCR
 Synthetic data generation

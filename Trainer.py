@@ -1,5 +1,4 @@
 from DataPrep import DataPrep 
-from DB import DB
 from EarlyStopping import EarlyStopping
 from torchvision import transforms
 from ray import train
@@ -8,6 +7,7 @@ from torch.utils.data.sampler import SubsetRandomSampler
 import torch
 import torch.nn as nn
 import numpy as np
+import os
 from hashlib import sha256
 
 
@@ -47,7 +47,7 @@ class Trainer:
             self._prepare_data(i)
 
             if options['curriculum']:
-                self._bootstrap_data(self.train_sets[i], options['criterion'], options['batch_size'])
+                self._bootstrap_data(self.train_sets[i], options['criterion'], options['batch_size'], self.data_dirs[i]['name'])
 
             data_size = len(self.train_sets[i]) 
 
@@ -65,7 +65,7 @@ class Trainer:
             train_options['scheduler_object'] = scheduler
 
             # TODO: Add augmentation here in a seperate function
-            self._train(
+            val_loss = self._train(
                 model = model,
                 train_loader = train_loader,
                 valid_loader = valid_loader,
@@ -77,10 +77,18 @@ class Trainer:
             if i != len(self.data_dirs) - 1:
                 self._replace_classifier(self.data_dirs[i+1]['classes'])
             print(self.early_stopping.history)
+            # return the best and its epoch 
+            # min(self.early_stopping.history, key=lambda x: x['validation_loss'])
+            return val_loss
 
     def _train(self, model, tune, wandb, train_loader, valid_loader, options):
         # SETUP PHASE
-        optimizer = torch.optim.SGD(model.parameters(), lr=options['learning_rate'], weight_decay=options['weight_decay'], momentum=options['momentum'])
+        if options['opt'] == 'sgd':
+            print('SGD')
+            optimizer = torch.optim.SGD(model.parameters(), lr=options['learning_rate'], weight_decay=options['weight_decay'], momentum=options['momentum'])
+        else:
+            print('ADAM')
+            optimizer = torch.optim.Adam(model.parameters(), lr=options['learning_rate'], weight_decay=options['weight_decay'])    
         scheduler = options['scheduler_object']
         criterion = options['criterion']
         max_epochs = options['epochs']
@@ -106,21 +114,23 @@ class Trainer:
 
                 train_loss = loss.item()
                 valid_loss, acc = self._validate(valid_loader, criterion)
-                print ('Epoch [{}/{}], Step [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
-                            .format(epoch+1, max_epochs, i+1, total_step, train_loss, valid_loss))
+                print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
+                            .format(epoch+1, max_epochs, train_loss, valid_loss))
                 
-                self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+                # self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
                 if converged:
                     break
 
-                if options['should_tune']:
-                    tune.report({"validation_loss": valid_loss, "training_loss": train_loss, "accuracy": acc})
+                # if options['should_tune']:
+                    # tune.report({"validation_loss": valid_loss, "training_loss": train_loss, "accuracy": acc})
 
                 if options['report_logs']:
                     wandb.log({"validation_loss": valid_loss, "training_loss": train_loss, "epoch": epoch, "accuracy": acc})
         print('Training finished')
+        print(options)
+        return valid_loss
         
 
     def _test(self):
@@ -199,6 +209,8 @@ class Trainer:
         # self.test_sets[i].transform = test_transform
         
     def _replace_classifier(self, num_classes):
+        self.early_stopping.reset()
+
         self.model.to('cpu')
         self.model.fc = nn.Sequential(
             nn.Dropout(0.5),
@@ -217,9 +229,15 @@ class Trainer:
         # AlexNet: fc, fc1, fc2
         # ResNet50: fc
 
-    def _bootstrap_data(self, data_set, criterion, batches):
+    def _bootstrap_data(self, data_set, criterion, batches, name):
         print('Ordering data')
-        # TODO: You can access the class, so the solution is to compute the error values and then reorder the data items in the class
+        # path = 'predictions/' + name + '.txt'
+        # if os.path.exists(path):
+        #     print('data already ordered')
+        #     ordered_data = np.loadtxt(path, dtype=int)
+        #     data_set.reorder(ordered_data)
+        #     return
+        
         data_loader = torch.utils.data.DataLoader(data_set)
         self.model.eval()
         total = 0
@@ -231,12 +249,15 @@ class Trainer:
                 label = label.to(self.device)
                 outputs = self.model(image)
                 _, predicted = torch.max(outputs.data, 1)
-                predictions.append((criterion(outputs, label).item(),total,label))
+                predictions.append((criterion(outputs, label).item(),total))
                 total += 1
                 correct += (predicted == label).sum().item()
         self.model.train()
         sorted_predictions = self.sort_by_error(predictions)
-        # print(sorted_predictions)
+        # Write the sorted predictions to a file
+        # if not os.path.exists('predictions'):
+        #     os.makedirs('predictions')
+        # np.savetxt(path, sorted_predictions, fmt='%i')
         data_set.reorder(sorted_predictions)
         print('data ordered')
 
