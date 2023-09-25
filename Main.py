@@ -8,7 +8,7 @@ from ray import train
 import wandb
 import pyhopper
 
-# To transfer files: scp Main.py xcoetzer@scp.chpc.ac.za:/mnt/lustre/users/xcoetzer/ 
+# To transfer files: scp Project.zip xcoetzer@scp.chpc.ac.za:/mnt/lustre/users/xcoetzer/ 
 # To transfer files to local: scp xcoetzer@scp.chpc.ac.za:/mnt/lustre/users/xcoetzer/ Downloads
 
 # Configurations and setup
