@@ -2,7 +2,7 @@ import torch
 import os
 
 class EarlyStopping:
-    def __init__(self, tolerance=5, min_delta=0.2):
+    def __init__(self, tolerance=5, min_delta=0.02):
         self.history = []
         self.prev_loss = float('inf')
         self.tolerance = tolerance

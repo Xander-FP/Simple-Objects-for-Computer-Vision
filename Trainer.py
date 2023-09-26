@@ -135,6 +135,9 @@ class Trainer:
                 os.makedirs('h_results')
             path = 'h_results/results.txt' 
             file = open(path, 'a')
+            options['validation_loss'] = valid_loss
+            options['training_loss'] = train_loss
+            options['accuracy'] = acc
             file.write(str(options) + '\n\n')
         return valid_loss
         
