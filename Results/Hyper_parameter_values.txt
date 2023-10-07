@@ -1,3 +1,0 @@
-{'architecture': 'AlexNet', 'epochs': 110, 'batch_size': 64, 'learning_rate': 0.0003, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.01, 'momentum': 0.9, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'B', 'scheduler_object': <Scheduler.BabyStep object at 0x7fff58437ca0>}
-
-https://paperswithcode.com/dataset/tiny-imagenet

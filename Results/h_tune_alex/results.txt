@@ -1,6 +1,0 @@
-{'architecture': 'AlexNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.0003, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.01, 'momentum': 0.9, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x000002CE37CF6AA0>}
-
-{'architecture': 'AlexNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.0003, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.01, 'momentum': 0.9, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x000002CE37CF6B60>}
-
-{'architecture': 'AlexNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.0003, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.01, 'momentum': 0.9, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x000002CE37CF68F0>}
-
