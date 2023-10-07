@@ -1,0 +1,6 @@
+{'architecture': 'AlexNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.0003, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.01, 'momentum': 0.9, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4ca22790>, 'validation_loss': 0.0629415437579155, 'training_loss': 0.13126227259635925, 'accuracy': 95.95166163141994}
+
+{'architecture': 'AlexNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.001, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.01, 'momentum': 0.9, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4ca22fa0>, 'validation_loss': 0.16589152812957764, 'training_loss': 0.25208690762519836, 'accuracy': 94.36052366565961}
+
+{'architecture': 'AlexNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.0003, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.009, 'momentum': 0.9, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4ca22be0>, 'validation_loss': 0.05748467892408371, 'training_loss': 0.06311466544866562, 'accuracy': 96.61631419939577}
+

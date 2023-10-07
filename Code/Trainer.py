@@ -45,7 +45,7 @@ class Trainer:
         for i in range(len(self.data_dirs)):
             data_path = self.data_dirs[i]['path']
             print('Training on dataset: ' + data_path)
-            self._prepare_data(i)
+            self._prepare_data(i, options['architecture'])
 
             if options['curriculum']:
                 self._bootstrap_data(self.train_sets[i], options['criterion'], options['batch_size'], self.data_dirs[i]['name'])
@@ -75,12 +75,14 @@ class Trainer:
                 options = train_options
                 )
 
+            # min(self.early_stopping.history, key=lambda x: x['validation_loss'])
+            print(self.early_stopping.history)
             if i != len(self.data_dirs) - 1:
                 self._replace_classifier(self.data_dirs[i+1]['classes'])
-            print(self.early_stopping.history)
+            else:
+                return val_loss
             # return the best and its epoch 
-            # min(self.early_stopping.history, key=lambda x: x['validation_loss'])
-            return val_loss
+            # return val_loss
 
     def _train(self, model, tune, wandb, train_loader, valid_loader, options):
         # SETUP PHASE
@@ -95,7 +97,7 @@ class Trainer:
         max_epochs = options['epochs']
         model.train()
         total_step = len(train_loader)
-        
+        file = open(options['architecture'] + str(time.time()) + '.txt', 'a')
         # TRAINING PHASE
         while not scheduler.converged:
             print('Training started')
@@ -117,6 +119,7 @@ class Trainer:
                 valid_loss, acc = self._validate(valid_loader, criterion)
                 print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
                             .format(epoch+1, max_epochs, train_loss, valid_loss))
+                file.write('Epoch [{epoch+1/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}\n')
                 
                 # self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
@@ -185,7 +188,7 @@ class Trainer:
             # self.test_sets[i] = test_set
             i = i + 1
 
-    def _prepare_data(self, i):
+    def _prepare_data(self, i, architecture):
         # Calculate mean and std on training set and use that throughout the training and testing process
         print('Preparing the data: Adding transforms')
         # TODO: Add the mean and std to the DB and load them here if they exist
@@ -195,7 +198,10 @@ class Trainer:
             mean= result['mean'],
             std= result['std'],
         )
-        size = 227
+        if architecture == 'ResNet':
+            size = 224
+        else:
+            size = 227
     
         test_transform = transforms.Compose([
             transforms.Resize((size,size)),

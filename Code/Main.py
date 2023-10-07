@@ -1,6 +1,6 @@
 from Trainer import Trainer
 from AlexNet import AlexNet
-from Resnet import ResNet
+from Resnet import ResNet, ResidualBlock
 import torch.nn as nn
 import torch
 from ray import tune
@@ -22,12 +22,12 @@ if seed is not None:
     
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 OPTIONS = {
-        'architecture': 'AlexNet',
+        'architecture': 'ResNet',
         'epochs': 100,
         'batch_size': 64,
-        'learning_rate': 0.001,
+        'learning_rate': 0.0003, #0.0003
         'criterion': nn.CrossEntropyLoss(),
-        'weight_decay': 0.001, 
+        'weight_decay': 0.009, 
         'momentum': 0.9,
         'opt': 'sgd',
         'curriculum': True,
@@ -42,12 +42,15 @@ def experiment(conf):
 
     # This is akin to using the One-Pass scheduler
     data_dirs = [
-        # {'path': 'G:\Datasets\Cifar10\Generated', 'classes': 5, 'name': 'Cifar10Generated'},
-        {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
+        {'path': 'G:\Datasets\Cifar10\Generated', 'classes': 5, 'name': 'Cifar10Generated'},
+        # {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
         ]
 
-    alexnet = AlexNet(num_classes=data_dirs[0]['classes'])
-    trainer = Trainer(data_dirs=data_dirs, model=alexnet, device=device, seed=seed)
+    if conf['architecture'] == 'ResNet':
+        model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
+    else:
+        model = AlexNet(num_classes=data_dirs[0]['classes'])
+    trainer = Trainer(data_dirs=data_dirs, model=model, device=device, seed=seed)
 
     # TODO: For the local pacing function -> Look at creating samplers 
     # should_checkpoint = config.get("should_checkpoint", False)
@@ -64,7 +67,7 @@ if __name__ == "__main__":
             OPTIONS
         )
 
-        search.run(experiment, "min", "4h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
+        search.run(experiment, "min", "8h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
     else:
         experiment(OPTIONS)
 
