@@ -23,7 +23,7 @@ class EarlyStopping:
         if not os.path.exists('checkpoints'):
             os.makedirs('checkpoints')
         if epoch > self.tolerance:
-            delete_path = 'checkpoints/epoch' + str(epoch - self.tolerance + 1) + '.pt'
+            delete_path = 'checkpoints/epoch' + str(epoch - self.tolerance - 1) + '.pt'
             os.remove(delete_path)
             self.history.pop(0)
         path = 'checkpoints/epoch' + str(epoch) + '.pt'
@@ -37,7 +37,8 @@ class EarlyStopping:
         path = 'checkpoints/epoch' + str(epoch) + '.pt'
         checkpoint = torch.load(path)
         model.load_state_dict(checkpoint['model_state_dict'])
-        optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+        if optimizer is not None:
+            optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 
     def reset(self):
         self.counter = 0

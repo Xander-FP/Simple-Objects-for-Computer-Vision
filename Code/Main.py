@@ -8,8 +8,13 @@ from ray import train
 import wandb
 import pyhopper
 
-# To transfer files: scp Project.zip xcoetzer@scp.chpc.ac.za:/mnt/lustre/users/xcoetzer/ 
-# To transfer files to local: scp xcoetzer@scp.chpc.ac.za:/mnt/lustre/users/xcoetzer/ Downloads
+# Generated simple objects:
+# Set 1 contains 10000 images of each shape: ellipse, triangle, rectangle, star, hexagon
+#   The images consist of only black and white pixels and are either filled or not filled.
+#   The images are rotated and sized randomly such that they still fit in the picture.
+
+# Set 2 contains images of the same shapes as set 1, but with a random color and a random background color.
+#   The set also contains images from the MPEG-7 dataset, which are rotated and sized randomly.
 
 # Configurations and setup
 seed = None
@@ -22,7 +27,7 @@ if seed is not None:
     
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 OPTIONS = {
-        'architecture': 'ResNet',
+        'architecture': 'AlexNet',
         'epochs': 100,
         'batch_size': 64,
         'learning_rate': 0.0003, #0.0003
@@ -32,7 +37,7 @@ OPTIONS = {
         'opt': 'sgd',
         'curriculum': True,
         'report_logs': False,
-        'should_tune': True,
+        'should_tune': False,
         'scheduler': 'R' # N for no scheduler, B for BabyStep, R for RootP
     }
 
@@ -42,7 +47,8 @@ def experiment(conf):
 
     # This is akin to using the One-Pass scheduler
     data_dirs = [
-        {'path': 'G:\Datasets\Cifar10\Generated', 'classes': 5, 'name': 'Cifar10Generated'},
+        # {'path': 'G:\Datasets\Cifar10\Generated_Set1', 'classes': 5, 'name': 'Cifar10Generated'},
+        {'path': 'G:\Datasets\Cifar10\Generated_Set1', 'classes': 70, 'name': 'Cifar10Generated2'}
         # {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
         ]
 

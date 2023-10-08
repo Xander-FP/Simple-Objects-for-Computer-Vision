@@ -68,8 +68,6 @@ class RootP(Scheduler):
 
     def adjust_available_data(self, early_stopping, train_loss, valid_loss):
         self.epoch += 1
-        if self.epoch == self.max_epochs:
-            return early_stopping(train_loss, valid_loss)
         self.converged = True
         prev_total = len(self.train_idx) + len(self.valid_idx)
         new_total = int(np.ceil(self.data_size * min(1,math.sqrt((1-self.start**2) * self.epoch/self.final + self.start**2))))
@@ -79,6 +77,8 @@ class RootP(Scheduler):
         self.train_idx.extend(new_train)
         self.valid_idx.extend(new_valid)
 
+        if self.epoch == self.final:
+            return early_stopping(train_loss, valid_loss)
         return False
 
         

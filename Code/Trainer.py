@@ -75,10 +75,10 @@ class Trainer:
                 options = train_options
                 )
 
-            # min(self.early_stopping.history, key=lambda x: x['validation_loss'])
-            print(self.early_stopping.history)
+            min_res = min(self.early_stopping.history, key=lambda x: x['validation_loss'])
+            self.early_stopping.load_checkpoint(model, None, min_res['epoch'])
             if i != len(self.data_dirs) - 1:
-                self._replace_classifier(self.data_dirs[i+1]['classes'])
+                self._replace_classifier(model, self.data_dirs[i+1]['classes'], options['architecture'])
             else:
                 return val_loss
             # return the best and its epoch 
@@ -118,10 +118,11 @@ class Trainer:
                 train_loss = loss.item()
                 valid_loss, acc = self._validate(valid_loader, criterion)
                 print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
-                            .format(epoch+1, max_epochs, train_loss, valid_loss))
-                file.write('Epoch [{epoch+1/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}\n')
+                            .format(epoch, max_epochs, train_loss, valid_loss))
+                file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
                 
-                # self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+                if not options['should_tune']:
+                    self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
                 if converged:
@@ -223,21 +224,24 @@ class Trainer:
         self.valid_sets[i].transform = valid_transform
         # self.test_sets[i].transform = test_transform
         
-    def _replace_classifier(self, num_classes):
+    def _replace_classifier(self, model, num_classes, architecture):
         self.early_stopping.reset()
 
-        self.model.to('cpu')
-        self.model.fc = nn.Sequential(
-            nn.Dropout(0.5),
-            nn.Linear(9216, 4096),
-            nn.ReLU())
-        self.model.fc1 = nn.Sequential(
-            nn.Dropout(0.5),
-            nn.Linear(4096, 4096),
-            nn.ReLU())
-        self.model.fc2= nn.Sequential(
-            nn.Linear(4096, num_classes))
-        self.model.to(self.device)
+        model.to('cpu')
+        if architecture == 'ResNet':
+            model.fc = nn.Linear(2048, num_classes)
+        else:
+            model.fc = nn.Sequential(
+                nn.Dropout(0.5),
+                nn.Linear(9216, 4096),
+                nn.ReLU())
+            model.fc1 = nn.Sequential(
+                nn.Dropout(0.5),
+                nn.Linear(4096, 4096),
+                nn.ReLU())
+            model.fc2= nn.Sequential(
+                nn.Linear(4096, num_classes))
+        model.to(self.device)
 
         # Add the layers that are responsible for classification (with the specefic number of classes)
         # Also play around with adjusting the learning rate of these layers
