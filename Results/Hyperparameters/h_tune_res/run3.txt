@@ -1,0 +1,8 @@
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.006, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.002, 'momentum': 0.15, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c5aa520>, 'validation_loss': 0.001241666148416698, 'training_loss': 0.0015758840600028634, 'accuracy': 97.82477341389728}
+
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 2e-05, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.04, 'momentum': 0.76, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c6eca30>, 'validation_loss': 0.3137686252593994, 'training_loss': 0.4844816029071808, 'accuracy': 88.35850956696878}
+
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.005, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.002, 'momentum': 0.1, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c6ec220>, 'validation_loss': 0.0023070229217410088, 'training_loss': 0.002812076359987259, 'accuracy': 98.12688821752266}
+
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.008, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.002, 'momentum': 0.15, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c6ec850>, 'validation_loss': 0.166411355137825, 'training_loss': 0.0020456488709896803, 'accuracy': 97.80463242698892}
+

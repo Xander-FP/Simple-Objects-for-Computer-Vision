@@ -48,7 +48,7 @@ def experiment(conf):
     # This is akin to using the One-Pass scheduler
     data_dirs = [
         # {'path': 'G:\Datasets\Cifar10\Generated_Set1', 'classes': 5, 'name': 'Cifar10Generated'},
-        {'path': 'G:\Datasets\Cifar10\Generated_Set1', 'classes': 70, 'name': 'Cifar10Generated2'}
+        {'path': 'G:\Datasets\Cifar10\Generated_Set2', 'classes': 70, 'name': 'Cifar10Generated2'}
         # {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
         ]
 

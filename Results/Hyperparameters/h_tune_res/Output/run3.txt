@@ -1,0 +1,1252 @@
+/mnt/lustre/users/xcoetzer ~
+Restored search from checkpoint 'r_t_cifar.ckpt'
+Search is scheduled for 08:00:00 (h:m:s)
+loading the data
+Training on dataset: ./datasets
+Preparing the data: Adding transforms
+Ordering data
+data ordered
+SGD
+Training started
+Accuracy of the network on the 1000 validation images: 19.6 %
+Epoch [1/100], Train_Loss: 0.2454, Valid_Loss: 6.6830
+stepping RootP: 11402
+Accuracy of the network on the 1140 validation images: 22.719298245614034 %
+Epoch [2/100], Train_Loss: 0.4734, Valid_Loss: 6.4865
+stepping RootP: 12650
+Accuracy of the network on the 1264 validation images: 25.553797468354432 %
+Epoch [3/100], Train_Loss: 0.2249, Valid_Loss: 5.8073
+stepping RootP: 13785
+Accuracy of the network on the 1377 validation images: 29.193899782135077 %
+Epoch [4/100], Train_Loss: 0.1972, Valid_Loss: 6.9223
+stepping RootP: 14833
+Accuracy of the network on the 1481 validation images: 28.426738690074274 %
+Epoch [5/100], Train_Loss: 0.2626, Valid_Loss: 5.2481
+stepping RootP: 15812
+Accuracy of the network on the 1578 validation images: 29.08745247148289 %
+Epoch [6/100], Train_Loss: 0.4617, Valid_Loss: 6.0378
+stepping RootP: 16734
+Accuracy of the network on the 1670 validation images: 32.33532934131737 %
+Epoch [7/100], Train_Loss: 0.0550, Valid_Loss: 5.5928
+stepping RootP: 17607
+Accuracy of the network on the 1757 validation images: 32.38474672737621 %
+Epoch [8/100], Train_Loss: 0.1529, Valid_Loss: 7.4831
+stepping RootP: 18440
+Accuracy of the network on the 1840 validation images: 35.32608695652174 %
+Epoch [9/100], Train_Loss: 0.1537, Valid_Loss: 6.4683
+stepping RootP: 19236
+Accuracy of the network on the 1919 validation images: 35.278791036998435 %
+Epoch [10/100], Train_Loss: 0.3640, Valid_Loss: 7.3039
+stepping RootP: 20000
+Accuracy of the network on the 1995 validation images: 36.64160401002506 %
+Epoch [11/100], Train_Loss: 0.4209, Valid_Loss: 6.9626
+stepping RootP: 20737
+Accuracy of the network on the 2068 validation images: 39.8936170212766 %
+Epoch [12/100], Train_Loss: 0.2392, Valid_Loss: 4.2379
+stepping RootP: 21448
+Accuracy of the network on the 2139 validation images: 42.16923796166433 %
+Epoch [13/100], Train_Loss: 0.1395, Valid_Loss: 6.3424
+stepping RootP: 22136
+Accuracy of the network on the 2207 validation images: 43.04485727231536 %
+Epoch [14/100], Train_Loss: 0.2770, Valid_Loss: 6.4704
+stepping RootP: 22804
+Accuracy of the network on the 2273 validation images: 45.66652001759789 %
+Epoch [15/100], Train_Loss: 0.0744, Valid_Loss: 5.1526
+stepping RootP: 23453
+Accuracy of the network on the 2337 validation images: 46.89773213521609 %
+Epoch [16/100], Train_Loss: 0.1889, Valid_Loss: 4.3513
+stepping RootP: 24084
+Accuracy of the network on the 2400 validation images: 47.583333333333336 %
+Epoch [17/100], Train_Loss: 0.0968, Valid_Loss: 4.8020
+stepping RootP: 24699
+Accuracy of the network on the 2461 validation images: 47.947988622511176 %
+Epoch [18/100], Train_Loss: 0.0665, Valid_Loss: 4.1372
+stepping RootP: 25299
+Accuracy of the network on the 2521 validation images: 48.39349464498215 %
+Epoch [19/100], Train_Loss: 0.0511, Valid_Loss: 3.3987
+stepping RootP: 25885
+Accuracy of the network on the 2579 validation images: 52.53974408685537 %
+Epoch [20/100], Train_Loss: 0.0172, Valid_Loss: 2.5396
+stepping RootP: 26458
+Accuracy of the network on the 2636 validation images: 52.655538694992416 %
+Epoch [21/100], Train_Loss: 0.0863, Valid_Loss: 2.3366
+stepping RootP: 27019
+Accuracy of the network on the 2692 validation images: 52.934621099554235 %
+Epoch [22/100], Train_Loss: 0.2033, Valid_Loss: 5.1096
+stepping RootP: 27569
+Accuracy of the network on the 2747 validation images: 56.09756097560975 %
+Epoch [23/100], Train_Loss: 0.1687, Valid_Loss: 3.8220
+stepping RootP: 28107
+Accuracy of the network on the 2800 validation images: 59.142857142857146 %
+Epoch [24/100], Train_Loss: 0.0920, Valid_Loss: 4.0778
+stepping RootP: 28636
+Accuracy of the network on the 2852 validation images: 59.22159887798036 %
+Epoch [25/100], Train_Loss: 0.1833, Valid_Loss: 3.7001
+stepping RootP: 29155
+Accuracy of the network on the 2903 validation images: 61.143644505683774 %
+Epoch [26/100], Train_Loss: 0.0129, Valid_Loss: 4.0306
+stepping RootP: 29665
+Accuracy of the network on the 2954 validation images: 61.23899796885579 %
+Epoch [27/100], Train_Loss: 0.0178, Valid_Loss: 2.5731
+stepping RootP: 30167
+Accuracy of the network on the 3004 validation images: 60.95206391478029 %
+Epoch [28/100], Train_Loss: 0.1497, Valid_Loss: 2.8516
+stepping RootP: 30660
+Accuracy of the network on the 3053 validation images: 62.266622993776615 %
+Epoch [29/100], Train_Loss: 0.0481, Valid_Loss: 2.8591
+stepping RootP: 31145
+Accuracy of the network on the 3101 validation images: 63.7213801999355 %
+Epoch [30/100], Train_Loss: 0.0077, Valid_Loss: 2.0093
+stepping RootP: 31623
+Accuracy of the network on the 3148 validation images: 63.786531130876746 %
+Epoch [31/100], Train_Loss: 0.0357, Valid_Loss: 2.6827
+stepping RootP: 32094
+Accuracy of the network on the 3195 validation images: 64.03755868544602 %
+Epoch [32/100], Train_Loss: 0.0646, Valid_Loss: 3.1463
+stepping RootP: 32558
+Accuracy of the network on the 3241 validation images: 58.06849737735267 %
+Epoch [33/100], Train_Loss: 0.0927, Valid_Loss: 2.7241
+stepping RootP: 33016
+Accuracy of the network on the 3286 validation images: 66.49421789409617 %
+Epoch [34/100], Train_Loss: 0.1109, Valid_Loss: 1.7702
+stepping RootP: 33467
+Accuracy of the network on the 3331 validation images: 67.90753527469228 %
+Epoch [35/100], Train_Loss: 0.0511, Valid_Loss: 1.4827
+stepping RootP: 33912
+Accuracy of the network on the 3375 validation images: 69.39259259259259 %
+Epoch [36/100], Train_Loss: 0.0355, Valid_Loss: 2.5930
+stepping RootP: 34352
+Accuracy of the network on the 3419 validation images: 70.60544018718923 %
+Epoch [37/100], Train_Loss: 0.0385, Valid_Loss: 2.6722
+stepping RootP: 34786
+Accuracy of the network on the 3462 validation images: 70.45060658578856 %
+Epoch [38/100], Train_Loss: 0.0558, Valid_Loss: 1.6069
+stepping RootP: 35214
+Accuracy of the network on the 3504 validation images: 71.54680365296804 %
+Epoch [39/100], Train_Loss: 0.1734, Valid_Loss: 2.3802
+stepping RootP: 35638
+Accuracy of the network on the 3546 validation images: 72.33502538071066 %
+Epoch [40/100], Train_Loss: 0.0173, Valid_Loss: 2.2225
+stepping RootP: 36056
+Accuracy of the network on the 3587 validation images: 72.95790354056315 %
+Epoch [41/100], Train_Loss: 0.0767, Valid_Loss: 0.2906
+stepping RootP: 36470
+Accuracy of the network on the 3628 validation images: 74.33847850055126 %
+Epoch [42/100], Train_Loss: 0.0362, Valid_Loss: 2.7175
+stepping RootP: 36879
+Accuracy of the network on the 3668 validation images: 74.83642311886587 %
+Epoch [43/100], Train_Loss: 0.1170, Valid_Loss: 2.2914
+stepping RootP: 37283
+Accuracy of the network on the 3708 validation images: 75.83603020496224 %
+Epoch [44/100], Train_Loss: 0.0220, Valid_Loss: 2.0209
+stepping RootP: 37683
+Accuracy of the network on the 3748 validation images: 75.6136606189968 %
+Epoch [45/100], Train_Loss: 0.1306, Valid_Loss: 2.8543
+stepping RootP: 38079
+Accuracy of the network on the 3787 validation images: 77.1587008185899 %
+Epoch [46/100], Train_Loss: 0.0310, Valid_Loss: 0.7804
+stepping RootP: 38471
+Accuracy of the network on the 3826 validation images: 76.29377940407737 %
+Epoch [47/100], Train_Loss: 0.1206, Valid_Loss: 2.4426
+stepping RootP: 38859
+Accuracy of the network on the 3864 validation images: 77.5103519668737 %
+Epoch [48/100], Train_Loss: 0.0088, Valid_Loss: 2.0226
+stepping RootP: 39243
+Accuracy of the network on the 3902 validation images: 77.8575089697591 %
+Epoch [49/100], Train_Loss: 0.0671, Valid_Loss: 2.5390
+stepping RootP: 39624
+Accuracy of the network on the 3940 validation images: 77.53807106598985 %
+Epoch [50/100], Train_Loss: 0.1112, Valid_Loss: 1.4502
+stepping RootP: 40000
+Accuracy of the network on the 3977 validation images: 80.31179280864974 %
+Epoch [51/100], Train_Loss: 0.0389, Valid_Loss: 2.0239
+stepping RootP: 40374
+Accuracy of the network on the 4014 validation images: 69.55655206776284 %
+Epoch [52/100], Train_Loss: 0.3142, Valid_Loss: 2.1247
+stepping RootP: 40744
+Accuracy of the network on the 4051 validation images: 83.16465070352999 %
+Epoch [53/100], Train_Loss: 0.0168, Valid_Loss: 0.8233
+stepping RootP: 41110
+Accuracy of the network on the 4087 validation images: 84.24272082211891 %
+Epoch [54/100], Train_Loss: 0.0059, Valid_Loss: 0.4887
+stepping RootP: 41473
+Accuracy of the network on the 4123 validation images: 86.00533592044627 %
+Epoch [55/100], Train_Loss: 0.0056, Valid_Loss: 1.7414
+stepping RootP: 41834
+Accuracy of the network on the 4159 validation images: 85.78985333012743 %
+Epoch [56/100], Train_Loss: 0.0832, Valid_Loss: 1.4533
+stepping RootP: 42191
+Accuracy of the network on the 4194 validation images: 86.8621840724845 %
+Epoch [57/100], Train_Loss: 0.0133, Valid_Loss: 0.5059
+stepping RootP: 42545
+Accuracy of the network on the 4229 validation images: 87.04185386616221 %
+Epoch [58/100], Train_Loss: 0.0096, Valid_Loss: 5.4491
+stepping RootP: 42896
+Accuracy of the network on the 4264 validation images: 86.70262664165104 %
+Epoch [59/100], Train_Loss: 0.0103, Valid_Loss: 0.4892
+stepping RootP: 43244
+Accuracy of the network on the 4298 validation images: 87.18008375988832 %
+Epoch [60/100], Train_Loss: 0.0079, Valid_Loss: 0.0597
+stepping RootP: 43589
+Accuracy of the network on the 4332 validation images: 87.25761772853186 %
+Epoch [61/100], Train_Loss: 0.0071, Valid_Loss: 1.0471
+stepping RootP: 43932
+Accuracy of the network on the 4366 validation images: 87.70041227668347 %
+Epoch [62/100], Train_Loss: 0.2072, Valid_Loss: 0.0053
+stepping RootP: 44272
+Accuracy of the network on the 4400 validation images: 88.45454545454545 %
+Epoch [63/100], Train_Loss: 0.0195, Valid_Loss: 0.6559
+stepping RootP: 44610
+Accuracy of the network on the 4433 validation images: 88.20212046018497 %
+Epoch [64/100], Train_Loss: 0.0473, Valid_Loss: 0.5254
+stepping RootP: 44945
+Accuracy of the network on the 4466 validation images: 89.29690998656515 %
+Epoch [65/100], Train_Loss: 0.0547, Valid_Loss: 0.4787
+stepping RootP: 45277
+Accuracy of the network on the 4499 validation images: 89.77550566792621 %
+Epoch [66/100], Train_Loss: 0.0216, Valid_Loss: 0.2381
+stepping RootP: 45608
+Accuracy of the network on the 4532 validation images: 89.14386584289497 %
+Epoch [67/100], Train_Loss: 0.0447, Valid_Loss: 0.6161
+stepping RootP: 45935
+Accuracy of the network on the 4564 validation images: 91.38913234005258 %
+Epoch [68/100], Train_Loss: 0.0662, Valid_Loss: 0.5507
+stepping RootP: 46261
+Accuracy of the network on the 4596 validation images: 91.29677980852915 %
+Epoch [69/100], Train_Loss: 2.1160, Valid_Loss: 0.4340
+stepping RootP: 46584
+Accuracy of the network on the 4628 validation images: 92.09161624891962 %
+Epoch [70/100], Train_Loss: 0.0508, Valid_Loss: 0.3230
+stepping RootP: 46905
+Accuracy of the network on the 4660 validation images: 89.8283261802575 %
+Epoch [71/100], Train_Loss: 0.2220, Valid_Loss: 0.0861
+stepping RootP: 47223
+Accuracy of the network on the 4691 validation images: 94.03112342784054 %
+Epoch [72/100], Train_Loss: 0.0163, Valid_Loss: 0.0172
+stepping RootP: 47540
+Accuracy of the network on the 4722 validation images: 74.0576027107158 %
+Epoch [73/100], Train_Loss: 0.5729, Valid_Loss: 1.0330
+stepping RootP: 47854
+Accuracy of the network on the 4753 validation images: 93.70923627182832 %
+Epoch [74/100], Train_Loss: 0.0933, Valid_Loss: 0.4784
+stepping RootP: 48167
+Accuracy of the network on the 4784 validation images: 94.33528428093645 %
+Epoch [75/100], Train_Loss: 0.0779, Valid_Loss: 0.6261
+stepping RootP: 48477
+Accuracy of the network on the 4815 validation images: 95.3478712357217 %
+Epoch [76/100], Train_Loss: 0.0286, Valid_Loss: 0.3781
+stepping RootP: 48786
+Accuracy of the network on the 4845 validation images: 96.0577915376677 %
+Epoch [77/100], Train_Loss: 0.0057, Valid_Loss: 0.1167
+stepping RootP: 49092
+Accuracy of the network on the 4875 validation images: 96.43076923076923 %
+Epoch [78/100], Train_Loss: 0.0393, Valid_Loss: 0.0032
+stepping RootP: 49397
+Accuracy of the network on the 4905 validation images: 96.94189602446484 %
+Epoch [79/100], Train_Loss: 0.0130, Valid_Loss: 0.4519
+stepping RootP: 49700
+Accuracy of the network on the 4935 validation images: 97.04154002026343 %
+Epoch [80/100], Train_Loss: 0.0020, Valid_Loss: 1.5020
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.1399798590131 %
+Epoch [81/100], Train_Loss: 0.0739, Valid_Loss: 0.0182
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.46223564954683 %
+Epoch [82/100], Train_Loss: 0.0017, Valid_Loss: 0.1101
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.54279959718026 %
+Epoch [83/100], Train_Loss: 0.0021, Valid_Loss: 0.1870
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.7643504531722 %
+Epoch [84/100], Train_Loss: 0.0018, Valid_Loss: 0.2160
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.78449144008056 %
+Epoch [85/100], Train_Loss: 0.0027, Valid_Loss: 0.0167
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.80463242698892 %
+Epoch [86/100], Train_Loss: 0.0018, Valid_Loss: 0.0065
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.84491440080564 %
+Epoch [87/100], Train_Loss: 0.0009, Valid_Loss: 0.0585
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.64350453172206 %
+Epoch [88/100], Train_Loss: 0.0020, Valid_Loss: 0.0015
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.74420946626385 %
+Epoch [89/100], Train_Loss: 0.0009, Valid_Loss: 0.0022
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.64350453172206 %
+Epoch [90/100], Train_Loss: 0.0011, Valid_Loss: 0.1641
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.865055387714 %
+Epoch [91/100], Train_Loss: 0.0013, Valid_Loss: 0.1410
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.7240684793555 %
+Epoch [92/100], Train_Loss: 0.0015, Valid_Loss: 0.0023
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.74420946626385 %
+Epoch [93/100], Train_Loss: 0.0013, Valid_Loss: 0.0496
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.82477341389728 %
+Epoch [94/100], Train_Loss: 0.0007, Valid_Loss: 0.0169
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.80463242698892 %
+Epoch [95/100], Train_Loss: 0.0015, Valid_Loss: 0.1288
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.78449144008056 %
+Epoch [96/100], Train_Loss: 0.0009, Valid_Loss: 0.0048
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.96576032225579 %
+Epoch [97/100], Train_Loss: 0.0007, Valid_Loss: 0.1942
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.7643504531722 %
+Epoch [98/100], Train_Loss: 0.0051, Valid_Loss: 0.0019
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.84491440080564 %
+Epoch [99/100], Train_Loss: 0.0017, Valid_Loss: 0.3486
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.82477341389728 %
+Epoch [100/100], Train_Loss: 0.0016, Valid_Loss: 0.0012
+Training finished
+[]
+WARNING: hash_code not found in staging!
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.006, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.002, 'momentum': 0.15, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c5aa520>, 'validation_loss': 0.001241666148416698, 'training_loss': 0.0015758840600028634, 'accuracy': 97.82477341389728}
+loading the data
+Training on dataset: ./datasets
+Preparing the data: Adding transforms
+Ordering data
+data ordered
+SGD
+Training started
+Accuracy of the network on the 1000 validation images: 13.3 %
+Epoch [1/100], Train_Loss: 1.0591, Valid_Loss: 2.6328
+stepping RootP: 11402
+Accuracy of the network on the 1140 validation images: 13.947368421052632 %
+Epoch [2/100], Train_Loss: 0.7106, Valid_Loss: 3.5665
+stepping RootP: 12650
+Accuracy of the network on the 1264 validation images: 14.873417721518987 %
+Epoch [3/100], Train_Loss: 0.9203, Valid_Loss: 3.1700
+stepping RootP: 13785
+Accuracy of the network on the 1377 validation images: 18.082788671023966 %
+Epoch [4/100], Train_Loss: 1.0086, Valid_Loss: 3.1511
+stepping RootP: 14833
+Accuracy of the network on the 1481 validation images: 19.783929777177583 %
+Epoch [5/100], Train_Loss: 0.7968, Valid_Loss: 4.6702
+stepping RootP: 15812
+Accuracy of the network on the 1578 validation images: 19.518377693282638 %
+Epoch [6/100], Train_Loss: 0.9417, Valid_Loss: 4.0265
+stepping RootP: 16734
+Accuracy of the network on the 1670 validation images: 19.820359281437124 %
+Epoch [7/100], Train_Loss: 0.9966, Valid_Loss: 2.5288
+stepping RootP: 17607
+Accuracy of the network on the 1757 validation images: 19.9203187250996 %
+Epoch [8/100], Train_Loss: 1.2237, Valid_Loss: 3.5129
+stepping RootP: 18440
+Accuracy of the network on the 1840 validation images: 20.597826086956523 %
+Epoch [9/100], Train_Loss: 1.2251, Valid_Loss: 3.4307
+stepping RootP: 19236
+Accuracy of the network on the 1919 validation images: 21.05263157894737 %
+Epoch [10/100], Train_Loss: 1.1465, Valid_Loss: 3.0636
+stepping RootP: 20000
+Accuracy of the network on the 1995 validation images: 21.55388471177945 %
+Epoch [11/100], Train_Loss: 1.4423, Valid_Loss: 3.0885
+stepping RootP: 20737
+Accuracy of the network on the 2068 validation images: 21.32495164410058 %
+Epoch [12/100], Train_Loss: 1.6627, Valid_Loss: 3.2289
+stepping RootP: 21448
+Accuracy of the network on the 2139 validation images: 21.50537634408602 %
+Epoch [13/100], Train_Loss: 1.3625, Valid_Loss: 3.3234
+stepping RootP: 22136
+Accuracy of the network on the 2207 validation images: 22.111463525147258 %
+Epoch [14/100], Train_Loss: 1.4227, Valid_Loss: 3.0178
+stepping RootP: 22804
+Accuracy of the network on the 2273 validation images: 22.12934447866256 %
+Epoch [15/100], Train_Loss: 1.4009, Valid_Loss: 2.9859
+stepping RootP: 23453
+Accuracy of the network on the 2337 validation images: 22.33632862644416 %
+Epoch [16/100], Train_Loss: 1.3816, Valid_Loss: 2.7347
+stepping RootP: 24084
+Accuracy of the network on the 2400 validation images: 22.458333333333332 %
+Epoch [17/100], Train_Loss: 1.2621, Valid_Loss: 3.0266
+stepping RootP: 24699
+Accuracy of the network on the 2461 validation images: 23.567655424624135 %
+Epoch [18/100], Train_Loss: 1.5388, Valid_Loss: 3.1145
+stepping RootP: 25299
+Accuracy of the network on the 2521 validation images: 23.363744545815152 %
+Epoch [19/100], Train_Loss: 1.2628, Valid_Loss: 3.0942
+stepping RootP: 25885
+Accuracy of the network on the 2579 validation images: 23.885226832105467 %
+Epoch [20/100], Train_Loss: 1.8015, Valid_Loss: 3.8838
+stepping RootP: 26458
+Accuracy of the network on the 2636 validation images: 24.582701062215477 %
+Epoch [21/100], Train_Loss: 1.7446, Valid_Loss: 3.5049
+stepping RootP: 27019
+Accuracy of the network on the 2692 validation images: 25.482912332838037 %
+Epoch [22/100], Train_Loss: 1.3421, Valid_Loss: 1.9398
+stepping RootP: 27569
+Accuracy of the network on the 2747 validation images: 26.028394612304332 %
+Epoch [23/100], Train_Loss: 1.3395, Valid_Loss: 2.9084
+stepping RootP: 28107
+Accuracy of the network on the 2800 validation images: 25.928571428571427 %
+Epoch [24/100], Train_Loss: 1.3180, Valid_Loss: 2.9071
+stepping RootP: 28636
+Accuracy of the network on the 2852 validation images: 26.612903225806452 %
+Epoch [25/100], Train_Loss: 1.5563, Valid_Loss: 3.6299
+stepping RootP: 29155
+Accuracy of the network on the 2903 validation images: 27.833275921460558 %
+Epoch [26/100], Train_Loss: 1.3393, Valid_Loss: 2.3981
+stepping RootP: 29665
+Accuracy of the network on the 2954 validation images: 28.469871360866623 %
+Epoch [27/100], Train_Loss: 1.1817, Valid_Loss: 2.7726
+stepping RootP: 30167
+Accuracy of the network on the 3004 validation images: 29.26098535286285 %
+Epoch [28/100], Train_Loss: 1.2077, Valid_Loss: 2.9631
+stepping RootP: 30660
+Accuracy of the network on the 3053 validation images: 29.1844087782509 %
+Epoch [29/100], Train_Loss: 1.0047, Valid_Loss: 2.7771
+stepping RootP: 31145
+Accuracy of the network on the 3101 validation images: 31.054498548855207 %
+Epoch [30/100], Train_Loss: 1.3035, Valid_Loss: 3.5610
+stepping RootP: 31623
+Accuracy of the network on the 3148 validation images: 31.48030495552732 %
+Epoch [31/100], Train_Loss: 1.1682, Valid_Loss: 3.2293
+stepping RootP: 32094
+Accuracy of the network on the 3195 validation images: 33.11424100156494 %
+Epoch [32/100], Train_Loss: 1.2675, Valid_Loss: 3.2403
+stepping RootP: 32558
+Accuracy of the network on the 3241 validation images: 33.35390311632212 %
+Epoch [33/100], Train_Loss: 2.3143, Valid_Loss: 2.1394
+stepping RootP: 33016
+Accuracy of the network on the 3286 validation images: 35.02738892270237 %
+Epoch [34/100], Train_Loss: 0.9982, Valid_Loss: 2.8924
+stepping RootP: 33467
+Accuracy of the network on the 3331 validation images: 35.634944461122785 %
+Epoch [35/100], Train_Loss: 1.0777, Valid_Loss: 2.7740
+stepping RootP: 33912
+Accuracy of the network on the 3375 validation images: 36.62222222222222 %
+Epoch [36/100], Train_Loss: 0.8681, Valid_Loss: 2.5436
+stepping RootP: 34352
+Accuracy of the network on the 3419 validation images: 36.88212927756654 %
+Epoch [37/100], Train_Loss: 1.1235, Valid_Loss: 3.1895
+stepping RootP: 34786
+Accuracy of the network on the 3462 validation images: 38.09936452917389 %
+Epoch [38/100], Train_Loss: 0.9053, Valid_Loss: 2.5109
+stepping RootP: 35214
+Accuracy of the network on the 3504 validation images: 38.49885844748859 %
+Epoch [39/100], Train_Loss: 1.1174, Valid_Loss: 2.9552
+stepping RootP: 35638
+Accuracy of the network on the 3546 validation images: 39.8195149464185 %
+Epoch [40/100], Train_Loss: 1.1231, Valid_Loss: 2.4133
+stepping RootP: 36056
+Accuracy of the network on the 3587 validation images: 39.19710064120435 %
+Epoch [41/100], Train_Loss: 1.7604, Valid_Loss: 2.6719
+stepping RootP: 36470
+Accuracy of the network on the 3628 validation images: 39.22271223814774 %
+Epoch [42/100], Train_Loss: 1.3305, Valid_Loss: 3.0239
+stepping RootP: 36879
+Accuracy of the network on the 3668 validation images: 39.967284623773175 %
+Epoch [43/100], Train_Loss: 1.2714, Valid_Loss: 2.9691
+stepping RootP: 37283
+Accuracy of the network on the 3708 validation images: 41.42394822006472 %
+Epoch [44/100], Train_Loss: 1.0471, Valid_Loss: 2.2925
+stepping RootP: 37683
+Accuracy of the network on the 3748 validation images: 41.6221985058698 %
+Epoch [45/100], Train_Loss: 1.4000, Valid_Loss: 1.9326
+stepping RootP: 38079
+Accuracy of the network on the 3787 validation images: 43.80776340110906 %
+Epoch [46/100], Train_Loss: 1.1644, Valid_Loss: 1.9698
+stepping RootP: 38471
+Accuracy of the network on the 3826 validation images: 44.04077365394668 %
+Epoch [47/100], Train_Loss: 1.0401, Valid_Loss: 1.9563
+stepping RootP: 38859
+Accuracy of the network on the 3864 validation images: 45.23809523809524 %
+Epoch [48/100], Train_Loss: 1.0243, Valid_Loss: 1.4725
+stepping RootP: 39243
+Accuracy of the network on the 3902 validation images: 45.92516658124039 %
+Epoch [49/100], Train_Loss: 1.3613, Valid_Loss: 1.5296
+stepping RootP: 39624
+Accuracy of the network on the 3940 validation images: 47.588832487309645 %
+Epoch [50/100], Train_Loss: 0.8551, Valid_Loss: 2.2762
+stepping RootP: 40000
+Accuracy of the network on the 3977 validation images: 48.83077696756349 %
+Epoch [51/100], Train_Loss: 1.1172, Valid_Loss: 1.9861
+stepping RootP: 40374
+Accuracy of the network on the 4014 validation images: 49.85052316890882 %
+Epoch [52/100], Train_Loss: 2.0947, Valid_Loss: 2.1002
+stepping RootP: 40744
+Accuracy of the network on the 4051 validation images: 49.64206368797828 %
+Epoch [53/100], Train_Loss: 1.1620, Valid_Loss: 2.2772
+stepping RootP: 41110
+Accuracy of the network on the 4087 validation images: 50.91754343038904 %
+Epoch [54/100], Train_Loss: 1.0920, Valid_Loss: 1.7098
+stepping RootP: 41473
+Accuracy of the network on the 4123 validation images: 52.65583313121513 %
+Epoch [55/100], Train_Loss: 0.8419, Valid_Loss: 1.6953
+stepping RootP: 41834
+Accuracy of the network on the 4159 validation images: 52.58475595094975 %
+Epoch [56/100], Train_Loss: 1.1713, Valid_Loss: 1.1742
+stepping RootP: 42191
+Accuracy of the network on the 4194 validation images: 52.98044825941822 %
+Epoch [57/100], Train_Loss: 0.8232, Valid_Loss: 1.5654
+stepping RootP: 42545
+Accuracy of the network on the 4229 validation images: 53.60605344052968 %
+Epoch [58/100], Train_Loss: 0.9496, Valid_Loss: 1.3908
+stepping RootP: 42896
+Accuracy of the network on the 4264 validation images: 55.46435272045028 %
+Epoch [59/100], Train_Loss: 1.1461, Valid_Loss: 1.7124
+stepping RootP: 43244
+Accuracy of the network on the 4298 validation images: 57.119590507212656 %
+Epoch [60/100], Train_Loss: 1.1617, Valid_Loss: 2.0045
+stepping RootP: 43589
+Accuracy of the network on the 4332 validation images: 57.71006463527239 %
+Epoch [61/100], Train_Loss: 0.7211, Valid_Loss: 1.7649
+stepping RootP: 43932
+Accuracy of the network on the 4366 validation images: 58.56619331195602 %
+Epoch [62/100], Train_Loss: 0.6235, Valid_Loss: 1.1297
+stepping RootP: 44272
+Accuracy of the network on the 4400 validation images: 59.09090909090909 %
+Epoch [63/100], Train_Loss: 0.9516, Valid_Loss: 1.6322
+stepping RootP: 44610
+Accuracy of the network on the 4433 validation images: 60.297766749379655 %
+Epoch [64/100], Train_Loss: 1.1980, Valid_Loss: 1.2414
+stepping RootP: 44945
+Accuracy of the network on the 4466 validation images: 60.99417823555755 %
+Epoch [65/100], Train_Loss: 1.0464, Valid_Loss: 1.6080
+stepping RootP: 45277
+Accuracy of the network on the 4499 validation images: 62.013780840186705 %
+Epoch [66/100], Train_Loss: 0.7459, Valid_Loss: 1.4182
+stepping RootP: 45608
+Accuracy of the network on the 4532 validation images: 61.937334510150045 %
+Epoch [67/100], Train_Loss: 1.0451, Valid_Loss: 1.1009
+stepping RootP: 45935
+Accuracy of the network on the 4564 validation images: 63.45311130587204 %
+Epoch [68/100], Train_Loss: 0.9507, Valid_Loss: 1.3709
+stepping RootP: 46261
+Accuracy of the network on the 4596 validation images: 63.4029590948651 %
+Epoch [69/100], Train_Loss: 3.1091, Valid_Loss: 1.0281
+stepping RootP: 46584
+Accuracy of the network on the 4628 validation images: 64.84442523768367 %
+Epoch [70/100], Train_Loss: 0.9707, Valid_Loss: 1.4795
+stepping RootP: 46905
+Accuracy of the network on the 4660 validation images: 64.2489270386266 %
+Epoch [71/100], Train_Loss: 1.0838, Valid_Loss: 1.0152
+stepping RootP: 47223
+Accuracy of the network on the 4691 validation images: 66.44638669793221 %
+Epoch [72/100], Train_Loss: 0.5883, Valid_Loss: 1.6615
+stepping RootP: 47540
+Accuracy of the network on the 4722 validation images: 67.81024989411266 %
+Epoch [73/100], Train_Loss: 1.5100, Valid_Loss: 0.5839
+stepping RootP: 47854
+Accuracy of the network on the 4753 validation images: 68.3147485798443 %
+Epoch [74/100], Train_Loss: 1.3026, Valid_Loss: 1.0453
+stepping RootP: 48167
+Accuracy of the network on the 4784 validation images: 69.39799331103679 %
+Epoch [75/100], Train_Loss: 0.7023, Valid_Loss: 0.7947
+stepping RootP: 48477
+Accuracy of the network on the 4815 validation images: 70.52959501557632 %
+Epoch [76/100], Train_Loss: 0.7576, Valid_Loss: 0.8874
+stepping RootP: 48786
+Accuracy of the network on the 4845 validation images: 72.69349845201238 %
+Epoch [77/100], Train_Loss: 0.7036, Valid_Loss: 0.8593
+stepping RootP: 49092
+Accuracy of the network on the 4875 validation images: 72.04102564102564 %
+Epoch [78/100], Train_Loss: 0.7096, Valid_Loss: 0.5745
+stepping RootP: 49397
+Accuracy of the network on the 4905 validation images: 73.19062181447502 %
+Epoch [79/100], Train_Loss: 0.7656, Valid_Loss: 0.8626
+stepping RootP: 49700
+Accuracy of the network on the 4935 validation images: 75.2178318135765 %
+Epoch [80/100], Train_Loss: 0.6393, Valid_Loss: 0.6166
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 75.36757301107754 %
+Epoch [81/100], Train_Loss: 0.7521, Valid_Loss: 1.3095
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 75.99194360523666 %
+Epoch [82/100], Train_Loss: 0.5492, Valid_Loss: 0.7162
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 76.19335347432025 %
+Epoch [83/100], Train_Loss: 0.5085, Valid_Loss: 0.8316
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 78.32829808660624 %
+Epoch [84/100], Train_Loss: 0.4898, Valid_Loss: 0.7116
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 77.84491440080564 %
+Epoch [85/100], Train_Loss: 0.6377, Valid_Loss: 0.6631
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 79.07351460221551 %
+Epoch [86/100], Train_Loss: 0.3741, Valid_Loss: 0.5775
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 80.84592145015105 %
+Epoch [87/100], Train_Loss: 0.7533, Valid_Loss: 0.9894
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 81.57099697885197 %
+Epoch [88/100], Train_Loss: 0.6229, Valid_Loss: 0.6629
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 81.51057401812689 %
+Epoch [89/100], Train_Loss: 0.4471, Valid_Loss: 0.4725
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 82.98086606243706 %
+Epoch [90/100], Train_Loss: 0.3597, Valid_Loss: 0.5203
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 83.48439073514602 %
+Epoch [91/100], Train_Loss: 0.5472, Valid_Loss: 0.4594
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 84.04833836858006 %
+Epoch [92/100], Train_Loss: 0.3793, Valid_Loss: 0.6532
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 83.80664652567975 %
+Epoch [93/100], Train_Loss: 0.6359, Valid_Loss: 0.4763
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 85.11581067472306 %
+Epoch [94/100], Train_Loss: 0.5698, Valid_Loss: 0.8664
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 85.29707955689828 %
+Epoch [95/100], Train_Loss: 0.3593, Valid_Loss: 0.7081
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 86.44511581067472 %
+Epoch [96/100], Train_Loss: 0.3634, Valid_Loss: 0.1359
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 87.04934541792548 %
+Epoch [97/100], Train_Loss: 0.6801, Valid_Loss: 0.5811
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 87.6737160120846 %
+Epoch [98/100], Train_Loss: 0.3072, Valid_Loss: 0.5208
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 86.80765357502517 %
+Epoch [99/100], Train_Loss: 0.4405, Valid_Loss: 0.3882
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 88.35850956696878 %
+Epoch [100/100], Train_Loss: 0.4845, Valid_Loss: 0.3138
+Training finished
+[]
+WARNING: hash_code not found in staging!
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 2e-05, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.04, 'momentum': 0.76, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c6eca30>, 'validation_loss': 0.3137686252593994, 'training_loss': 0.4844816029071808, 'accuracy': 88.35850956696878}
+loading the data
+Training on dataset: ./datasets
+Preparing the data: Adding transforms
+Ordering data
+data ordered
+SGD
+Training started
+Accuracy of the network on the 1000 validation images: 19.8 %
+Epoch [1/100], Train_Loss: 0.3006, Valid_Loss: 5.9177
+stepping RootP: 11402
+Accuracy of the network on the 1140 validation images: 21.31578947368421 %
+Epoch [2/100], Train_Loss: 0.3048, Valid_Loss: 6.2862
+stepping RootP: 12650
+Accuracy of the network on the 1264 validation images: 24.7626582278481 %
+Epoch [3/100], Train_Loss: 0.4806, Valid_Loss: 4.4490
+stepping RootP: 13785
+Accuracy of the network on the 1377 validation images: 28.68554829339143 %
+Epoch [4/100], Train_Loss: 0.5232, Valid_Loss: 4.9937
+stepping RootP: 14833
+Accuracy of the network on the 1481 validation images: 29.84469952734639 %
+Epoch [5/100], Train_Loss: 0.2585, Valid_Loss: 3.9603
+stepping RootP: 15812
+Accuracy of the network on the 1578 validation images: 30.101394169835235 %
+Epoch [6/100], Train_Loss: 0.3368, Valid_Loss: 6.7389
+stepping RootP: 16734
+Accuracy of the network on the 1670 validation images: 33.47305389221557 %
+Epoch [7/100], Train_Loss: 0.4683, Valid_Loss: 6.9451
+stepping RootP: 17607
+Accuracy of the network on the 1757 validation images: 34.03528742174161 %
+Epoch [8/100], Train_Loss: 0.1556, Valid_Loss: 5.9157
+stepping RootP: 18440
+Accuracy of the network on the 1840 validation images: 35.70652173913044 %
+Epoch [9/100], Train_Loss: 0.1252, Valid_Loss: 5.2909
+stepping RootP: 19236
+Accuracy of the network on the 1919 validation images: 37.57165190203231 %
+Epoch [10/100], Train_Loss: 0.5393, Valid_Loss: 7.5885
+stepping RootP: 20000
+Accuracy of the network on the 1995 validation images: 36.99248120300752 %
+Epoch [11/100], Train_Loss: 0.4036, Valid_Loss: 3.1148
+stepping RootP: 20737
+Accuracy of the network on the 2068 validation images: 39.02321083172147 %
+Epoch [12/100], Train_Loss: 0.3062, Valid_Loss: 4.0029
+stepping RootP: 21448
+Accuracy of the network on the 2139 validation images: 41.32772323515662 %
+Epoch [13/100], Train_Loss: 0.2183, Valid_Loss: 6.6549
+stepping RootP: 22136
+Accuracy of the network on the 2207 validation images: 43.543271409152695 %
+Epoch [14/100], Train_Loss: 0.5384, Valid_Loss: 4.1006
+stepping RootP: 22804
+Accuracy of the network on the 2273 validation images: 46.59040915090189 %
+Epoch [15/100], Train_Loss: 0.2262, Valid_Loss: 2.3093
+stepping RootP: 23453
+Accuracy of the network on the 2337 validation images: 47.83910997004707 %
+Epoch [16/100], Train_Loss: 0.2750, Valid_Loss: 5.3033
+stepping RootP: 24084
+Accuracy of the network on the 2400 validation images: 49.166666666666664 %
+Epoch [17/100], Train_Loss: 0.0285, Valid_Loss: 3.0937
+stepping RootP: 24699
+Accuracy of the network on the 2461 validation images: 48.84193417310036 %
+Epoch [18/100], Train_Loss: 0.2919, Valid_Loss: 3.5629
+stepping RootP: 25299
+Accuracy of the network on the 2521 validation images: 51.24950416501388 %
+Epoch [19/100], Train_Loss: 0.0615, Valid_Loss: 2.8440
+stepping RootP: 25885
+Accuracy of the network on the 2579 validation images: 40.28693291973633 %
+Epoch [20/100], Train_Loss: 0.9807, Valid_Loss: 5.1365
+stepping RootP: 26458
+Accuracy of the network on the 2636 validation images: 44.613050075872536 %
+Epoch [21/100], Train_Loss: 1.1303, Valid_Loss: 2.0757
+stepping RootP: 27019
+Accuracy of the network on the 2692 validation images: 57.429420505200596 %
+Epoch [22/100], Train_Loss: 0.0173, Valid_Loss: 4.4106
+stepping RootP: 27569
+Accuracy of the network on the 2747 validation images: 59.665089188205314 %
+Epoch [23/100], Train_Loss: 0.2250, Valid_Loss: 3.3705
+stepping RootP: 28107
+Accuracy of the network on the 2800 validation images: 60.857142857142854 %
+Epoch [24/100], Train_Loss: 0.1085, Valid_Loss: 2.5416
+stepping RootP: 28636
+Accuracy of the network on the 2852 validation images: 62.51753155680225 %
+Epoch [25/100], Train_Loss: 0.1362, Valid_Loss: 1.6724
+stepping RootP: 29155
+Accuracy of the network on the 2903 validation images: 51.80847399242163 %
+Epoch [26/100], Train_Loss: 0.9294, Valid_Loss: 3.0776
+stepping RootP: 29665
+Accuracy of the network on the 2954 validation images: 63.74407582938389 %
+Epoch [27/100], Train_Loss: 0.1258, Valid_Loss: 2.1384
+stepping RootP: 30167
+Accuracy of the network on the 3004 validation images: 65.87882822902796 %
+Epoch [28/100], Train_Loss: 0.0973, Valid_Loss: 3.3748
+stepping RootP: 30660
+Accuracy of the network on the 3053 validation images: 67.76940714051753 %
+Epoch [29/100], Train_Loss: 0.1182, Valid_Loss: 1.7890
+stepping RootP: 31145
+Accuracy of the network on the 3101 validation images: 65.2692679780716 %
+Epoch [30/100], Train_Loss: 0.6408, Valid_Loss: 3.5450
+stepping RootP: 31623
+Accuracy of the network on the 3148 validation images: 69.8856416772554 %
+Epoch [31/100], Train_Loss: 0.0257, Valid_Loss: 2.1424
+stepping RootP: 32094
+Accuracy of the network on the 3195 validation images: 70.17214397496087 %
+Epoch [32/100], Train_Loss: 0.0422, Valid_Loss: 2.0742
+stepping RootP: 32558
+Accuracy of the network on the 3241 validation images: 69.63900030854674 %
+Epoch [33/100], Train_Loss: 0.0034, Valid_Loss: 3.3327
+stepping RootP: 33016
+Accuracy of the network on the 3286 validation images: 70.69385270846013 %
+Epoch [34/100], Train_Loss: 0.0486, Valid_Loss: 3.1211
+stepping RootP: 33467
+Accuracy of the network on the 3331 validation images: 72.20054037826479 %
+Epoch [35/100], Train_Loss: 0.1582, Valid_Loss: 0.2965
+stepping RootP: 33912
+Accuracy of the network on the 3375 validation images: 72.38518518518518 %
+Epoch [36/100], Train_Loss: 0.0245, Valid_Loss: 2.3882
+stepping RootP: 34352
+Accuracy of the network on the 3419 validation images: 72.94530564492541 %
+Epoch [37/100], Train_Loss: 0.0299, Valid_Loss: 3.5633
+stepping RootP: 34786
+Accuracy of the network on the 3462 validation images: 74.29231658001156 %
+Epoch [38/100], Train_Loss: 0.0207, Valid_Loss: 0.2421
+stepping RootP: 35214
+Accuracy of the network on the 3504 validation images: 74.08675799086758 %
+Epoch [39/100], Train_Loss: 0.0143, Valid_Loss: 3.1010
+stepping RootP: 35638
+Accuracy of the network on the 3546 validation images: 74.64749012972364 %
+Epoch [40/100], Train_Loss: 0.1166, Valid_Loss: 1.7069
+stepping RootP: 36056
+Accuracy of the network on the 3587 validation images: 76.52634513521048 %
+Epoch [41/100], Train_Loss: 0.0299, Valid_Loss: 4.0649
+stepping RootP: 36470
+Accuracy of the network on the 3628 validation images: 71.22381477398015 %
+Epoch [42/100], Train_Loss: 0.4084, Valid_Loss: 2.7184
+stepping RootP: 36879
+Accuracy of the network on the 3668 validation images: 76.99018538713196 %
+Epoch [43/100], Train_Loss: 0.0431, Valid_Loss: 3.5230
+stepping RootP: 37283
+Accuracy of the network on the 3708 validation images: 77.23840345199568 %
+Epoch [44/100], Train_Loss: 0.0314, Valid_Loss: 1.9429
+stepping RootP: 37683
+Accuracy of the network on the 3748 validation images: 77.85485592315902 %
+Epoch [45/100], Train_Loss: 0.0119, Valid_Loss: 2.0294
+stepping RootP: 38079
+Accuracy of the network on the 3787 validation images: 77.71322946923686 %
+Epoch [46/100], Train_Loss: 0.0449, Valid_Loss: 3.0017
+stepping RootP: 38471
+Accuracy of the network on the 3826 validation images: 78.0710925248301 %
+Epoch [47/100], Train_Loss: 0.0893, Valid_Loss: 2.3072
+stepping RootP: 38859
+Accuracy of the network on the 3864 validation images: 78.59730848861284 %
+Epoch [48/100], Train_Loss: 0.0177, Valid_Loss: 2.1241
+stepping RootP: 39243
+Accuracy of the network on the 3902 validation images: 78.52383393131727 %
+Epoch [49/100], Train_Loss: 0.0126, Valid_Loss: 1.9276
+stepping RootP: 39624
+Accuracy of the network on the 3940 validation images: 78.98477157360406 %
+Epoch [50/100], Train_Loss: 0.0028, Valid_Loss: 0.9103
+stepping RootP: 40000
+Accuracy of the network on the 3977 validation images: 78.57681669600201 %
+Epoch [51/100], Train_Loss: 0.0830, Valid_Loss: 2.2548
+stepping RootP: 40374
+Accuracy of the network on the 4014 validation images: 74.7633283507723 %
+Epoch [52/100], Train_Loss: 0.1223, Valid_Loss: 1.4653
+stepping RootP: 40744
+Accuracy of the network on the 4051 validation images: 80.84423599111331 %
+Epoch [53/100], Train_Loss: 0.0040, Valid_Loss: 0.8119
+stepping RootP: 41110
+Accuracy of the network on the 4087 validation images: 82.01614876437485 %
+Epoch [54/100], Train_Loss: 0.0543, Valid_Loss: 1.6592
+stepping RootP: 41473
+Accuracy of the network on the 4123 validation images: 82.27019160805239 %
+Epoch [55/100], Train_Loss: 0.0697, Valid_Loss: 2.0645
+stepping RootP: 41834
+Accuracy of the network on the 4159 validation images: 83.52969463813416 %
+Epoch [56/100], Train_Loss: 0.1554, Valid_Loss: 0.9174
+stepping RootP: 42191
+Accuracy of the network on the 4194 validation images: 84.88316642823081 %
+Epoch [57/100], Train_Loss: 0.0321, Valid_Loss: 1.9488
+stepping RootP: 42545
+Accuracy of the network on the 4229 validation images: 84.55899739891227 %
+Epoch [58/100], Train_Loss: 0.0233, Valid_Loss: 0.0084
+stepping RootP: 42896
+Accuracy of the network on the 4264 validation images: 85.90525328330206 %
+Epoch [59/100], Train_Loss: 0.0647, Valid_Loss: 1.4906
+stepping RootP: 43244
+Accuracy of the network on the 4298 validation images: 85.4118194509074 %
+Epoch [60/100], Train_Loss: 0.0815, Valid_Loss: 0.5348
+stepping RootP: 43589
+Accuracy of the network on the 4332 validation images: 86.40350877192982 %
+Epoch [61/100], Train_Loss: 0.0085, Valid_Loss: 0.7048
+stepping RootP: 43932
+Accuracy of the network on the 4366 validation images: 79.50068712780578 %
+Epoch [62/100], Train_Loss: 0.2645, Valid_Loss: 2.8372
+stepping RootP: 44272
+Accuracy of the network on the 4400 validation images: 87.11363636363636 %
+Epoch [63/100], Train_Loss: 0.0074, Valid_Loss: 2.0048
+stepping RootP: 44610
+Accuracy of the network on the 4433 validation images: 87.23212271599368 %
+Epoch [64/100], Train_Loss: 0.0120, Valid_Loss: 0.9913
+stepping RootP: 44945
+Accuracy of the network on the 4466 validation images: 87.32646663681146 %
+Epoch [65/100], Train_Loss: 0.0416, Valid_Loss: 1.3784
+stepping RootP: 45277
+Accuracy of the network on the 4499 validation images: 86.3080684596577 %
+Epoch [66/100], Train_Loss: 0.0831, Valid_Loss: 0.3002
+stepping RootP: 45608
+Accuracy of the network on the 4532 validation images: 91.306266548985 %
+Epoch [67/100], Train_Loss: 0.0357, Valid_Loss: 0.3913
+stepping RootP: 45935
+Accuracy of the network on the 4564 validation images: 92.39702015775636 %
+Epoch [68/100], Train_Loss: 0.0213, Valid_Loss: 0.0364
+stepping RootP: 46261
+Accuracy of the network on the 4596 validation images: 92.79808529155788 %
+Epoch [69/100], Train_Loss: 2.8589, Valid_Loss: 0.1408
+stepping RootP: 46584
+Accuracy of the network on the 4628 validation images: 93.92826274848747 %
+Epoch [70/100], Train_Loss: 0.0187, Valid_Loss: 0.1781
+stepping RootP: 46905
+Accuracy of the network on the 4660 validation images: 94.07725321888412 %
+Epoch [71/100], Train_Loss: 0.0044, Valid_Loss: 0.3495
+stepping RootP: 47223
+Accuracy of the network on the 4691 validation images: 94.8411852483479 %
+Epoch [72/100], Train_Loss: 0.0056, Valid_Loss: 0.1531
+stepping RootP: 47540
+Accuracy of the network on the 4722 validation images: 93.68911478187209 %
+Epoch [73/100], Train_Loss: 0.2470, Valid_Loss: 0.1070
+stepping RootP: 47854
+Accuracy of the network on the 4753 validation images: 95.11887229118452 %
+Epoch [74/100], Train_Loss: 0.0379, Valid_Loss: 0.5494
+stepping RootP: 48167
+Accuracy of the network on the 4784 validation images: 95.67307692307692 %
+Epoch [75/100], Train_Loss: 0.0159, Valid_Loss: 0.6048
+stepping RootP: 48477
+Accuracy of the network on the 4815 validation images: 96.09553478712357 %
+Epoch [76/100], Train_Loss: 0.0040, Valid_Loss: 0.0080
+stepping RootP: 48786
+Accuracy of the network on the 4845 validation images: 95.21155830753354 %
+Epoch [77/100], Train_Loss: 0.1101, Valid_Loss: 0.0326
+stepping RootP: 49092
+Accuracy of the network on the 4875 validation images: 95.34358974358975 %
+Epoch [78/100], Train_Loss: 0.1078, Valid_Loss: 0.0084
+stepping RootP: 49397
+Accuracy of the network on the 4905 validation images: 96.00407747196738 %
+Epoch [79/100], Train_Loss: 0.0718, Valid_Loss: 0.1160
+stepping RootP: 49700
+Accuracy of the network on the 4935 validation images: 95.94731509625127 %
+Epoch [80/100], Train_Loss: 0.0165, Valid_Loss: 0.0969
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.40181268882175 %
+Epoch [81/100], Train_Loss: 0.0868, Valid_Loss: 0.3282
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.08660624370594 %
+Epoch [82/100], Train_Loss: 0.0087, Valid_Loss: 0.0140
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.14702920443102 %
+Epoch [83/100], Train_Loss: 0.0103, Valid_Loss: 0.1475
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.12688821752266 %
+Epoch [84/100], Train_Loss: 0.0010, Valid_Loss: 0.1297
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.14702920443102 %
+Epoch [85/100], Train_Loss: 0.0016, Valid_Loss: 0.0785
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.14702920443102 %
+Epoch [86/100], Train_Loss: 0.0052, Valid_Loss: 0.1745
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.1067472306143 %
+Epoch [87/100], Train_Loss: 0.0010, Valid_Loss: 0.2522
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.16717019133938 %
+Epoch [88/100], Train_Loss: 0.0008, Valid_Loss: 0.1905
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.06646525679758 %
+Epoch [89/100], Train_Loss: 0.0006, Valid_Loss: 0.0979
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.04632426988923 %
+Epoch [90/100], Train_Loss: 0.0004, Valid_Loss: 0.0599
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.14702920443102 %
+Epoch [91/100], Train_Loss: 0.0019, Valid_Loss: 0.0211
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.08660624370594 %
+Epoch [92/100], Train_Loss: 0.0015, Valid_Loss: 0.0008
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.02618328298087 %
+Epoch [93/100], Train_Loss: 0.0011, Valid_Loss: 0.0755
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.04632426988923 %
+Epoch [94/100], Train_Loss: 0.0101, Valid_Loss: 0.1227
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.14702920443102 %
+Epoch [95/100], Train_Loss: 0.0008, Valid_Loss: 0.0092
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.04632426988923 %
+Epoch [96/100], Train_Loss: 0.0040, Valid_Loss: 0.0549
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.92547834843907 %
+Epoch [97/100], Train_Loss: 0.0006, Valid_Loss: 0.0003
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.12688821752266 %
+Epoch [98/100], Train_Loss: 0.0005, Valid_Loss: 0.0034
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.28801611278952 %
+Epoch [99/100], Train_Loss: 0.0015, Valid_Loss: 0.0459
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 98.12688821752266 %
+Epoch [100/100], Train_Loss: 0.0028, Valid_Loss: 0.0023
+Training finished
+[]
+WARNING: hash_code not found in staging!
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.005, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.002, 'momentum': 0.1, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c6ec220>, 'validation_loss': 0.0023070229217410088, 'training_loss': 0.002812076359987259, 'accuracy': 98.12688821752266}
+loading the data
+Training on dataset: ./datasets
+Preparing the data: Adding transforms
+Ordering data
+data ordered
+SGD
+Training started
+Accuracy of the network on the 1000 validation images: 19.8 %
+Epoch [1/100], Train_Loss: 0.3331, Valid_Loss: 5.9966
+stepping RootP: 11402
+Accuracy of the network on the 1140 validation images: 23.24561403508772 %
+Epoch [2/100], Train_Loss: 0.3259, Valid_Loss: 5.5233
+stepping RootP: 12650
+Accuracy of the network on the 1264 validation images: 25.474683544303797 %
+Epoch [3/100], Train_Loss: 0.4025, Valid_Loss: 6.8825
+stepping RootP: 13785
+Accuracy of the network on the 1377 validation images: 27.523602033405954 %
+Epoch [4/100], Train_Loss: 0.2914, Valid_Loss: 4.9514
+stepping RootP: 14833
+Accuracy of the network on the 1481 validation images: 27.346387575962186 %
+Epoch [5/100], Train_Loss: 0.5131, Valid_Loss: 4.3232
+stepping RootP: 15812
+Accuracy of the network on the 1578 validation images: 34.09378960709759 %
+Epoch [6/100], Train_Loss: 0.3857, Valid_Loss: 5.4565
+stepping RootP: 16734
+Accuracy of the network on the 1670 validation images: 33.89221556886228 %
+Epoch [7/100], Train_Loss: 0.1855, Valid_Loss: 4.8658
+stepping RootP: 17607
+Accuracy of the network on the 1757 validation images: 37.73477518497439 %
+Epoch [8/100], Train_Loss: 0.2156, Valid_Loss: 6.6000
+stepping RootP: 18440
+Accuracy of the network on the 1840 validation images: 37.391304347826086 %
+Epoch [9/100], Train_Loss: 0.2978, Valid_Loss: 7.6727
+stepping RootP: 19236
+Accuracy of the network on the 1919 validation images: 37.988535695674834 %
+Epoch [10/100], Train_Loss: 0.1163, Valid_Loss: 6.5761
+stepping RootP: 20000
+Accuracy of the network on the 1995 validation images: 38.54636591478697 %
+Epoch [11/100], Train_Loss: 0.0102, Valid_Loss: 4.5169
+stepping RootP: 20737
+Accuracy of the network on the 2068 validation images: 41.24758220502901 %
+Epoch [12/100], Train_Loss: 0.1283, Valid_Loss: 4.6976
+stepping RootP: 21448
+Accuracy of the network on the 2139 validation images: 44.69378214118747 %
+Epoch [13/100], Train_Loss: 0.1483, Valid_Loss: 1.8954
+stepping RootP: 22136
+Accuracy of the network on the 2207 validation images: 46.03534209333937 %
+Epoch [14/100], Train_Loss: 0.1553, Valid_Loss: 3.2975
+stepping RootP: 22804
+Accuracy of the network on the 2273 validation images: 47.60228772547294 %
+Epoch [15/100], Train_Loss: 0.0786, Valid_Loss: 2.8927
+stepping RootP: 23453
+Accuracy of the network on the 2337 validation images: 50.70603337612324 %
+Epoch [16/100], Train_Loss: 0.2203, Valid_Loss: 4.4481
+stepping RootP: 24084
+Accuracy of the network on the 2400 validation images: 50.708333333333336 %
+Epoch [17/100], Train_Loss: 0.1752, Valid_Loss: 3.2778
+stepping RootP: 24699
+Accuracy of the network on the 2461 validation images: 51.889475822836246 %
+Epoch [18/100], Train_Loss: 0.0909, Valid_Loss: 2.7513
+stepping RootP: 25299
+Accuracy of the network on the 2521 validation images: 53.9468464894883 %
+Epoch [19/100], Train_Loss: 0.1814, Valid_Loss: 3.6063
+stepping RootP: 25885
+Accuracy of the network on the 2579 validation images: 52.03567274137262 %
+Epoch [20/100], Train_Loss: 0.2324, Valid_Loss: 2.1318
+stepping RootP: 26458
+Accuracy of the network on the 2636 validation images: 55.955993930197266 %
+Epoch [21/100], Train_Loss: 0.0346, Valid_Loss: 2.8079
+stepping RootP: 27019
+Accuracy of the network on the 2692 validation images: 56.946508172362556 %
+Epoch [22/100], Train_Loss: 0.0016, Valid_Loss: 3.2449
+stepping RootP: 27569
+Accuracy of the network on the 2747 validation images: 59.11903895158355 %
+Epoch [23/100], Train_Loss: 0.0947, Valid_Loss: 4.4873
+stepping RootP: 28107
+Accuracy of the network on the 2800 validation images: 59.107142857142854 %
+Epoch [24/100], Train_Loss: 0.0214, Valid_Loss: 3.3303
+stepping RootP: 28636
+Accuracy of the network on the 2852 validation images: 60.72931276297335 %
+Epoch [25/100], Train_Loss: 0.0196, Valid_Loss: 3.3140
+stepping RootP: 29155
+Accuracy of the network on the 2903 validation images: 62.14261109197382 %
+Epoch [26/100], Train_Loss: 0.0022, Valid_Loss: 1.8525
+stepping RootP: 29665
+Accuracy of the network on the 2954 validation images: 60.69735951252539 %
+Epoch [27/100], Train_Loss: 0.1919, Valid_Loss: 2.8563
+stepping RootP: 30167
+Accuracy of the network on the 3004 validation images: 62.782956058588546 %
+Epoch [28/100], Train_Loss: 0.3456, Valid_Loss: 1.7331
+stepping RootP: 30660
+Accuracy of the network on the 3053 validation images: 65.01801506714706 %
+Epoch [29/100], Train_Loss: 0.0509, Valid_Loss: 2.0518
+stepping RootP: 31145
+Accuracy of the network on the 3101 validation images: 64.62431473718155 %
+Epoch [30/100], Train_Loss: 0.0181, Valid_Loss: 2.2047
+stepping RootP: 31623
+Accuracy of the network on the 3148 validation images: 65.40660736975858 %
+Epoch [31/100], Train_Loss: 0.0444, Valid_Loss: 3.2550
+stepping RootP: 32094
+Accuracy of the network on the 3195 validation images: 65.50860719874804 %
+Epoch [32/100], Train_Loss: 0.2682, Valid_Loss: 1.7713
+stepping RootP: 32558
+Accuracy of the network on the 3241 validation images: 67.07806232644245 %
+Epoch [33/100], Train_Loss: 0.0767, Valid_Loss: 1.8272
+stepping RootP: 33016
+Accuracy of the network on the 3286 validation images: 67.25502130249544 %
+Epoch [34/100], Train_Loss: 0.1280, Valid_Loss: 2.4547
+stepping RootP: 33467
+Accuracy of the network on the 3331 validation images: 69.40858601020715 %
+Epoch [35/100], Train_Loss: 0.1836, Valid_Loss: 2.4068
+stepping RootP: 33912
+Accuracy of the network on the 3375 validation images: 69.48148148148148 %
+Epoch [36/100], Train_Loss: 0.2402, Valid_Loss: 1.5954
+stepping RootP: 34352
+Accuracy of the network on the 3419 validation images: 69.31851418543434 %
+Epoch [37/100], Train_Loss: 0.1297, Valid_Loss: 2.3358
+stepping RootP: 34786
+Accuracy of the network on the 3462 validation images: 71.60600808781051 %
+Epoch [38/100], Train_Loss: 0.0176, Valid_Loss: 2.6640
+stepping RootP: 35214
+Accuracy of the network on the 3504 validation images: 72.23173515981735 %
+Epoch [39/100], Train_Loss: 0.1640, Valid_Loss: 1.4408
+stepping RootP: 35638
+Accuracy of the network on the 3546 validation images: 73.88606880992668 %
+Epoch [40/100], Train_Loss: 0.0924, Valid_Loss: 2.1510
+stepping RootP: 36056
+Accuracy of the network on the 3587 validation images: 75.35545023696683 %
+Epoch [41/100], Train_Loss: 0.0183, Valid_Loss: 0.7219
+stepping RootP: 36470
+Accuracy of the network on the 3628 validation images: 73.73208379272326 %
+Epoch [42/100], Train_Loss: 0.1772, Valid_Loss: 1.5657
+stepping RootP: 36879
+Accuracy of the network on the 3668 validation images: 77.61723009814612 %
+Epoch [43/100], Train_Loss: 0.0462, Valid_Loss: 1.2395
+stepping RootP: 37283
+Accuracy of the network on the 3708 validation images: 77.9665587918015 %
+Epoch [44/100], Train_Loss: 0.0044, Valid_Loss: 1.9976
+stepping RootP: 37683
+Accuracy of the network on the 3748 validation images: 79.21558164354322 %
+Epoch [45/100], Train_Loss: 0.0523, Valid_Loss: 1.1574
+stepping RootP: 38079
+Accuracy of the network on the 3787 validation images: 79.79931344071825 %
+Epoch [46/100], Train_Loss: 0.0143, Valid_Loss: 3.5581
+stepping RootP: 38471
+Accuracy of the network on the 3826 validation images: 79.92681651855725 %
+Epoch [47/100], Train_Loss: 0.0712, Valid_Loss: 2.0696
+stepping RootP: 38859
+Accuracy of the network on the 3864 validation images: 81.90993788819875 %
+Epoch [48/100], Train_Loss: 0.1110, Valid_Loss: 1.3234
+stepping RootP: 39243
+Accuracy of the network on the 3902 validation images: 78.7801127626858 %
+Epoch [49/100], Train_Loss: 0.2427, Valid_Loss: 1.4625
+stepping RootP: 39624
+Accuracy of the network on the 3940 validation images: 81.8274111675127 %
+Epoch [50/100], Train_Loss: 0.0636, Valid_Loss: 1.5941
+stepping RootP: 40000
+Accuracy of the network on the 3977 validation images: 83.25370882574805 %
+Epoch [51/100], Train_Loss: 0.0400, Valid_Loss: 0.5259
+stepping RootP: 40374
+Accuracy of the network on the 4014 validation images: 82.43647234678625 %
+Epoch [52/100], Train_Loss: 0.0579, Valid_Loss: 0.9453
+stepping RootP: 40744
+Accuracy of the network on the 4051 validation images: 84.54702542582079 %
+Epoch [53/100], Train_Loss: 0.0361, Valid_Loss: 0.8896
+stepping RootP: 41110
+Accuracy of the network on the 4087 validation images: 84.29165647173966 %
+Epoch [54/100], Train_Loss: 0.0273, Valid_Loss: 0.6960
+stepping RootP: 41473
+Accuracy of the network on the 4123 validation images: 85.18069366965801 %
+Epoch [55/100], Train_Loss: 0.0323, Valid_Loss: 2.1786
+stepping RootP: 41834
+Accuracy of the network on the 4159 validation images: 85.02043760519355 %
+Epoch [56/100], Train_Loss: 0.0229, Valid_Loss: 1.7181
+stepping RootP: 42191
+Accuracy of the network on the 4194 validation images: 85.64616118264188 %
+Epoch [57/100], Train_Loss: 0.0227, Valid_Loss: 1.7587
+stepping RootP: 42545
+Accuracy of the network on the 4229 validation images: 85.07921494443131 %
+Epoch [58/100], Train_Loss: 0.0371, Valid_Loss: 2.5710
+stepping RootP: 42896
+Accuracy of the network on the 4264 validation images: 85.53001876172608 %
+Epoch [59/100], Train_Loss: 0.0214, Valid_Loss: 0.7448
+stepping RootP: 43244
+Accuracy of the network on the 4298 validation images: 85.69101907864123 %
+Epoch [60/100], Train_Loss: 0.0403, Valid_Loss: 2.1027
+stepping RootP: 43589
+Accuracy of the network on the 4332 validation images: 85.89566020313943 %
+Epoch [61/100], Train_Loss: 0.0847, Valid_Loss: 1.4131
+stepping RootP: 43932
+Accuracy of the network on the 4366 validation images: 86.80714612918003 %
+Epoch [62/100], Train_Loss: 0.0084, Valid_Loss: 0.5200
+stepping RootP: 44272
+Accuracy of the network on the 4400 validation images: 86.63636363636364 %
+Epoch [63/100], Train_Loss: 0.0217, Valid_Loss: 0.7989
+stepping RootP: 44610
+Accuracy of the network on the 4433 validation images: 86.37491540717348 %
+Epoch [64/100], Train_Loss: 0.0395, Valid_Loss: 2.1212
+stepping RootP: 44945
+Accuracy of the network on the 4466 validation images: 87.21450962830274 %
+Epoch [65/100], Train_Loss: 0.0319, Valid_Loss: 1.0296
+stepping RootP: 45277
+Accuracy of the network on the 4499 validation images: 87.48610802400533 %
+Epoch [66/100], Train_Loss: 0.0101, Valid_Loss: 0.3375
+stepping RootP: 45608
+Accuracy of the network on the 4532 validation images: 88.81288614298323 %
+Epoch [67/100], Train_Loss: 0.0096, Valid_Loss: 0.2142
+stepping RootP: 45935
+Accuracy of the network on the 4564 validation images: 90.03067484662577 %
+Epoch [68/100], Train_Loss: 0.0147, Valid_Loss: 0.4972
+stepping RootP: 46261
+Accuracy of the network on the 4596 validation images: 89.96953872932986 %
+Epoch [69/100], Train_Loss: 3.4813, Valid_Loss: 0.7560
+stepping RootP: 46584
+Accuracy of the network on the 4628 validation images: 90.88159031979256 %
+Epoch [70/100], Train_Loss: 0.0307, Valid_Loss: 0.5958
+stepping RootP: 46905
+Accuracy of the network on the 4660 validation images: 80.47210300429184 %
+Epoch [71/100], Train_Loss: 0.6697, Valid_Loss: 1.0153
+stepping RootP: 47223
+Accuracy of the network on the 4691 validation images: 91.75015988062246 %
+Epoch [72/100], Train_Loss: 0.0728, Valid_Loss: 0.3362
+stepping RootP: 47540
+Accuracy of the network on the 4722 validation images: 52.32952138924185 %
+Epoch [73/100], Train_Loss: 1.1998, Valid_Loss: 1.8077
+stepping RootP: 47854
+Accuracy of the network on the 4753 validation images: 92.65726909320429 %
+Epoch [74/100], Train_Loss: 0.2037, Valid_Loss: 0.6422
+stepping RootP: 48167
+Accuracy of the network on the 4784 validation images: 94.62792642140468 %
+Epoch [75/100], Train_Loss: 0.0814, Valid_Loss: 0.3648
+stepping RootP: 48477
+Accuracy of the network on the 4815 validation images: 81.14226375908619 %
+Epoch [76/100], Train_Loss: 0.9270, Valid_Loss: 1.7917
+stepping RootP: 48786
+Accuracy of the network on the 4845 validation images: 96.30546955624355 %
+Epoch [77/100], Train_Loss: 0.0065, Valid_Loss: 0.0121
+stepping RootP: 49092
+Accuracy of the network on the 4875 validation images: 96.57435897435897 %
+Epoch [78/100], Train_Loss: 0.0142, Valid_Loss: 0.0073
+stepping RootP: 49397
+Accuracy of the network on the 4905 validation images: 97.00305810397553 %
+Epoch [79/100], Train_Loss: 0.0319, Valid_Loss: 0.1272
+stepping RootP: 49700
+Accuracy of the network on the 4935 validation images: 97.34549138804458 %
+Epoch [80/100], Train_Loss: 0.0109, Valid_Loss: 0.5632
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.40181268882175 %
+Epoch [81/100], Train_Loss: 0.0115, Valid_Loss: 0.0284
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.88519637462235 %
+Epoch [82/100], Train_Loss: 0.0062, Valid_Loss: 0.0290
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.68378650553878 %
+Epoch [83/100], Train_Loss: 0.0052, Valid_Loss: 0.2797
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.80463242698892 %
+Epoch [84/100], Train_Loss: 0.0012, Valid_Loss: 0.0030
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.84491440080564 %
+Epoch [85/100], Train_Loss: 0.0010, Valid_Loss: 0.0082
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.74420946626385 %
+Epoch [86/100], Train_Loss: 0.0047, Valid_Loss: 0.0401
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.78449144008056 %
+Epoch [87/100], Train_Loss: 0.0006, Valid_Loss: 0.1131
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.74420946626385 %
+Epoch [88/100], Train_Loss: 0.0015, Valid_Loss: 0.0007
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.84491440080564 %
+Epoch [89/100], Train_Loss: 0.0006, Valid_Loss: 0.1538
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.82477341389728 %
+Epoch [90/100], Train_Loss: 0.0014, Valid_Loss: 0.1381
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.90533736153071 %
+Epoch [91/100], Train_Loss: 0.0011, Valid_Loss: 0.1519
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.70392749244714 %
+Epoch [92/100], Train_Loss: 0.0011, Valid_Loss: 0.1103
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.865055387714 %
+Epoch [93/100], Train_Loss: 0.0012, Valid_Loss: 0.0623
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.88519637462235 %
+Epoch [94/100], Train_Loss: 0.0013, Valid_Loss: 0.0634
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.74420946626385 %
+Epoch [95/100], Train_Loss: 0.0011, Valid_Loss: 0.0870
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.96576032225579 %
+Epoch [96/100], Train_Loss: 0.0010, Valid_Loss: 0.0164
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.82477341389728 %
+Epoch [97/100], Train_Loss: 0.0048, Valid_Loss: 0.0041
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.74420946626385 %
+Epoch [98/100], Train_Loss: 0.0020, Valid_Loss: 0.0062
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.84491440080564 %
+Epoch [99/100], Train_Loss: 0.0016, Valid_Loss: 0.1755
+stepping RootP: 50000
+Accuracy of the network on the 4965 validation images: 97.80463242698892 %
+Epoch [100/100], Train_Loss: 0.0020, Valid_Loss: 0.1664
+Training finished
+[]
+WARNING: hash_code not found in staging!
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.008, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.002, 'momentum': 0.15, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'scheduler_object': <Scheduler.RootP object at 0x7fff4c6ec850>, 'validation_loss': 0.166411355137825, 'training_loss': 0.0020456488709896803, 'accuracy': 97.80463242698892}
+======================= Summary ======================
+Mode             : Best f   : Steps : Time            
+---------------- : ----     : ----  : ----            
+Random seeding   : 0.001242 : 2     : 03:34:25 (h:m:s)
+Local sampling   : 0.002307 : 2     : 03:32:57 (h:m:s)
+---------------- : ----     : ----  : ----            
+Total            : 0.001242 : 4     : 07:07:24 (h:m:s)
+======================================================
+~
