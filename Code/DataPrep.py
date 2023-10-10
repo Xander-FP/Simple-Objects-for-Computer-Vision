@@ -17,6 +17,12 @@ class DataPrep:
             valid_set = CustomCIFAR10(root=data_dir, train=True, download=False)
 
         return train_set, valid_set
+    
+    def get_test_datasets(self, data_dir):
+        if 'enerated' in data_dir:
+            return None
+        else:
+            return CustomCIFAR10(root=data_dir, train=False, download=False)
 
 
     def get_train_valid_loader(self, train_set, valid_set, batch_size, random_seed, valid_size=0.1, shuffle=True):

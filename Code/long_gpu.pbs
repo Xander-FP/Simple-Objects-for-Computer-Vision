@@ -6,8 +6,8 @@
 #PBS -q gpu_1
 #PBS -m abe
 #PBS -M xdilo.coetzer@gmail.com
-#PBS -o /mnt/lustre/users/xcoetzer/Test_output
-#PBS -e /mnt/lustre/users/xcoetzer/Test_error
+#PBS -o /mnt/lustre/users/xcoetzer/Long_output
+#PBS -e /mnt/lustre/users/xcoetzer/Long_error
 #PBS
 
 module purge

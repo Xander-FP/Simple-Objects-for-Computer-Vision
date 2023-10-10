@@ -35,12 +35,33 @@ class Trainer:
         self.train_samplers = [None] * size
         self.valid_samplers = [None] * size
         self._load_data()
+
+    def test(self, model, batch_size, criterion):
+
+        test_loader = torch.utils.data.DataLoader(self.test_sets[-1], batch_size=batch_size, shuffle=True)
+
+        with torch.no_grad():
+            correct = 0
+            total = 0
+            for images, labels in test_loader:
+                images = images.to(self.device)
+                labels = labels.to(self.device)
+                outputs = model(images)
+                _, predicted = torch.max(outputs.data, 1)
+                total += labels.size(0)
+                loss = criterion(outputs, labels)
+                correct += (predicted == labels).sum().item()
+                del images, labels, outputs
+            print('Accuracy of the network on the {} test images: {} %'.format(total, 100 * correct / total)) 
+            return loss.item(), 100 * correct / total
     
     def start(self, options, tune, wandb):
         train_options = options
         model = self.model.to(self.device)
-        # maybe not needed
-        # max_epochs = options['epochs']
+        if not options['should_tune']:
+                if not os.path.exists('main_results'):
+                    os.makedirs('main_results')
+                results_file = open(os.path.join('main_results', options['architecture'] + str(time.time()) + '.txt'), 'a')
 
         for i in range(len(self.data_dirs)):
             data_path = self.data_dirs[i]['path']
@@ -65,14 +86,14 @@ class Trainer:
 
             train_options['scheduler_object'] = scheduler
 
-            # TODO: Add augmentation here in a seperate function
             val_loss = self._train(
                 model = model,
                 train_loader = train_loader,
                 valid_loader = valid_loader,
                 tune = tune,
                 wandb = wandb,
-                options = train_options
+                options = train_options,
+                results_file = results_file
                 )
 
             min_res = min(self.early_stopping.history, key=lambda x: x['validation_loss'])
@@ -80,11 +101,9 @@ class Trainer:
             if i != len(self.data_dirs) - 1:
                 self._replace_classifier(model, self.data_dirs[i+1]['classes'], options['architecture'])
             else:
-                return val_loss
-            # return the best and its epoch 
-            # return val_loss
+                return val_loss, model, results_file
 
-    def _train(self, model, tune, wandb, train_loader, valid_loader, options):
+    def _train(self, model, tune, wandb, train_loader, valid_loader, options, results_file):
         # SETUP PHASE
         if options['opt'] == 'sgd':
             print('SGD')
@@ -96,8 +115,6 @@ class Trainer:
         criterion = options['criterion']
         max_epochs = options['epochs']
         model.train()
-        total_step = len(train_loader)
-        file = open(options['architecture'] + str(time.time()) + '.txt', 'a')
         # TRAINING PHASE
         while not scheduler.converged:
             print('Training started')
@@ -119,21 +136,19 @@ class Trainer:
                 valid_loss, acc = self._validate(valid_loader, criterion)
                 print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
                             .format(epoch, max_epochs, train_loss, valid_loss))
-                file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
                 
                 if not options['should_tune']:
+                    results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
                     self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
                 if converged:
                     break
 
-                # if options['should_tune']:
-                    # tune.report({"validation_loss": valid_loss, "training_loss": train_loss, "accuracy": acc})
-
                 if options['report_logs']:
                     wandb.log({"validation_loss": valid_loss, "training_loss": train_loss, "epoch": epoch, "accuracy": acc})
         print('Training finished')
+        results_file.write('\n{******************************Training finished**********************************},\n')
         if options['should_tune']:
             if not os.path.exists('h_results'):
                 os.makedirs('h_results')
@@ -145,22 +160,6 @@ class Trainer:
             file.write(str(options) + '\n\n')
         return valid_loss
         
-
-    def _test(self):
-        with torch.no_grad():
-            correct = 0
-            total = 0
-            for images, labels in test_loader:
-                images = images.to(self.device)
-                labels = labels.to(self.device)
-                outputs = self.model(images)
-                _, predicted = torch.max(outputs.data, 1)
-                total += labels.size(0)
-                correct += (predicted == labels).sum().item()
-                del images, labels, outputs
-
-            print('Accuracy of the network on the {} test images: {} %'.format(10000, 100 * correct / total)) 
-
     def _validate(self, valid_loader, criterion):
         # Validation
         with torch.no_grad():
@@ -183,10 +182,10 @@ class Trainer:
         i = 0
         for dir in self.data_dirs:
             train_set, valid_set = self.data_prep.get_datasets(data_dir=dir['path'], model=self.model)
-            # test_set = DataPrep.get_test_set(data_dir=dir['path'])
+            test_set = self.data_prep.get_test_datasets(data_dir=dir['path'])
             self.train_sets[i] = train_set
             self.valid_sets[i] = valid_set
-            # self.test_sets[i] = test_set
+            self.test_sets[i] = test_set
             i = i + 1
 
     def _prepare_data(self, i, architecture):
@@ -222,11 +221,12 @@ class Trainer:
 
         self.train_sets[i].transform = train_transform
         self.valid_sets[i].transform = valid_transform
-        # self.test_sets[i].transform = test_transform
+        self.test_sets[i].transform = test_transform
         
     def _replace_classifier(self, model, num_classes, architecture):
         self.early_stopping.reset()
-
+        print('Replacing the classifier')
+        print(self.device)
         model.to('cpu')
         if architecture == 'ResNet':
             model.fc = nn.Linear(2048, num_classes)

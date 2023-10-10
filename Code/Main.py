@@ -28,7 +28,7 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 OPTIONS = {
         'architecture': 'AlexNet',
-        'epochs': 100,
+        'epochs': 10,
         'batch_size': 64,
         'learning_rate': 0.0003, #0.0003
         'criterion': nn.CrossEntropyLoss(),
@@ -36,7 +36,7 @@ OPTIONS = {
         'momentum': 0.9,
         'opt': 'sgd',
         'curriculum': True,
-        'report_logs': False,
+        'report_logs': True,
         'should_tune': False,
         'scheduler': 'R' # N for no scheduler, B for BabyStep, R for RootP
     }
@@ -48,8 +48,8 @@ def experiment(conf):
     # This is akin to using the One-Pass scheduler
     data_dirs = [
         # {'path': 'G:\Datasets\Cifar10\Generated_Set1', 'classes': 5, 'name': 'Cifar10Generated'},
-        {'path': 'G:\Datasets\Cifar10\Generated_Set2', 'classes': 70, 'name': 'Cifar10Generated2'}
-        # {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
+        # {'path': 'G:\Datasets\Cifar10\Generated_Set2', 'classes': 75, 'name': 'Cifar10Generated2'},
+        {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
         ]
 
     if conf['architecture'] == 'ResNet':
@@ -60,8 +60,13 @@ def experiment(conf):
 
     # TODO: For the local pacing function -> Look at creating samplers 
     # should_checkpoint = config.get("should_checkpoint", False)
-    best = trainer.start(conf, tune, wandb)
-    return best
+    loss, model, res_file = trainer.start(conf, tune, wandb)
+
+    loss, acc = trainer.test(model, conf['batch_size'], conf['criterion'])
+    res_file.write("\nUSING TEST SET: ")
+    res_file.write("{loss: " + str(loss) + ", acc: " + str(acc) + "}\n")
+
+    return loss
 
 if __name__ == "__main__":
     if OPTIONS['should_tune']:
