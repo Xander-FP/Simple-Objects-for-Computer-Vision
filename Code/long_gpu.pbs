@@ -15,5 +15,5 @@ module add chpc/python/3.6.1_gcc-6.3.0
 
 pushd /mnt/lustre/users/xcoetzer
 source cnn_env/bin/activate
-python code/Main.py
+python code/Main_tune.py
 popd
