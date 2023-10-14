@@ -58,12 +58,29 @@ class Trainer:
     def start(self, options, tune, wandb):
         train_options = options
         model = self.model.to(self.device)
+        folder_path = 'main_results'
+        restored = False
+
+        if os.path.exists('checkpointsRestore'):
+            print('Restoring from checkpoint:')
+            folder_path += 'Restore'
+        
         if not options['should_tune']:
-                if not os.path.exists('main_results'):
-                    os.makedirs('main_results')
-                results_file = open(os.path.join('main_results', options['architecture'] + str(time.time()) + '.txt'), 'a')
+            self.early_stopping.name = options['architecture'] + str(time.time())
+            if not os.path.exists(folder_path):
+                os.makedirs(folder_path)
+            results_file = open(os.path.join(folder_path, options['architecture'] + str(time.time()) + '.txt'), 'a')
+        else:
+            results_file = None
 
         for i in range(len(self.data_dirs)):
+            if os.path.exists('checkpointsRestore') and not restored:
+                print('Loading model from checkpoint')
+                self.early_stopping.load_checkpoint(model, None, options['epochs'] - 1, restore = True)
+                self._replace_classifier(model, self.data_dirs[i + 1]['classes'], options['architecture'])
+                restored = True
+                continue
+
             data_path = self.data_dirs[i]['path']
             print('Training on dataset: ' + data_path)
             self._prepare_data(i, options['architecture'])
@@ -139,7 +156,7 @@ class Trainer:
                 
                 if not options['should_tune']:
                     results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
-                    self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+                self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
                 if converged:
@@ -148,7 +165,8 @@ class Trainer:
                 if options['report_logs']:
                     wandb.log({"validation_loss": valid_loss, "training_loss": train_loss, "epoch": epoch, "accuracy": acc})
         print('Training finished')
-        results_file.write('\n{******************************Training finished**********************************},\n')
+        if not options['should_tune']:
+            results_file.write('\n{******************************Training finished**********************************},\n')
         if options['should_tune']:
             if not os.path.exists('h_results'):
                 os.makedirs('h_results')
@@ -221,7 +239,8 @@ class Trainer:
 
         self.train_sets[i].transform = train_transform
         self.valid_sets[i].transform = valid_transform
-        self.test_sets[i].transform = test_transform
+        if self.test_sets[i] is not None:
+            self.test_sets[i].transform = test_transform
         
     def _replace_classifier(self, model, num_classes, architecture):
         self.early_stopping.reset()

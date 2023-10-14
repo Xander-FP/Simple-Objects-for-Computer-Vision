@@ -26,6 +26,7 @@ if seed is not None:
     torch.backends.cudnn.benchmark = False
     
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
 OPTIONS = {
         'architecture': 'AlexNet',
         'epochs': 80,
@@ -36,7 +37,7 @@ OPTIONS = {
         'momentum': 0.9,
         'opt': 'sgd',
         'curriculum': True,
-        'report_logs': True,
+        'report_logs': False,
         'should_tune': False,
         'scheduler': 'R' # N for no scheduler, B for BabyStep, R for RootP
     }
@@ -47,8 +48,8 @@ def experiment(conf):
 
     # This is akin to using the One-Pass scheduler
     data_dirs = [
-        {'path': './dataset/Generated_Set1', 'classes': 5, 'name': 'Cifar10Generated1'},
-        {'path': './dataset/Generated_Set2', 'classes': 75, 'name': 'Cifar10Generated2'},
+        # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Cifar10Generated1'},
+        # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Cifar10Generated2'},
         {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
         ]
 
@@ -81,7 +82,7 @@ if __name__ == "__main__":
 
         search.run(experiment, "min", "8h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
     else:
-        for i in range(3):
+        for i in range(7):
             experiment(OPTIONS)
 
 
