@@ -1,0 +1,9 @@
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 
+'learning_rate': 0.006, 'criterion': CrossEntropyLoss(), 
+'weight_decay': 0.002, 
+'momentum': 0.15, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R',
+ 'validation_loss': 0.001241666148416698, 'training_loss': 0.0015758840600028634, 'accuracy': 97.82477341389728}
+
+{'architecture': 'ResNet', 'epochs': 100, 'batch_size': 64, 'learning_rate': 0.005, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.002, 
+'momentum': 0.1, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 
+'validation_loss': 0.0023070229217410088, 'training_loss': 0.002812076359987259, 'accuracy': 98.12688821752266}

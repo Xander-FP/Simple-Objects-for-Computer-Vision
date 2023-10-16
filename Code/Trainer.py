@@ -19,11 +19,10 @@ from hashlib import sha256
 class Trainer:
     # @param datasets: A list of paths to the datasets
     # @param model: The model to be trained
-    def __init__(self, data_dirs, model, device, seed = 1):
+    def __init__(self, data_dirs, model, device, dataset_name):
         self.data_dirs = data_dirs
         self.model = model
         self.device = device
-        self.random_seed = seed
         self.early_stopping = EarlyStopping()
         self.valid_size = 0.1
         self.data_prep = DataPrep()
@@ -34,7 +33,7 @@ class Trainer:
         self.test_sets = [None] * size
         self.train_samplers = [None] * size
         self.valid_samplers = [None] * size
-        self._load_data()
+        self._load_data(dataset_name)
 
     def test(self, model, batch_size, criterion):
 
@@ -195,12 +194,13 @@ class Trainer:
             print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
         return loss.item(), 100 * correct / total
     
-    def _load_data(self):
+    def _load_data(self, dataset_name):
         print('loading the data')
+        # Set the datasets
         i = 0
         for dir in self.data_dirs:
-            train_set, valid_set = self.data_prep.get_datasets(data_dir=dir['path'], model=self.model)
-            test_set = self.data_prep.get_test_datasets(data_dir=dir['path'])
+            train_set, valid_set = self.data_prep.get_datasets(data_dir=dir['path'], model=self.model, dataset_name=dataset_name)
+            test_set = self.data_prep.get_test_datasets(data_dir=dir['path'], dataset_name=dataset_name)
             self.train_sets[i] = train_set
             self.valid_sets[i] = valid_set
             self.test_sets[i] = test_set

@@ -7,7 +7,9 @@ from ray import tune
 from ray import train
 import wandb
 import pyhopper
+import sys
 
+print()
 # Generated simple objects:
 # Set 1 contains 10000 images of each shape: ellipse, triangle, rectangle, star, hexagon
 #   The images consist of only black and white pixels and are either filled or not filled.
@@ -28,17 +30,18 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'architecture': 'AlexNet',
+        'dataset_name': sys.argv[2], # 'Cifar10' or 'DTD'
+        'architecture': sys.argv[3], # 'ResNet' or 'AlexNet'
         'epochs': 80,
         'batch_size': 64,
-        'learning_rate': 0.0002,
+        'learning_rate': 0.006,
         'criterion': nn.CrossEntropyLoss(),
-        'weight_decay': 0.008, 
-        'momentum': 0.9,
+        'weight_decay': 0.002, 
+        'momentum': 0.15,
         'opt': 'sgd',
         'curriculum': True,
         'report_logs': False,
-        'should_tune': False,
+        'should_tune': sys.argv[1] == 'True',
         'scheduler': 'R' # N for no scheduler, B for BabyStep, R for RootP
     }
 
@@ -48,18 +51,18 @@ def experiment(conf):
 
     # This is akin to using the One-Pass scheduler
     data_dirs = [
-        # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Cifar10Generated1'},
-        # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Cifar10Generated2'},
-        {'path': './datasets', 'classes': 10, 'name': 'Cifar10'} 
+        # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+        # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+        {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
+        # {'path': './datasets', 'classes': 47, 'name': 'DTD'} 
         ]
 
     if conf['architecture'] == 'ResNet':
         model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
     else:
         model = AlexNet(num_classes=data_dirs[0]['classes'])
-    trainer = Trainer(data_dirs=data_dirs, model=model, device=device, seed=seed)
+    trainer = Trainer(data_dirs=data_dirs, model=model, device=device, dataset_name = conf['dataset_name'])
 
-    # TODO: For the local pacing function -> Look at creating samplers 
     # should_checkpoint = config.get("should_checkpoint", False)
     loss, model, res_file = trainer.start(conf, tune, wandb)
 
@@ -82,7 +85,7 @@ if __name__ == "__main__":
 
         search.run(experiment, "min", "8h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
     else:
-        for i in range(7):
+        for i in range(10):
             experiment(OPTIONS)
 
 
