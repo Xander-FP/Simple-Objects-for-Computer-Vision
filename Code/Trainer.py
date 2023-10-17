@@ -257,7 +257,7 @@ class Trainer:
         print(self.device)
         model.to('cpu')
         if architecture == 'ResNet':
-            model.fc = nn.Linear(2048, num_classes)
+            model.fc = nn.Linear(512, num_classes)
         else:
             model.fc = nn.Sequential(
                 nn.Dropout(0.5),

@@ -52,12 +52,17 @@ def experiment(conf):
         wandb.init(project="cifar10",config=conf)
 
     # This is akin to using the One-Pass scheduler
-    data_dirs = [
-        # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
-        # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-        {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
-        # {'path': './datasets', 'classes': 47, 'name': 'DTD'} 
-        ]
+    if conf['dataset_name'] == 'Cifar10':
+        data_dirs = [
+            # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+            # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+            {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
+            # {'path': './datasets', 'classes': 47, 'name': 'DTD'} 
+            ]
+    else:
+        data_dirs = [
+            {'path': './datasets', 'classes': 47, 'name': 'DTD'} 
+            ]
 
     if conf['architecture'] == 'ResNet':
         model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
@@ -87,7 +92,7 @@ if __name__ == "__main__":
 
         search.run(experiment, "min", "8h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
     else:
-        for i in range(5):
+        for i in range(2):
             experiment(OPTIONS)
 
 
