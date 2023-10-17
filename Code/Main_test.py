@@ -42,7 +42,9 @@ OPTIONS = {
         'curriculum': True,
         'report_logs': False,
         'should_tune': sys.argv[1] == 'True',
-        'scheduler': 'R' # N for no scheduler, B for BabyStep, R for RootP
+        'scheduler': 'R', # N for no scheduler, B for BabyStep, R for RootP
+        'should_restore': False,
+        'new_epoch': 0
     }
 
 def experiment(conf):
@@ -85,7 +87,7 @@ if __name__ == "__main__":
 
         search.run(experiment, "min", "8h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
     else:
-        for i in range(10):
+        for i in range(5):
             experiment(OPTIONS)
 
 

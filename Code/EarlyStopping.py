@@ -25,8 +25,9 @@ class EarlyStopping:
             os.makedirs('checkpoints' + self.name)
         if epoch > self.tolerance:
             delete_path = 'checkpoints' + self.name + '/epoch' + str(epoch - self.tolerance - 1) + '.pt'
-            os.remove(delete_path)
-            self.history.pop(0)
+            if os.path.exists(delete_path):
+                os.remove(delete_path)
+                self.history.pop(0)
         path = 'checkpoints' + self.name + '/epoch' + str(epoch) + '.pt'
         torch.save({
             'model_state_dict': model.state_dict(),

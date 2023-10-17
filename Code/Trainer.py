@@ -59,8 +59,14 @@ class Trainer:
         model = self.model.to(self.device)
         folder_path = 'main_results'
         restored = False
+        options['start_epoch'] = 0
 
-        if os.path.exists('checkpointsRestore'):
+        if options['should_restore']:
+            print('Restoring from epoch: ' + str(options['new_epoch']) + ' in checkpoint: ')
+            restored = True
+            self.early_stopping.load_checkpoint(model, None, options['new_epoch'] - 1, restore = True)
+            options['start_epoch'] = options['new_epoch']
+        elif os.path.exists('checkpointsRestore'):
             print('Restoring from checkpoint:')
             folder_path += 'Restore'
         
@@ -111,6 +117,8 @@ class Trainer:
                 options = train_options,
                 results_file = results_file
                 )
+            
+            options['start_epoch'] = 0
 
             min_res = min(self.early_stopping.history, key=lambda x: x['validation_loss'])
             self.early_stopping.load_checkpoint(model, None, min_res['epoch'])
@@ -130,11 +138,12 @@ class Trainer:
         scheduler = options['scheduler_object']
         criterion = options['criterion']
         max_epochs = options['epochs']
+        start_epoch = options['start_epoch']
         model.train()
         # TRAINING PHASE
         while not scheduler.converged:
             print('Training started')
-            for epoch in range(max_epochs):
+            for epoch in range(start_epoch, max_epochs):
                 for i, (images, labels) in enumerate(train_loader):  
                     images = images.to(self.device)
                     labels = labels.to(self.device)
