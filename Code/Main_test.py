@@ -39,10 +39,10 @@ OPTIONS = {
         'weight_decay': 0.002, 
         'momentum': 0.15,
         'opt': 'sgd',
-        'curriculum': True,
+        'curriculum': False,
         'report_logs': False,
         'should_tune': sys.argv[1] == 'True',
-        'scheduler': 'R', # N for no scheduler, B for BabyStep, R for RootP
+        'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0
     }
@@ -57,7 +57,6 @@ def experiment(conf):
             # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
             # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
             {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
-            # {'path': './datasets', 'classes': 47, 'name': 'DTD'} 
             ]
     else:
         data_dirs = [
@@ -92,7 +91,7 @@ if __name__ == "__main__":
 
         search.run(experiment, "min", "8h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
     else:
-        for i in range(2):
+        for i in range(10):
             experiment(OPTIONS)
 
 

@@ -11,8 +11,11 @@ class Scheduler:
         self.converged = False
 
     def adjust_available_data(self, early_stopping, train_loss, valid_loss):
+        self.epoch += 1
         print('General stepping - All data available')
         self.converged = True
+        if self.epoch < 60:
+            return False
         return early_stopping(train_loss, valid_loss)
 
     def get_initial_indexes(self):
