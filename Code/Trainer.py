@@ -164,7 +164,8 @@ class Trainer:
                 
                 if not options['should_tune']:
                     results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
-                self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+                if epoch > 60:
+                    self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
                 if converged:

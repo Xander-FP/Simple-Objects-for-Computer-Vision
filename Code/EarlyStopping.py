@@ -17,6 +17,8 @@ class EarlyStopping:
             if self.counter >= self.tolerance:  
                 print('Early Stopping: CONVERGED')
                 self.early_stop = True
+        else:
+            self.counter = 0
         self.prev_loss = validation_loss
         return self.early_stop
         

@@ -14,7 +14,7 @@ class Scheduler:
         self.epoch += 1
         print('General stepping - All data available')
         self.converged = True
-        if self.epoch < 60:
+        if self.epoch < 5:
             return False
         return early_stopping(train_loss, valid_loss)
 

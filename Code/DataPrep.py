@@ -10,6 +10,7 @@ class DataPrep:
     def get_datasets(self, data_dir, model, dataset_name):
         # TODO: Let CustomDataset handle CIFAR10 and ImageNet retrieval
         if 'enerated' in data_dir:
+            data_dir = data_dir + '/Training'
             train_set = CustomDataset(data_path=data_dir, model=model)
             valid_set = CustomDataset(data_path=data_dir, model=model)
         else:
@@ -27,7 +28,8 @@ class DataPrep:
     
     def get_test_datasets(self, data_dir, dataset_name):
         if 'enerated' in data_dir:
-            return None
+            data_dir = data_dir + '/Testing'
+            return CustomDataset(data_path=data_dir, model=None)
         else:
             if dataset_name == 'Cifar10':
                 return CustomCIFAR10(root=data_dir, train=False, download=False)
