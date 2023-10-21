@@ -30,14 +30,14 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': sys.argv[2], # 'Cifar10' or 'DTD'
+        'dataset_name': sys.argv[2], # 'Cifar10' or 'Brain'
         'architecture': sys.argv[3], # 'ResNet' or 'AlexNet'
-        'epochs': 70,
+        'epochs': 70, # Cifar10: 80, Brain: 70
         'batch_size': 64,
-        'learning_rate': 0.0002, # 0.006
+        'learning_rate': 0.0003, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'criterion': nn.CrossEntropyLoss(),
-        'weight_decay': 0.008, # 0.002
-        'momentum': 0.9, # 0.15
+        'weight_decay': 0.01, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
+        'momentum': 0.9, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
         'curriculum': False,
         'report_logs': False,
@@ -61,7 +61,7 @@ def experiment(conf):
             ]
     else:
         data_dirs = [
-            {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 47, 'name': 'Other'} 
+            {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 47, 'name': 'Brain'} 
             ]
 
     if conf['architecture'] == 'ResNet':
@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(5):
+        for i in range(10):
             experiment(OPTIONS)
 
 
