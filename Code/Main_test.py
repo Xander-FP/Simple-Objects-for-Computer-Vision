@@ -31,7 +31,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
         'dataset_name': 'Cifar10', # 'Cifar10' or 'DTD'
-        'architecture': AlexNet, # 'ResNet' or 'AlexNet'
+        'architecture': 'AlexNet', # 'ResNet' or 'AlexNet'
         'epochs': 80, #70
         'batch_size': 64,
         'learning_rate': 0.0002, # 0.006
