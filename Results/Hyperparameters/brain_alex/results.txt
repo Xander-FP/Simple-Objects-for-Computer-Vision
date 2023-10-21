@@ -14,11 +14,13 @@
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.004, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.04, 'momentum': 0.25, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x0000021C4EBEBAF0>, 'validation_loss': 0.023724449798464775, 'training_loss': 0.011538458988070488, 'accuracy': 99.61538461538461}
 
+
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.54, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53CF10>, 'validation_loss': 0.07425165176391602, 'training_loss': 0.02868749387562275, 'accuracy': 98.84615384615384}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.54, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F07FBB0>, 'validation_loss': 0.03764926642179489, 'training_loss': 0.029453132301568985, 'accuracy': 98.07692307692308}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.54, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F1E10>, 'validation_loss': 0.04110616818070412, 'training_loss': 0.027809977531433105, 'accuracy': 99.61538461538461}
+
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0004, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.65, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53FBB0>, 'validation_loss': 0.08798234164714813, 'training_loss': 0.1485690176486969, 'accuracy': 97.6923076923077}
 
@@ -26,11 +28,13 @@
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0004, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.65, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F3B80>, 'validation_loss': 0.08168996870517731, 'training_loss': 0.1256536990404129, 'accuracy': 97.3076923076923}
 
+
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.001, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.03, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53F310>, 'validation_loss': 0.014768162742257118, 'training_loss': 0.007383198011666536, 'accuracy': 98.07692307692308}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.001, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.03, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53E0E0>, 'validation_loss': 0.0010210187174379826, 'training_loss': 0.00314460345543921, 'accuracy': 98.07692307692308}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.001, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.03, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F3BB0>, 'validation_loss': 0.09204971045255661, 'training_loss': 0.04753897339105606, 'accuracy': 99.23076923076923}
+
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.53, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F07FA60>, 'validation_loss': 0.23803463578224182, 'training_loss': 0.0750737264752388, 'accuracy': 96.15384615384616}
 
@@ -38,11 +42,13 @@
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.53, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F3280>, 'validation_loss': 0.03855457156896591, 'training_loss': 0.06873758882284164, 'accuracy': 99.61538461538461}
 
+
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0005, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F07FD90>, 'validation_loss': 0.07855059206485748, 'training_loss': 0.07394708693027496, 'accuracy': 97.6923076923077}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0005, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53DC00>, 'validation_loss': 0.3320353627204895, 'training_loss': 0.13826879858970642, 'accuracy': 95.38461538461539}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0005, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.1, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F25F0>, 'validation_loss': 0.05307009071111679, 'training_loss': 0.06872250884771347, 'accuracy': 99.61538461538461}
+
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.001, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F07F9D0>, 'validation_loss': 0.1146015077829361, 'training_loss': 0.01968885026872158, 'accuracy': 98.46153846153847}
 
@@ -50,11 +56,13 @@
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.001, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F2200>, 'validation_loss': 0.12075193971395493, 'training_loss': 0.059105295687913895, 'accuracy': 96.92307692307692}
 
+
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.52, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53FE80>, 'validation_loss': 0.014330909587442875, 'training_loss': 0.012483992613852024, 'accuracy': 98.46153846153847}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.52, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53EF80>, 'validation_loss': 0.01789812371134758, 'training_loss': 0.015360190533101559, 'accuracy': 100.0}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.52, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F12A0>, 'validation_loss': 0.07781144231557846, 'training_loss': 0.07431934028863907, 'accuracy': 99.23076923076923}
+
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0006, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F07FE20>, 'validation_loss': 0.18088412284851074, 'training_loss': 0.03957648575305939, 'accuracy': 98.84615384615384}
 
@@ -62,11 +70,13 @@
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0006, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.69, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F35B0>, 'validation_loss': 0.1307929903268814, 'training_loss': 0.057030558586120605, 'accuracy': 98.46153846153847}
 
+
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0009, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.09, 'momentum': 0.39, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F07FB20>, 'validation_loss': 0.1041305810213089, 'training_loss': 0.09020751714706421, 'accuracy': 97.6923076923077}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0009, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.09, 'momentum': 0.39, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F53E710>, 'validation_loss': 0.18382035195827484, 'training_loss': 0.09642273932695389, 'accuracy': 98.46153846153847}
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.0009, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.09, 'momentum': 0.39, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F5F1690>, 'validation_loss': 0.019615883007645607, 'training_loss': 0.2022787630558014, 'accuracy': 96.53846153846153}
+
 
 {'dataset_name': 'Cifar10', 'architecture': 'AlexNet', 'epochs': 70, 'batch_size': 64, 'learning_rate': 0.002, 'criterion': CrossEntropyLoss(), 'weight_decay': 0.06, 'momentum': 0.62, 'opt': 'sgd', 'curriculum': True, 'report_logs': False, 'should_tune': True, 'scheduler': 'R', 'should_restore': False, 'new_epoch': 0, 'start_epoch': 0, 'scheduler_object': <Scheduler.RootP object at 0x000001D50F07FB50>, 'validation_loss': 0.10981476306915283, 'training_loss': 0.04311126843094826, 'accuracy': 96.53846153846153}
 
