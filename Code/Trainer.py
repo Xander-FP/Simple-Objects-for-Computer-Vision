@@ -164,7 +164,8 @@ class Trainer:
                 
                 if not options['should_tune']:
                     results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
-                self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+                if epoch > 60:
+                    self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
                 if converged:
@@ -296,22 +297,13 @@ class Trainer:
         sorted_predictions = self.sort_by_error(predictions)
 
         # Write the sorted predictions to a file
-        path = 'predictions/' + name + str(time.time()) +'.txt'
-        if not os.path.exists('predictions'):
-            os.makedirs('predictions')
-        if not os.path.exists(path):
-            np.savetxt(path, sorted_predictions, fmt='%i')
+        # path = 'predictions/' + name + str(time.time()) +'.txt'
+        # if not os.path.exists('predictions'):
+        #     os.makedirs('predictions')
+        # if not os.path.exists(path):
+        #     np.savetxt(path, sorted_predictions, fmt='%i')
         data_set.reorder(sorted_predictions)
         print('data ordered')
 
     def sort_by_error(self, predictions):
         return sorted(predictions, key=lambda x: x[0])
-    
-    def _augment_data(self):
-        train_transform = transforms.Compose([
-            transforms.RandomCrop(32, padding=4),
-            transforms.RandomHorizontalFlip(),
-            transforms.Resize((size,size)),
-            transforms.ToTensor(),
-            normalize,
-        ])

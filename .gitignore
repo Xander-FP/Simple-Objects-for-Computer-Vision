@@ -1,12 +1,13 @@
+*.pt
 __pycache__
 A2
 all_cnn_env
 all_cnn_env2
+AAOldCode.txt
 cnn_env
 checkpoints
 datasets
 Example
 OCR
 Synthetic data generation
-AAOldCode.txt
-*.pt
+Trash

@@ -32,17 +32,17 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 OPTIONS = {
         'dataset_name': sys.argv[2], # 'Cifar10' or 'DTD'
         'architecture': sys.argv[3], # 'ResNet' or 'AlexNet'
-        'epochs': 80,
+        'epochs': 70,
         'batch_size': 64,
-        'learning_rate': 0.006,
+        'learning_rate': 0.0002, # 0.006
         'criterion': nn.CrossEntropyLoss(),
-        'weight_decay': 0.002, 
-        'momentum': 0.15,
+        'weight_decay': 0.008, # 0.002
+        'momentum': 0.9, # 0.15
         'opt': 'sgd',
-        'curriculum': True,
+        'curriculum': False,
         'report_logs': False,
         'should_tune': sys.argv[1] == 'True',
-        'scheduler': 'R', # N for no scheduler, B for BabyStep, R for RootP
+        'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0
     }
@@ -57,11 +57,11 @@ def experiment(conf):
             # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
             # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
             {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
-            # {'path': './datasets', 'classes': 47, 'name': 'DTD'} 
+            # {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 4, 'name': 'Brain1'} 
             ]
     else:
         data_dirs = [
-            {'path': './datasets', 'classes': 47, 'name': 'DTD'} 
+            {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 47, 'name': 'Other'} 
             ]
 
     if conf['architecture'] == 'ResNet':
@@ -90,9 +90,9 @@ if __name__ == "__main__":
             OPTIONS
         )
 
-        search.run(experiment, "min", "8h", n_jobs='per-gpu', checkpoint_path="new_test.ckpt")
+        search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(2):
+        for i in range(5):
             experiment(OPTIONS)
 
 

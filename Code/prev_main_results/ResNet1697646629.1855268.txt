@@ -1,0 +1,19 @@
+{Epoch 0, Train_Loss: 1.6506671905517578, Valid_Loss: 1.1330382823944092, Accuracy: 47.12},
+{Epoch 1, Train_Loss: 1.2876628637313843, Valid_Loss: 0.3079764246940613, Accuracy: 62.92},
+{Epoch 2, Train_Loss: 0.5664607882499695, Valid_Loss: 0.8789616823196411, Accuracy: 66.96},
+{Epoch 3, Train_Loss: 2.5352137088775635, Valid_Loss: 1.382694125175476, Accuracy: 68.1},
+{Epoch 4, Train_Loss: 0.379088819026947, Valid_Loss: 1.1540156602859497, Accuracy: 74.68},
+{Epoch 5, Train_Loss: 0.31915658712387085, Valid_Loss: 0.2688233256340027, Accuracy: 76.26},
+{Epoch 6, Train_Loss: 0.4768046438694, Valid_Loss: 0.9263107776641846, Accuracy: 70.42},
+{Epoch 7, Train_Loss: 0.16924205422401428, Valid_Loss: 0.4531528651714325, Accuracy: 77.14},
+{Epoch 8, Train_Loss: 0.02992229163646698, Valid_Loss: 0.7347325086593628, Accuracy: 79.96},
+{Epoch 9, Train_Loss: 0.06976177543401718, Valid_Loss: 0.07140668481588364, Accuracy: 78.62},
+{Epoch 10, Train_Loss: 0.7584860324859619, Valid_Loss: 1.6915040016174316, Accuracy: 60.7},
+{Epoch 11, Train_Loss: 0.17636613547801971, Valid_Loss: 1.1494944095611572, Accuracy: 76.2},
+{Epoch 12, Train_Loss: 0.010683993808925152, Valid_Loss: 0.083351731300354, Accuracy: 80.96},
+{Epoch 13, Train_Loss: 0.4433515965938568, Valid_Loss: 0.019512619823217392, Accuracy: 74.22},
+{Epoch 14, Train_Loss: 0.24826355278491974, Valid_Loss: 0.4860929846763611, Accuracy: 77.56},
+
+{******************************Training finished**********************************},
+
+USING TEST SET: {loss: 0.9129094481468201, acc: 74.27}
