@@ -61,7 +61,7 @@ def experiment(conf):
             ]
     else:
         data_dirs = [
-            {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 47, 'name': 'Brain'} 
+            {'path': 'G:\Datasets\Brain_Tumor1', 'classes': 4, 'name': 'Brain'} 
             ]
 
     if conf['architecture'] == 'ResNet':
