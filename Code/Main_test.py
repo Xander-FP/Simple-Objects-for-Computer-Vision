@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(8):
+        for i in range(10):
             experiment(OPTIONS)
 
 
