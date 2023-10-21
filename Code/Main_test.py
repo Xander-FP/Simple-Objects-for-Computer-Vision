@@ -30,9 +30,9 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': sys.argv[2], # 'Cifar10' or 'DTD'
-        'architecture': sys.argv[3], # 'ResNet' or 'AlexNet'
-        'epochs': 70,
+        'dataset_name': 'Cifar10', # 'Cifar10' or 'DTD'
+        'architecture': ResNet, # 'ResNet' or 'AlexNet'
+        'epochs': 80, #70
         'batch_size': 64,
         'learning_rate': 0.0002, # 0.006
         'criterion': nn.CrossEntropyLoss(),
@@ -41,7 +41,7 @@ OPTIONS = {
         'opt': 'sgd',
         'curriculum': False,
         'report_logs': False,
-        'should_tune': sys.argv[1] == 'True',
+        'should_tune': False,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0

@@ -15,8 +15,8 @@ class DataPrep:
             valid_set = CustomDataset(data_path=data_dir, model=model)
         else:
             if dataset_name == 'Cifar10':
-                train_set = CustomCIFAR10(root=data_dir, train=True, download=False)
-                valid_set = CustomCIFAR10(root=data_dir, train=True, download=False)
+                train_set = CustomCIFAR10(root=data_dir, train=True, download=True)
+                valid_set = CustomCIFAR10(root=data_dir, train=True, download=True)
             elif dataset_name == 'DTD':
                 train_set = CustomDTD(root=data_dir, split='train', download=False)
                 valid_set = CustomDTD(root=data_dir, split='val', download=False)
