@@ -34,15 +34,15 @@ OPTIONS = {
         'architecture': sys.argv[3], # 'ResNet' or 'AlexNet'
         'epochs': 70,
         'batch_size': 64,
-        'learning_rate': 0.006,
+        'learning_rate': 0.0002, # 0.006
         'criterion': nn.CrossEntropyLoss(),
-        'weight_decay': 0.002, 
-        'momentum': 0.15,
+        'weight_decay': 0.008, # 0.002
+        'momentum': 0.9, # 0.15
         'opt': 'sgd',
-        'curriculum': True,
+        'curriculum': False,
         'report_logs': False,
         'should_tune': sys.argv[1] == 'True',
-        'scheduler': 'R', # N for no scheduler, B for BabyStep, R for RootP
+        'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0
     }
@@ -56,8 +56,8 @@ def experiment(conf):
         data_dirs = [
             # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
             # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-            # {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
-            {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 4, 'name': 'Brain1'} 
+            {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
+            # {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 4, 'name': 'Brain1'} 
             ]
     else:
         data_dirs = [
@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(10):
+        for i in range(5):
             experiment(OPTIONS)
 
 

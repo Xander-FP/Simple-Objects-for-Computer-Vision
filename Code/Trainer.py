@@ -297,22 +297,13 @@ class Trainer:
         sorted_predictions = self.sort_by_error(predictions)
 
         # Write the sorted predictions to a file
-        path = 'predictions/' + name + str(time.time()) +'.txt'
-        if not os.path.exists('predictions'):
-            os.makedirs('predictions')
-        if not os.path.exists(path):
-            np.savetxt(path, sorted_predictions, fmt='%i')
+        # path = 'predictions/' + name + str(time.time()) +'.txt'
+        # if not os.path.exists('predictions'):
+        #     os.makedirs('predictions')
+        # if not os.path.exists(path):
+        #     np.savetxt(path, sorted_predictions, fmt='%i')
         data_set.reorder(sorted_predictions)
         print('data ordered')
 
     def sort_by_error(self, predictions):
         return sorted(predictions, key=lambda x: x[0])
-    
-    def _augment_data(self):
-        train_transform = transforms.Compose([
-            transforms.RandomCrop(32, padding=4),
-            transforms.RandomHorizontalFlip(),
-            transforms.Resize((size,size)),
-            transforms.ToTensor(),
-            normalize,
-        ])
