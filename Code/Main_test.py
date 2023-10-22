@@ -39,10 +39,10 @@ OPTIONS = {
         'weight_decay': 0.01, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
         'momentum': 0.9, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
-        'curriculum': False,
+        'curriculum': True,
         'report_logs': False,
         'should_tune': sys.argv[1] == 'True',
-        'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
+        'scheduler': 'R', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0
     }
@@ -59,9 +59,17 @@ def experiment(conf):
             {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
             # {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 4, 'name': 'Brain1'} 
             ]
+    elif conf['dataset_name'] == 'Brain':
+        data_dirs = [
+            {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+            {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+            {'path': 'G:\Datasets\Brain_Tumor1', 'classes': 4, 'name': 'Brain'} 
+            ]
     else:
         data_dirs = [
-            {'path': 'G:\Datasets\Brain_Tumor1', 'classes': 4, 'name': 'Brain'} 
+            {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+            {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+            {'path': 'G:/Datasets/farm_insects_Brain', 'classes': 15, 'name': 'CIFAR'} 
             ]
 
     if conf['architecture'] == 'ResNet':
@@ -92,7 +100,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(10):
+        for i in range(6):
             experiment(OPTIONS)
 
 
