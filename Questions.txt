@@ -1,0 +1,12 @@
+Early stopping did not work great
+    -> Should I do some experiments to show that the training can be less for certain datasets?
+    -> Should 70/80 epochs be less for the simple objects?
+    -> What is the effect of this?
+
+It works, but it is not optimised.
+
+Early stopping
+
+Bad training accuracy, but good test accuracy
+
+Good training accuracy, but bad test accuracy
