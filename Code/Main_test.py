@@ -62,7 +62,7 @@ def experiment(conf):
     elif conf['dataset_name'] == 'Brain':
         data_dirs = [
             {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
-            # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+            {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
             {'path': 'G:\Datasets\Brain_Tumor1', 'classes': 4, 'name': 'Brain'} 
             ]
     else:
@@ -100,7 +100,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(3):
+        for i in range(5):
             experiment(OPTIONS)
 
 
