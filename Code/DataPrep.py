@@ -9,8 +9,11 @@ from PIL import ImageStat
 class DataPrep:
     def get_datasets(self, data_dir, model, dataset_name):
         # TODO: Let CustomDataset handle CIFAR10 and ImageNet retrieval
-        if 'enerated' in data_dir:
+        if 'Brain' in data_dir:
             data_dir = data_dir + '/Training'
+            train_set = CustomDataset(data_path=data_dir, model=model)
+            valid_set = CustomDataset(data_path=data_dir, model=model)
+        elif 'enerated' in data_dir:
             train_set = CustomDataset(data_path=data_dir, model=model)
             valid_set = CustomDataset(data_path=data_dir, model=model)
         else:
@@ -27,14 +30,15 @@ class DataPrep:
         return train_set, valid_set
     
     def get_test_datasets(self, data_dir, dataset_name):
-        if 'enerated' in data_dir:
+        if 'Brain' in data_dir:
             data_dir = data_dir + '/Testing'
             return CustomDataset(data_path=data_dir, model=None)
-        else:
-            if dataset_name == 'Cifar10':
-                return CustomCIFAR10(root=data_dir, train=False, download=False)
-            elif dataset_name == 'DTD':
-                return CustomDTD(root=data_dir, split='test', download=False)
+        if 'enerated' in data_dir:
+            return None
+        if dataset_name == 'Cifar10':
+            return CustomCIFAR10(root=data_dir, train=False, download=False)
+        elif dataset_name == 'DTD':
+            return CustomDTD(root=data_dir, split='test', download=False)
 
 
     def get_train_valid_loader(self, train_set, valid_set, batch_size, random_seed, valid_size=0.1, shuffle=True):
