@@ -1,4 +1,5 @@
 *.pt
+*.pth
 __pycache__
 A2
 all_cnn_env

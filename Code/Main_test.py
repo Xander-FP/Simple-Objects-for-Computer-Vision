@@ -61,8 +61,8 @@ def experiment(conf):
             ]
     elif conf['dataset_name'] == 'Brain':
         data_dirs = [
-            {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
-            {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+            # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+            # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
             {'path': 'G:\Datasets\Brain_Tumor1', 'classes': 4, 'name': 'Brain'} 
             ]
     else:
@@ -73,9 +73,14 @@ def experiment(conf):
             ]
 
     if conf['architecture'] == 'ResNet':
-        model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
+        # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
+        # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
+        model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
     else:
-        model = AlexNet(num_classes=data_dirs[0]['classes'])
+        model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
+        # torch.save(model.state_dict(), 'alexnet.pth')
+        # model = AlexNet(num_classes=data_dirs[0]['classes'])
+
     trainer = Trainer(data_dirs=data_dirs, model=model, device=device, dataset_name = conf['dataset_name'])
 
     # should_checkpoint = config.get("should_checkpoint", False)
@@ -100,7 +105,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(1):
+        for i in range(10):
             experiment(OPTIONS)
 
 
