@@ -1,0 +1,53 @@
+************************QUESTIONS****************************
+Early stopping did not work great to actually stop the training (It works, but it is not optimised.)
+    - Evidence suggests that less epochs can be used, but we did not test this.
+    - Future work
+
+Bad training accuracy, but good test accuracy, Good training accuracy, but bad test accuracy
+    - Bad dataset split?
+    - Overfitting? 
+
+
+Is it better to perform half of an ablation study or none at all?
+    - Only on one dataset for example
+
+Why is the performance on AlexNet better than ResNet?
+    - Gets convoluted?
+    - Overfits?
+    - Not enough information to learn?
+
+Can you create another shared overleaf project?
+
+**List software -> Have a public github
+
+-> Keep having the Libraries
+
+-> Aim for Saturday
+
+Should I still have a section for programming languages and Libraries
+    - How in depth into the convoluted
+    - Theoretically oversighted topics as applied.
+
+***************************HINTS****************************
+When talking about hyper parameter tuning: 
+    - We selected Adequate parameters
+
+Graphs to draw + Stats to compute:
+    - Convergence plots that include the std (plot line with deviation)
+        - Baseline vs Proposed
+    - Line graphs for convergence
+    - Tables for final best performance
+    - Box and whisker -> for outliers?
+    - Graphs that give additional insights 
+
+    - Hypothesis testing -> Will coxin rank sum test
+        null -> Samples from same distro
+        what we want-> Smaples from different distro
+        -> Calculate p values
+
+    - Add some discussion points about how it was ordered.
+        - After 5 epochs 
+
+Networks to use:
+    - ResNet and AlexNet
+    - The goal is to show the performance due to 
