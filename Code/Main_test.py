@@ -30,7 +30,7 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': 'Cifar', # 'Cifar10' or 'Brain'
+        'dataset_name': 'Cifar10', # 'Cifar10' or 'Brain'
         'architecture': 'AlexNet', # 'ResNet' or 'AlexNet'
         'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 64,
