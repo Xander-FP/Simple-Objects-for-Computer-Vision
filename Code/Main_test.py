@@ -30,19 +30,19 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': sys.argv[2], # 'Cifar10' or 'Brain'
-        'architecture': sys.argv[3], # 'ResNet' or 'AlexNet'
-        'epochs': 70, # Cifar10: 80, Brain: 70
+        'dataset_name': 'Cifar', # 'Cifar10' or 'Brain'
+        'architecture': 'AlexNet', # 'ResNet' or 'AlexNet'
+        'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 64,
-        'learning_rate': 0.0003, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
+        'learning_rate': 0.0002, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'criterion': nn.CrossEntropyLoss(),
-        'weight_decay': 0.01, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
+        'weight_decay': 0.008, # Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
         'momentum': 0.9, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
-        'curriculum': True,
+        'curriculum': False,
         'report_logs': False,
-        'should_tune': sys.argv[1] == 'True',
-        'scheduler': 'R', # N for no scheduler, B for BabyStep, R for RootP
+        'should_tune': False,
+        'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0
     }
