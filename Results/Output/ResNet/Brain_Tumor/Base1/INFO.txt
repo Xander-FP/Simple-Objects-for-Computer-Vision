@@ -1,1 +1,1 @@
-Half trained, mostly locally
+[Half trained, mostly locally}]

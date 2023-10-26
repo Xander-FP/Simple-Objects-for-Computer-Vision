@@ -30,18 +30,18 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': sys.argv[2], # 'Cifar10' or 'Brain'
-        'architecture': sys.argv[3], # 'ResNet' or 'AlexNet'
-        'epochs': 70, # Cifar10: 80, Brain: 70
-        'batch_size': 64,
-        'learning_rate': 0.001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
+        'dataset_name': 'Cifar10', # 'Cifar10' or 'Brain'
+        'architecture': 'ResNet', # 'ResNet' or 'AlexNet'
+        'epochs': 80, # Cifar10: 80, Brain: 70
+        'batch_size': 32,
+        'learning_rate': 0.006, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'criterion': nn.CrossEntropyLoss(),
-        'weight_decay': 0.03, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
-        'momentum': 0.69, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
+        'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
+        'momentum': 0.15, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
         'curriculum': False,
         'report_logs': False,
-        'should_tune': sys.argv[1] == 'True',
+        'should_tune': False,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0
@@ -77,9 +77,9 @@ def experiment(conf):
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
         # model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
     else:
-        # model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
+        model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
         # torch.save(model.state_dict(), 'alexnet.pth')
-        model = AlexNet(num_classes=data_dirs[0]['classes'])
+        # model = AlexNet(num_classes=data_dirs[0]['classes'])
 
     trainer = Trainer(data_dirs=data_dirs, model=model, device=device, dataset_name = conf['dataset_name'])
 
