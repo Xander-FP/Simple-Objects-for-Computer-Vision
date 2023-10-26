@@ -1,3 +1,16 @@
+****************NOTES******************
+We want to say something about early stopping -> Either when talking about our methodology or in our results discussion
+
+Datasets -> Why we selected them.
+
+Local pace -> Proof that that option is a good/the best option from other work
+
+Simple object generation -> Check if you mention twice about the idea of simple objects
+
+Complexity: refers to the structural complexity of the image. This includes attributes like dimensionality, number of lines and number of objects in the image.
+Diversity: is defined in terms of a specific subset of images, in particular, it refers to the variety of objects contained in that subset of images. The diversity of a subset of images can be measured by analysing the information entropy for the set i.e., the measure of randomness of the data in the set \cite{wang2022survey}.
+Noise: refers to the amount of random variation of colour in an image that does not relate to the object that has to be identified in the image. An image where the background consists of only one colour is thus considered to be less noisy than an image with a multi-coloured background.
+
 ************************QUESTIONS****************************
 Early stopping did not work great to actually stop the training (It works, but it is not optimised.)
     - Evidence suggests that less epochs can be used, but we did not test this.

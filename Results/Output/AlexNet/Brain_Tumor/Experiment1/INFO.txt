@@ -1,1 +1,3 @@
 Training on cluster (NO CL)
+And locally
+And on desktop
