@@ -1,6 +1,4 @@
 ****************NOTES******************
-We want to say something about early stopping -> Either when talking about our methodology or in our results discussion
-
 Datasets -> Why we selected them.
 
 Local pace -> Proof that that option is a good/the best option from other work
@@ -20,16 +18,10 @@ Bad training accuracy, but good test accuracy, Good training accuracy, but bad t
     - Bad dataset split?
     - Overfitting? 
 
-
-Is it better to perform half of an ablation study or none at all?
-    - Only on one dataset for example
-
 Why is the performance on AlexNet better than ResNet?
     - Gets convoluted?
     - Overfits?
     - Not enough information to learn?
-
-Can you create another shared overleaf project?
 
 **List software -> Have a public github
 
