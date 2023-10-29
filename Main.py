@@ -52,7 +52,7 @@ def plot_train_generated(experiment1, experiment2):
     ax2.legend()
     plt.show()
 
-reader = JSONFileReader(os.path.join(RESULTS_PATH,ALEX_BRAIN_EXPERIMENT_1))
+reader = JSONFileReader(os.path.join(RESULTS_PATH,RESNET_CIFAR_PRETRAINED))
 
 base1 = reader.read_all_json_files(os.path.join(RESULTS_PATH,ALEX_BRAIN_BASE_1))
 base2 = reader.read_all_json_files(os.path.join(RESULTS_PATH,ALEX_BRAIN_BASE_2))
