@@ -73,9 +73,9 @@ def experiment(conf):
             ]
 
     if conf['architecture'] == 'ResNet':
-        model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
+        # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
-        # model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
+        model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
     else:
         model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
         # torch.save(model.state_dict(), 'alexnet.pth')
