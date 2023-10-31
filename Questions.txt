@@ -3,6 +3,9 @@ Define early stopping in CL approach along with convergence or define early stop
 
 Talk about how and where we apply early stopping -> Also talk about 
 
+In the Mann-Whitney U section talk about hypothesis testing and what we are testing
+Here we can state our null and alternative hypothesis.
+
 Look at the train loss as well.
 ************************QUESTIONS****************************
 Early stopping did not work great to actually stop the training (It works, but it is not optimised.)
@@ -18,20 +21,14 @@ Why is the performance on AlexNet better than ResNet?
     - Overfits?
     - Not enough information to learn?
 
-**List software -> Have a public github
+ Talk about losss as well
 
--> Keep having the Libraries
+**List software -> Have a public github + upload datasets on Kaggle
 
--> Aim for Saturday
+Also show some type of graph ... maybe a heatmap? -> As an extension on Monday.
 
-Should I still have a section for programming languages and Libraries
-    - How in depth into the convoluted
-    - Theoretically oversighted topics as applied.
 
 ***************************HINTS****************************
-When talking about hyper parameter tuning: 
-    - We selected Adequate parameters
-
 Graphs to draw + Stats to compute:
     - Convergence plots that include the std (plot line with deviation)
         - Baseline vs Proposed
@@ -50,4 +47,4 @@ Graphs to draw + Stats to compute:
 
 Networks to use:
     - ResNet and AlexNet
-    - The goal is to show the performance due to 
+    - The goal is to show the performance due to simple objects

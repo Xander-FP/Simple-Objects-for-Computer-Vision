@@ -1,0 +1,1170 @@
+*******************Base1*******************
+Mean:
+loss     1.476169
+acc     68.096447
+dtype: float64
+Median:
+loss     1.452654
+acc     67.893401
+dtype: float64
+Std:
+loss    0.783252
+acc     1.425995
+dtype: float64
+Max:
+loss     2.695650
+acc     69.796954
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.814206
+acc     62.106599
+dtype: float64
+Median:
+loss     1.457739
+acc     62.817259
+dtype: float64
+Std:
+loss    1.186114
+acc     3.922942
+dtype: float64
+Max:
+loss     3.953902
+acc     70.050761
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.721187
+acc     75.837563
+dtype: float64
+Median:
+loss     0.568927
+acc     75.888325
+dtype: float64
+Std:
+loss    0.586907
+acc     1.265081
+dtype: float64
+Max:
+loss     1.930087
+acc     77.918782
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.072299
+acc     66.472081
+dtype: float64
+Median:
+loss     0.782492
+acc     67.131980
+dtype: float64
+Std:
+loss    0.604288
+acc     8.097512
+dtype: float64
+Max:
+loss     2.245399
+acc     75.888325
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.960950
+acc     75.558376
+dtype: float64
+Median:
+loss     1.712543
+acc     76.142132
+dtype: float64
+Std:
+loss    1.365803
+acc     1.513650
+dtype: float64
+Max:
+loss     4.344650
+acc     76.903553
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     1.476169
+acc     68.096447
+dtype: float64
+Median:
+loss     1.452654
+acc     67.893401
+dtype: float64
+Std:
+loss    0.783252
+acc     1.425995
+dtype: float64
+Max:
+loss     2.695650
+acc     69.796954
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.814206
+acc     62.106599
+dtype: float64
+Median:
+loss     1.457739
+acc     62.817259
+dtype: float64
+Std:
+loss    1.186114
+acc     3.922942
+dtype: float64
+Max:
+loss     3.953902
+acc     70.050761
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.721187
+acc     75.837563
+dtype: float64
+Median:
+loss     0.568927
+acc     75.888325
+dtype: float64
+Std:
+loss    0.586907
+acc     1.265081
+dtype: float64
+Max:
+loss     1.930087
+acc     77.918782
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.072299
+acc     66.472081
+dtype: float64
+Median:
+loss     0.782492
+acc     67.131980
+dtype: float64
+Std:
+loss    0.604288
+acc     8.097512
+dtype: float64
+Max:
+loss     2.245399
+acc     75.888325
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.960950
+acc     75.558376
+dtype: float64
+Median:
+loss     1.712543
+acc     76.142132
+dtype: float64
+Std:
+loss    1.365803
+acc     1.513650
+dtype: float64
+Max:
+loss     4.344650
+acc     76.903553
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     1.476169
+acc     68.096447
+dtype: float64
+Median:
+loss     1.452654
+acc     67.893401
+dtype: float64
+Std:
+loss    0.783252
+acc     1.425995
+dtype: float64
+Max:
+loss     2.695650
+acc     69.796954
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.814206
+acc     62.106599
+dtype: float64
+Median:
+loss     1.457739
+acc     62.817259
+dtype: float64
+Std:
+loss    1.186114
+acc     3.922942
+dtype: float64
+Max:
+loss     3.953902
+acc     70.050761
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.721187
+acc     75.837563
+dtype: float64
+Median:
+loss     0.568927
+acc     75.888325
+dtype: float64
+Std:
+loss    0.586907
+acc     1.265081
+dtype: float64
+Max:
+loss     1.930087
+acc     77.918782
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.072299
+acc     66.472081
+dtype: float64
+Median:
+loss     0.782492
+acc     67.131980
+dtype: float64
+Std:
+loss    0.604288
+acc     8.097512
+dtype: float64
+Max:
+loss     2.245399
+acc     75.888325
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.960950
+acc     75.558376
+dtype: float64
+Median:
+loss     1.712543
+acc     76.142132
+dtype: float64
+Std:
+loss    1.365803
+acc     1.513650
+dtype: float64
+Max:
+loss     4.344650
+acc     76.903553
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     2.360106
+acc     60.355330
+dtype: float64
+Median:
+loss     2.386671
+acc     60.659898
+dtype: float64
+Std:
+loss    0.696824
+acc     2.419095
+dtype: float64
+Max:
+loss     3.273748
+acc     65.482234
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.952874
+acc     55.860637
+dtype: float64
+Median:
+loss     1.598972
+acc     56.345178
+dtype: float64
+Std:
+loss    1.100364
+acc     3.664775
+dtype: float64
+Max:
+loss     3.984472
+acc     62.182741
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     1.066628
+acc     78.730964
+dtype: float64
+Median:
+loss     1.093468
+acc     78.172589
+dtype: float64
+Std:
+loss    0.557701
+acc     2.359178
+dtype: float64
+Max:
+loss     2.031770
+acc     82.994924
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.623858
+acc     75.456853
+dtype: float64
+Median:
+loss     1.592205
+acc     75.507614
+dtype: float64
+Std:
+loss    0.693990
+acc     1.670977
+dtype: float64
+Max:
+loss     2.670336
+acc     77.918782
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.073234
+acc     75.329949
+dtype: float64
+Median:
+loss     0.987183
+acc     75.888325
+dtype: float64
+Std:
+loss    0.648987
+acc     2.398294
+dtype: float64
+Max:
+loss     2.394211
+acc     78.426396
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     2.360106
+acc     60.355330
+dtype: float64
+Median:
+loss     2.386671
+acc     60.659898
+dtype: float64
+Std:
+loss    0.696824
+acc     2.419095
+dtype: float64
+Max:
+loss     3.273748
+acc     65.482234
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.952874
+acc     55.860637
+dtype: float64
+Median:
+loss     1.598972
+acc     56.345178
+dtype: float64
+Std:
+loss    1.100364
+acc     3.664775
+dtype: float64
+Max:
+loss     3.984472
+acc     62.182741
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     1.066628
+acc     78.730964
+dtype: float64
+Median:
+loss     1.093468
+acc     78.172589
+dtype: float64
+Std:
+loss    0.557701
+acc     2.359178
+dtype: float64
+Max:
+loss     2.031770
+acc     82.994924
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.623858
+acc     75.456853
+dtype: float64
+Median:
+loss     1.592205
+acc     75.507614
+dtype: float64
+Std:
+loss    0.693990
+acc     1.670977
+dtype: float64
+Max:
+loss     2.670336
+acc     77.918782
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.073234
+acc     75.329949
+dtype: float64
+Median:
+loss     0.987183
+acc     75.888325
+dtype: float64
+Std:
+loss    0.648987
+acc     2.398294
+dtype: float64
+Max:
+loss     2.394211
+acc     78.426396
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     0.419343
+acc     85.143000
+dtype: float64
+Median:
+loss     0.505447
+acc     85.225000
+dtype: float64
+Std:
+loss    0.200722
+acc     0.628633
+dtype: float64
+Max:
+loss     0.700932
+acc     85.930000
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     0.626735
+acc     82.503000
+dtype: float64
+Median:
+loss     0.639538
+acc     82.675000
+dtype: float64
+Std:
+loss    0.282148
+acc     0.476982
+dtype: float64
+Max:
+loss     1.031852
+acc     83.260000
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.443951
+acc     86.371000
+dtype: float64
+Median:
+loss     0.471331
+acc     86.655000
+dtype: float64
+Std:
+loss    0.242376
+acc     0.903935
+dtype: float64
+Max:
+loss     0.83964
+acc     87.07000
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     0.659404
+acc     85.368000
+dtype: float64
+Median:
+loss     0.476792
+acc     85.410000
+dtype: float64
+Std:
+loss    0.471137
+acc     0.379848
+dtype: float64
+Max:
+loss     1.752237
+acc     85.860000
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     0.402575
+acc     87.772000
+dtype: float64
+Median:
+loss     0.377906
+acc     88.000000
+dtype: float64
+Std:
+loss    0.188897
+acc     0.723138
+dtype: float64
+Max:
+loss     0.806002
+acc     88.570000
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     2.360106
+acc     60.355330
+dtype: float64
+Median:
+loss     2.386671
+acc     60.659898
+dtype: float64
+Std:
+loss    0.696824
+acc     2.419095
+dtype: float64
+Max:
+loss     3.273748
+acc     65.482234
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.952874
+acc     55.860637
+dtype: float64
+Median:
+loss     1.598972
+acc     56.345178
+dtype: float64
+Std:
+loss    1.100364
+acc     3.664775
+dtype: float64
+Max:
+loss     3.984472
+acc     62.182741
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     1.066628
+acc     78.730964
+dtype: float64
+Median:
+loss     1.093468
+acc     78.172589
+dtype: float64
+Std:
+loss    0.557701
+acc     2.359178
+dtype: float64
+Max:
+loss     2.031770
+acc     82.994924
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.623858
+acc     75.456853
+dtype: float64
+Median:
+loss     1.592205
+acc     75.507614
+dtype: float64
+Std:
+loss    0.693990
+acc     1.670977
+dtype: float64
+Max:
+loss     2.670336
+acc     77.918782
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.073234
+acc     75.329949
+dtype: float64
+Median:
+loss     0.987183
+acc     75.888325
+dtype: float64
+Std:
+loss    0.648987
+acc     2.398294
+dtype: float64
+Max:
+loss     2.394211
+acc     78.426396
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     0.757635
+acc     80.644615
+dtype: float64
+Median:
+loss     0.656853
+acc     80.590000
+dtype: float64
+Std:
+loss    0.433645
+acc     1.058620
+dtype: float64
+Max:
+loss     1.510542
+acc     83.040000
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.035722
+acc     78.610000
+dtype: float64
+Median:
+loss     0.899118
+acc     78.610000
+dtype: float64
+Std:
+loss    0.448581
+acc     0.784134
+dtype: float64
+Max:
+loss     1.966509
+acc     79.580000
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.748756
+acc     85.287778
+dtype: float64
+Median:
+loss     0.739921
+acc     85.180000
+dtype: float64
+Std:
+loss    0.358511
+acc     0.823207
+dtype: float64
+Max:
+loss     1.329278
+acc     86.630000
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     0.708145
+acc     82.398000
+dtype: float64
+Median:
+loss     0.401876
+acc     82.870000
+dtype: float64
+Std:
+loss    0.775061
+acc     1.490368
+dtype: float64
+Max:
+loss     2.01212
+acc     84.04000
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     0.350042
+acc     93.188000
+dtype: float64
+Median:
+loss     0.396048
+acc     93.250000
+dtype: float64
+Std:
+loss    0.171941
+acc     1.153486
+dtype: float64
+Max:
+loss     0.555552
+acc     95.440000
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     0.757635
+acc     80.644615
+dtype: float64
+Median:
+loss     0.656853
+acc     80.590000
+dtype: float64
+Std:
+loss    0.433645
+acc     1.058620
+dtype: float64
+Max:
+loss     1.510542
+acc     83.040000
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.035722
+acc     78.610000
+dtype: float64
+Median:
+loss     0.899118
+acc     78.610000
+dtype: float64
+Std:
+loss    0.448581
+acc     0.784134
+dtype: float64
+Max:
+loss     1.966509
+acc     79.580000
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.748756
+acc     85.287778
+dtype: float64
+Median:
+loss     0.739921
+acc     85.180000
+dtype: float64
+Std:
+loss    0.358511
+acc     0.823207
+dtype: float64
+Max:
+loss     1.329278
+acc     86.630000
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     0.708145
+acc     82.398000
+dtype: float64
+Median:
+loss     0.401876
+acc     82.870000
+dtype: float64
+Std:
+loss    0.775061
+acc     1.490368
+dtype: float64
+Max:
+loss     2.01212
+acc     84.04000
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     0.350042
+acc     93.188000
+dtype: float64
+Median:
+loss     0.396048
+acc     93.250000
+dtype: float64
+Std:
+loss    0.171941
+acc     1.153486
+dtype: float64
+Max:
+loss     0.555552
+acc     95.440000
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     2.360106
+acc     60.355330
+dtype: float64
+Median:
+loss     2.386671
+acc     60.659898
+dtype: float64
+Std:
+loss    0.696824
+acc     2.419095
+dtype: float64
+Max:
+loss     3.273748
+acc     65.482234
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.952874
+acc     55.860637
+dtype: float64
+Median:
+loss     1.598972
+acc     56.345178
+dtype: float64
+Std:
+loss    1.100364
+acc     3.664775
+dtype: float64
+Max:
+loss     3.984472
+acc     62.182741
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     1.066628
+acc     78.730964
+dtype: float64
+Median:
+loss     1.093468
+acc     78.172589
+dtype: float64
+Std:
+loss    0.557701
+acc     2.359178
+dtype: float64
+Max:
+loss     2.031770
+acc     82.994924
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.623858
+acc     75.456853
+dtype: float64
+Median:
+loss     1.592205
+acc     75.507614
+dtype: float64
+Std:
+loss    0.693990
+acc     1.670977
+dtype: float64
+Max:
+loss     2.670336
+acc     77.918782
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.073234
+acc     75.329949
+dtype: float64
+Median:
+loss     0.987183
+acc     75.888325
+dtype: float64
+Std:
+loss    0.648987
+acc     2.398294
+dtype: float64
+Max:
+loss     2.394211
+acc     78.426396
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     1.476169
+acc     68.096447
+dtype: float64
+Median:
+loss     1.452654
+acc     67.893401
+dtype: float64
+Std:
+loss    0.783252
+acc     1.425995
+dtype: float64
+Max:
+loss     2.695650
+acc     69.796954
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.814206
+acc     62.106599
+dtype: float64
+Median:
+loss     1.457739
+acc     62.817259
+dtype: float64
+Std:
+loss    1.186114
+acc     3.922942
+dtype: float64
+Max:
+loss     3.953902
+acc     70.050761
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.721187
+acc     75.837563
+dtype: float64
+Median:
+loss     0.568927
+acc     75.888325
+dtype: float64
+Std:
+loss    0.586907
+acc     1.265081
+dtype: float64
+Max:
+loss     1.930087
+acc     77.918782
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     1.072299
+acc     66.472081
+dtype: float64
+Median:
+loss     0.782492
+acc     67.131980
+dtype: float64
+Std:
+loss    0.604288
+acc     8.097512
+dtype: float64
+Max:
+loss     2.245399
+acc     75.888325
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     1.960950
+acc     75.558376
+dtype: float64
+Median:
+loss     1.712543
+acc     76.142132
+dtype: float64
+Std:
+loss    1.365803
+acc     1.513650
+dtype: float64
+Max:
+loss     4.344650
+acc     76.903553
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     0.419343
+acc     85.143000
+dtype: float64
+Median:
+loss     0.505447
+acc     85.225000
+dtype: float64
+Std:
+loss    0.200722
+acc     0.628633
+dtype: float64
+Max:
+loss     0.700932
+acc     85.930000
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     0.626735
+acc     82.503000
+dtype: float64
+Median:
+loss     0.639538
+acc     82.675000
+dtype: float64
+Std:
+loss    0.282148
+acc     0.476982
+dtype: float64
+Max:
+loss     1.031852
+acc     83.260000
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.443951
+acc     86.371000
+dtype: float64
+Median:
+loss     0.471331
+acc     86.655000
+dtype: float64
+Std:
+loss    0.242376
+acc     0.903935
+dtype: float64
+Max:
+loss     0.83964
+acc     87.07000
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     0.659404
+acc     85.368000
+dtype: float64
+Median:
+loss     0.476792
+acc     85.410000
+dtype: float64
+Std:
+loss    0.471137
+acc     0.379848
+dtype: float64
+Max:
+loss     1.752237
+acc     85.860000
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     0.402575
+acc     87.772000
+dtype: float64
+Median:
+loss     0.377906
+acc     88.000000
+dtype: float64
+Std:
+loss    0.188897
+acc     0.723138
+dtype: float64
+Max:
+loss     0.806002
+acc     88.570000
+dtype: float64
+
+*******************Base1*******************
+Mean:
+loss     0.757635
+acc     80.644615
+dtype: float64
+Median:
+loss     0.656853
+acc     80.590000
+dtype: float64
+Std:
+loss    0.433645
+acc     1.058620
+dtype: float64
+Max:
+loss     1.510542
+acc     83.040000
+dtype: float64
+
+*******************Base2*******************
+Mean:
+loss     1.035722
+acc     78.610000
+dtype: float64
+Median:
+loss     0.899118
+acc     78.610000
+dtype: float64
+Std:
+loss    0.448581
+acc     0.784134
+dtype: float64
+Max:
+loss     1.966509
+acc     79.580000
+dtype: float64
+
+*******************Experiment1*******************
+Mean:
+loss     0.748756
+acc     85.287778
+dtype: float64
+Median:
+loss     0.739921
+acc     85.180000
+dtype: float64
+Std:
+loss    0.358511
+acc     0.823207
+dtype: float64
+Max:
+loss     1.329278
+acc     86.630000
+dtype: float64
+
+*******************Experiment2*******************
+Mean:
+loss     0.708145
+acc     82.398000
+dtype: float64
+Median:
+loss     0.401876
+acc     82.870000
+dtype: float64
+Std:
+loss    0.775061
+acc     1.490368
+dtype: float64
+Max:
+loss     2.01212
+acc     84.04000
+dtype: float64
+
+*******************Pretrained*******************
+Mean:
+loss     0.350042
+acc     93.188000
+dtype: float64
+Median:
+loss     0.396048
+acc     93.250000
+dtype: float64
+Std:
+loss    0.171941
+acc     1.153486
+dtype: float64
+Max:
+loss     0.555552
+acc     95.440000
+dtype: float64
+

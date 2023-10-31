@@ -3,10 +3,6 @@ Mean:
 loss     0.419343
 acc     85.143000
 
-Median:
-loss     0.505447
-acc     85.225000
-
 Std:
 loss    0.200722
 acc     0.628633
@@ -20,10 +16,6 @@ acc     85.930000
 Mean:
 loss     0.626735
 acc     82.503000
-
-Median:
-loss     0.639538
-acc     82.675000
 
 Std:
 loss    0.282148
@@ -39,10 +31,6 @@ Mean:
 loss     0.443951
 acc     86.371000
 
-Median:
-loss     0.471331
-acc     86.655000
-
 Std:
 loss    0.242376
 acc     0.903935
@@ -57,10 +45,6 @@ Mean:
 loss     0.659404
 acc     85.368000
 
-Median:
-loss     0.476792
-acc     85.410000
-
 Std:
 loss    0.471137
 acc     0.379848
@@ -74,10 +58,6 @@ acc     85.860000
 Mean:
 loss     0.402575
 acc     87.772000
-
-Median:
-loss     0.377906
-acc     88.000000
 
 Std:
 loss    0.188897

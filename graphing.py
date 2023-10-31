@@ -41,7 +41,8 @@ class Graphing:
 
     def show_test_data(json_data, label):
         test_dfs = Graphing._extract_test_as_df(json_data)
-        print(test_dfs)
+        print('*******************' + label + '*******************')
+        print(test_dfs['acc'].to_string(index=False))
         mean = test_dfs.mean()
         std = test_dfs.std()
         max = test_dfs.max()
