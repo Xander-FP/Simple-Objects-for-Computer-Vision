@@ -4,6 +4,8 @@ from torch.utils.data import Dataset
 from torchvision.datasets import DatasetFolder, CIFAR10, DTD
 from PIL import Image
 
+class 
+
 class CustomDataset(Dataset):
     def __init__(self, data_path, model, transform=None):
         self.new_order = None

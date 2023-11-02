@@ -33,7 +33,7 @@ OPTIONS = {
         'dataset_name': 'Cifar10', # 'Cifar10' or 'Brain'
         'architecture': 'ResNet', # 'ResNet' or 'AlexNet'
         'epochs': 80, # Cifar10: 80, Brain: 70
-        'batch_size': 32,
+        'batch_size': 64,
         'learning_rate': 0.006, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'criterion': nn.CrossEntropyLoss(),
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
