@@ -7,8 +7,10 @@ import pandas as pd
 import os
 
 class CustomCropDataset(Dataset):
-    def __init__(self, data_path, csv_name) -> None:
-        self.data = pd.read_csv(os.path.join(data_path, csv_name))
+    def __init__(self, data_path, csv_name, transform=None) -> None:
+        df = pd.read_csv(os.path.join(data_path, csv_name))
+        self.data = df[df['damage'] == 'DR'].reset_index(drop=True)
+        self.transform = transform
         if 'Test' in csv_name:
             self.data_dir = os.path.join(data_path,'test')
         else:
@@ -17,14 +19,13 @@ class CustomCropDataset(Dataset):
     def __len__(self) -> int:
         return len(self.data.index)
 
-    def __getitem__(self, index: int, transfrom=None) -> Tuple[Any, Any]:
+    def __getitem__(self, index: int) -> Tuple[Any, Any]:
         row = self.data.loc[index, :]
         image = Image.open(os.path.join(self.data_dir,row['filename']))
 
-        if transfrom:
-            image = transfrom(image)
-        
-        return image, row['damage'] #, row['extent']
+        if self.transform:
+            image = self.transform(image)
+        return image, row['extent'] #, row['extent']
 
 class CustomDataset(Dataset):
     def __init__(self, data_path, model, transform=None):

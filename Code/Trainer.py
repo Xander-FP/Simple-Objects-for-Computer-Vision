@@ -222,6 +222,7 @@ class Trainer:
         # TODO: Add the mean and std to the DB and load them here if they exist
         # print(sha256(self.data_dirs[i]['paths'].encode('utf-8')).hexdigest())
         result = self.data_prep.compute_mean_std(self.train_sets[i])
+        print(result)
         normalize = transforms.Normalize(
             mean= result['mean'],
             std= result['std'],
