@@ -209,8 +209,8 @@ class Trainer:
         # Set the datasets
         i = 0
         for dir in self.data_dirs:
-            train_set, valid_set = self.data_prep.get_datasets(data_dir=dir['path'], model=self.model, dataset_name=dataset_name)
-            test_set = self.data_prep.get_test_datasets(data_dir=dir['path'], dataset_name=dataset_name)
+            train_set, valid_set = self.data_prep.get_datasets(data_dir=dir['path'], model=self.model)
+            test_set = self.data_prep.get_test_datasets(data_dir=dir['path'])
             self.train_sets[i] = train_set
             self.valid_sets[i] = valid_set
             self.test_sets[i] = test_set

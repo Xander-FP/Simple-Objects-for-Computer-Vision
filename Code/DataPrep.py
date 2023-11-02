@@ -3,42 +3,23 @@ from torchvision import datasets
 from torchvision import transforms
 import numpy as np
 from torch.utils.data.sampler import SubsetRandomSampler
-from CustomDataset import CustomDataset, CustomCIFAR10, CustomDTD
+from CustomDataset import CustomDataset, CustomCIFAR10, CustomDTD, CustomCropDataset
 from PIL import ImageStat
 
 class DataPrep:
-    def get_datasets(self, data_dir, model, dataset_name):
+    def get_datasets(self, data_dir, model):
         # TODO: Let CustomDataset handle CIFAR10 and ImageNet retrieval
-        if 'Brain' in data_dir:
-            data_dir = data_dir + '/Training'
-            train_set = CustomDataset(data_path=data_dir, model=model)
-            valid_set = CustomDataset(data_path=data_dir, model=model)
-        elif 'enerated' in data_dir:
+        if 'enerated' in data_dir:
             train_set = CustomDataset(data_path=data_dir, model=model)
             valid_set = CustomDataset(data_path=data_dir, model=model)
         else:
-            if dataset_name == 'Cifar10':
-                train_set = CustomCIFAR10(root=data_dir, train=True, download=False)
-                valid_set = CustomCIFAR10(root=data_dir, train=True, download=False)
-            elif dataset_name == 'DTD':
-                train_set = CustomDTD(root=data_dir, split='train', download=False)
-                valid_set = CustomDTD(root=data_dir, split='val', download=False)
-                train_set._labels = train_set._labels + valid_set._labels
-                train_set._image_files = train_set._image_files + valid_set._image_files
-                valid_set = train_set
+            train_set = CustomCropDataset(data_path=data_dir, csv_name='Train.csv')
+            valid_set = CustomCropDataset(data_path=data_dir, csv_name='Train.csv')
 
         return train_set, valid_set
     
-    def get_test_datasets(self, data_dir, dataset_name):
-        if 'Brain' in data_dir:
-            data_dir = data_dir + '/Testing'
-            return CustomDataset(data_path=data_dir, model=None)
-        if 'enerated' in data_dir:
-            return None
-        if dataset_name == 'Cifar10':
-            return CustomCIFAR10(root=data_dir, train=False, download=False)
-        elif dataset_name == 'DTD':
-            return CustomDTD(root=data_dir, split='test', download=False)
+    def get_test_datasets(self, data_dir):
+        return CustomCropDataset(data_path=data_dir, csv_name='Test.csv')
 
 
     def get_train_valid_loader(self, train_set, valid_set, batch_size, random_seed, valid_size=0.1, shuffle=True):

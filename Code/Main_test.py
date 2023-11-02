@@ -30,8 +30,8 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': 'Cifar10', # 'Cifar10' or 'Brain'
-        'architecture': 'ResNet', # 'ResNet' or 'AlexNet'
+        'dataset_name': 'Crop', # 'Cifar10' or 'Brain'
+        'architecture': 'ViT', # 'ResNet' or 'AlexNet'
         'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 64,
         'learning_rate': 0.006, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
@@ -52,25 +52,11 @@ def experiment(conf):
         wandb.init(project="cifar10",config=conf)
 
     # This is akin to using the One-Pass scheduler
-    if conf['dataset_name'] == 'Cifar10':
-        data_dirs = [
-            # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
-            # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-            {'path': './datasets', 'classes': 10, 'name': 'CIFAR'} 
-            # {'path': 'G:\Datasets\Brain_Tumor1_Generated', 'classes': 4, 'name': 'Brain1'} 
-            ]
-    elif conf['dataset_name'] == 'Brain':
-        data_dirs = [
-            {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
-            {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-            {'path': 'G:\Datasets\Brain_Tumor1', 'classes': 4, 'name': 'Brain'} 
-            ]
-    else:
-        data_dirs = [
-            # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
-            # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-            {'path': 'G:/Datasets/farm_insects_Brain', 'classes': 15, 'name': 'CIFAR'} 
-            ]
+    data_dirs = [
+        # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+        # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+        {'path': './datasets', 'classes': 8, 'name': 'Crop'} 
+        ]
 
     if conf['architecture'] == 'ResNet':
         # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])

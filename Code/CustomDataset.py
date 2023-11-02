@@ -3,8 +3,28 @@ import torch
 from torch.utils.data import Dataset
 from torchvision.datasets import DatasetFolder, CIFAR10, DTD
 from PIL import Image
+import pandas as pd
+import os
 
-class 
+class CustomCropDataset(Dataset):
+    def __init__(self, data_path, csv_name) -> None:
+        self.data = pd.read_csv(os.path.join(data_path, csv_name))
+        if 'Test' in csv_name:
+            self.data_dir = os.path.join(data_path,'test')
+        else:
+            self.data_dir = os.path.join(data_path,'train')
+    
+    def __len__(self) -> int:
+        return len(self.data.index)
+
+    def __getitem__(self, index: int, transfrom=None) -> Tuple[Any, Any]:
+        row = self.data.loc[index, :]
+        image = Image.open(os.path.join(self.data_dir,row['filename']))
+
+        if transfrom:
+            image = transfrom(image)
+        
+        return image, row['damage'] #, row['extent']
 
 class CustomDataset(Dataset):
     def __init__(self, data_path, model, transform=None):
