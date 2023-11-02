@@ -8,6 +8,7 @@ from ray import train
 import wandb
 import pyhopper
 import sys
+from ViT import ViT
 
 print()
 # Generated simple objects:
@@ -44,7 +45,8 @@ OPTIONS = {
         'should_tune': False,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
-        'new_epoch': 0
+        'new_epoch': 0,
+        'image_shape': (1, 28, 28) # channels, height, width
     }
 
 def experiment(conf):
@@ -58,10 +60,10 @@ def experiment(conf):
         {'path': './datasets', 'classes': 8, 'name': 'Crop'} 
         ]
 
-    if conf['architecture'] == 'ResNet':
+    if conf['architecture'] == 'ViT':
         # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
-        model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
+        model = ViT(OPTIONS['image_shape'], n_patches=7, n_blocks=2, hidden_d=8, n_heads=2, out_d=100).to(device)
     else:
         model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
         # torch.save(model.state_dict(), 'alexnet.pth')
