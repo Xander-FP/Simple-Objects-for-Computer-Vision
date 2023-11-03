@@ -31,7 +31,6 @@ if seed is not None:
     torch.backends.cudnn.benchmark = False
     
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(device)
 
 OPTIONS = {
         'dataset_name': 'Crop',
@@ -91,7 +90,7 @@ def experiment(conf):
     loss, model, res_file = trainer.start(conf, tune, wandb)
 
     if not conf['should_tune']:
-        trainer.test(model, conf['batch_size'], conf['criterion'])
+        trainer.test(model, conf['batch_size'], conf['criterion'], conf['regression'])
 
     return loss
 

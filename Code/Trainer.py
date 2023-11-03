@@ -35,7 +35,7 @@ class Trainer:
         self.valid_samplers = [None] * size
         self._load_data(dataset_name)
 
-    def test(self, model, batch_size, criterion):
+    def test(self, model, batch_size, criterion, do_regression):
         test_loader = torch.utils.data.DataLoader(self.test_sets[-1], batch_size=batch_size, shuffle=True)
         file = open('test_results.csv', 'w')
         file.write('ID, extent\n')
@@ -45,10 +45,12 @@ class Trainer:
             for images, labels in test_loader:
                 images = images.to(self.device)
                 outputs = model(images)
-                if criterion != nn.CrossEntropyLoss():
-                    outputs = torch.mul(outputs,100).to(torch.int32)
+                if do_regression:
+                    predicted = torch.mul(outputs,100).to(torch.int32)
+                else:
+                    _, predicted = torch.max(outputs.data, 1)
                 for i in range(len(outputs)):
-                    file.write(str(labels[i]) + ',' + str(outputs[i].item()) + '\n')
+                    file.write(str(labels[i]) + ',' + str(predicted[i].item()) + '\n')
                 del images, labels, outputs
             print('Done with test set') 
     
@@ -162,7 +164,7 @@ class Trainer:
                     optimizer.step()
 
                 train_loss = loss.item()
-                valid_loss, acc = self._validate(model, valid_loader, criterion)
+                valid_loss, acc = self._validate(model, valid_loader, criterion, options['regression'])
                 print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
                             .format(epoch, max_epochs, train_loss, valid_loss))
                 print('Current time: ', time.strftime("%H:%M:%S", time.localtime()))
@@ -190,7 +192,7 @@ class Trainer:
             file.write(str(options) + '\n\n')
         return valid_loss
         
-    def _validate(self, model, valid_loader, criterion):
+    def _validate(self, model, valid_loader, criterion, do_regression):
         # Validation
         with torch.no_grad():
             correct = 0
@@ -198,19 +200,19 @@ class Trainer:
             for images, labels in valid_loader:
                 images = images.to(self.device)
                 labels = labels.to(self.device)
-                outputs = model(images)
-                loss = criterion(outputs, labels)
-                if criterion != nn.CrossEntropyLoss():
+                outputs = self.model(images)
+                if do_regression:
+                    labels = labels.to(torch.float32)
                     predicted = torch.round(
                         torch.mul(outputs.view(-1), 100)
-                        )
-                    loss = torch.sqrt(loss)
+                    )
+                    loss = torch.sqrt(criterion(predicted, labels))
                 else:
                     _, predicted = torch.max(outputs.data, 1)
-                print(predicted)
+                    loss = criterion(outputs, labels)
                 total += labels.size(0)
                 correct += (predicted == labels).sum().item()
-                del images, labels, predicted, outputs
+                del images, labels, outputs
             print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
         return loss.item(), 100 * correct / total
     
