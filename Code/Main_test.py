@@ -30,14 +30,15 @@ if seed is not None:
     torch.backends.cudnn.benchmark = False
     
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(device)
 
 OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
         'architecture': 'ViT', # 'ViT' or 'AlexNet'
         'epochs': 80, # Cifar10: 80, Brain: 70
-        'batch_size': 64,
-        'learning_rate': 0.001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
+        'batch_size': 256,
+        'learning_rate': 0.0001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
         'momentum': 0.15, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
@@ -47,7 +48,7 @@ OPTIONS = {
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
-        'image_shape': (3, 227, 227) # channels, height, width
+        'image_shape': (3, 280, 280) # channels, height, width
     }
 
 def experiment(conf):
