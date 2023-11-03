@@ -28,7 +28,10 @@ class CustomCropDataset(Dataset):
 
         if self.transform:
             image = self.transform(image)
-        return image, row['extent'] #, row['extent']
+
+        if 'test' in self.data_dir:
+            return image, row['ID']
+        return image, row['extent']
 
 class CustomDataset(Dataset):
     def __init__(self, data_path, model, transform=None):

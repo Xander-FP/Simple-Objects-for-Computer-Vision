@@ -37,21 +37,20 @@ class Trainer:
 
     def test(self, model, batch_size, criterion):
         test_loader = torch.utils.data.DataLoader(self.test_sets[-1], batch_size=batch_size, shuffle=True)
+        file = open('test_results.csv', 'w')
+        file.write('ID, extent\n')
 
         with torch.no_grad():
-            correct = 0
-            total = 0
+            model.eval()
             for images, labels in test_loader:
                 images = images.to(self.device)
-                labels = labels.to(self.device)
                 outputs = model(images)
-                _, predicted = torch.max(outputs.data, 1)
-                total += labels.size(0)
-                loss = criterion(outputs, labels)
-                correct += (predicted == labels).sum().item()
+                if criterion != nn.CrossEntropyLoss():
+                    outputs = torch.mul(outputs,100).to(torch.int32)
+                for i in range(len(outputs)):
+                    file.write(str(labels[i]) + ',' + str(outputs[i].item()) + '\n')
                 del images, labels, outputs
-            print('Accuracy of the network on the {} test images: {} %'.format(total, 100 * correct / total)) 
-            return loss.item(), 100 * correct / total
+            print('Done with test set') 
     
     def start(self, options, tune, wandb):
         train_options = options
@@ -145,27 +144,30 @@ class Trainer:
             for epoch in range(start_epoch, max_epochs):
                 for i, (images, labels) in enumerate(train_loader):  
                     images = images.to(self.device)
-                    labels = labels.to(self.device).to(torch.float32)
+                    labels = labels.to(self.device)
                     
-                    # Forward pass
-                    outputs = torch.round(
-                    torch.mul(self.model(images).view(-1), 100)
-                    )
-                    loss = torch.sqrt(criterion(outputs, labels))
+                    if options['regression']:
+                        labels = labels.to(torch.float32)
+                        outputs = torch.round(
+                            torch.mul(model(images).view(-1), 100)
+                        )
+                        loss = torch.sqrt(criterion(outputs, labels))
+                    else:
+                        outputs = model(images)
+                        loss = criterion(outputs, labels)
                     # Backward and optimize
                     optimizer.zero_grad()
                     loss.backward()
                     optimizer.step()
 
                 train_loss = loss.item()
-                valid_loss, acc = self._validate(valid_loader, criterion)
+                valid_loss, acc = self._validate(model, valid_loader, criterion)
                 print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
                             .format(epoch, max_epochs, train_loss, valid_loss))
                 
                 if not options['should_tune']:
                     results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
-                if epoch > 60:
-                    self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+                self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
                 converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
                 if converged:
@@ -187,7 +189,7 @@ class Trainer:
             file.write(str(options) + '\n\n')
         return valid_loss
         
-    def _validate(self, valid_loader, criterion):
+    def _validate(self, model, valid_loader, criterion):
         # Validation
         with torch.no_grad():
             correct = 0
@@ -195,16 +197,19 @@ class Trainer:
             for images, labels in valid_loader:
                 images = images.to(self.device)
                 labels = labels.to(self.device)
-                outputs = self.model(images)
-                outputs = torch.round(
-                    torch.mul(self.model(images).view(-1), 100)
-                    )
-                # _, predicted = torch.max(outputs, 1)
-                # print(predicted)
-                loss = torch.sqrt(criterion(outputs, labels))
+                outputs = model(images)
+                loss = criterion(outputs, labels)
+                if criterion != nn.CrossEntropyLoss():
+                    predicted = torch.round(
+                        torch.mul(outputs.view(-1), 100)
+                        )
+                    loss = torch.sqrt(loss)
+                else:
+                    _, predicted = torch.max(outputs.data, 1)
+                print(predicted)
                 total += labels.size(0)
-                correct += (outputs == labels).sum().item()
-                del images, labels, outputs
+                correct += (predicted == labels).sum().item()
+                del images, labels, predicted, outputs
             print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
         return loss.item(), 100 * correct / total
     

@@ -29,12 +29,13 @@ if seed is not None:
     torch.backends.cudnn.benchmark = False
     
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+print(device)
 
 OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
         'architecture': 'AlexNet', # 'ViT' or 'AlexNet'
-        'epochs': 20, # Cifar10: 80, Brain: 70
+        'epochs': 1, # Cifar10: 80, Brain: 70
         'batch_size': 64,
         'learning_rate': 0.001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
@@ -65,7 +66,7 @@ def experiment(conf):
         data_dirs = [
             # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
             # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-            {'path': './datasets', 'classes': 100, 'name': 'Crop'} 
+            {'path': './datasets', 'classes': 101, 'name': 'Crop'} 
         ]
         conf['criterion'] = nn.CrossEntropyLoss()
 
@@ -84,9 +85,7 @@ def experiment(conf):
     loss, model, res_file = trainer.start(conf, tune, wandb)
 
     if not conf['should_tune']:
-        loss, acc = trainer.test(model, conf['batch_size'], conf['criterion'])
-        res_file.write("\nUSING TEST SET: ")
-        res_file.write("{loss: " + str(loss) + ", acc: " + str(acc) + "}\n")
+        trainer.test(model, conf['batch_size'], conf['criterion'])
 
     return loss
 
@@ -102,7 +101,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(10):
+        for i in range(1):
             experiment(OPTIONS)
 
 
