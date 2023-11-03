@@ -37,7 +37,7 @@ OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
         'architecture': 'ViT', # 'ViT' or 'AlexNet'
-        'epochs': 80, # Cifar10: 80, Brain: 70
+        'epochs': 10, # Cifar10: 80, Brain: 70
         'batch_size': 256,
         'learning_rate': 0.0001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
@@ -45,7 +45,7 @@ OPTIONS = {
         'opt': 'sgd',
         'curriculum': False,
         'report_logs': False,
-        'should_tune': False,
+        'should_tune': True,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
@@ -105,7 +105,7 @@ if __name__ == "__main__":
             OPTIONS
         )
 
-        search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
+        search.run(pyhopper.wrap_n_times(experiment,1), "min", "30min", n_jobs='per-gpu', checkpoint_path="r_t.ckpt")
     else:
         for i in range(10):
             experiment(OPTIONS)

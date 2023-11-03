@@ -126,6 +126,7 @@ class Trainer:
                 return val_loss, model, results_file
 
     def _train(self, model, tune, wandb, train_loader, valid_loader, options, results_file):
+        print('Current time: ', time.strftime("%H:%M:%S", time.localtime()))
         # SETUP PHASE
         if options['opt'] == 'sgd':
             print('SGD')
@@ -164,7 +165,7 @@ class Trainer:
                 valid_loss, acc = self._validate(model, valid_loader, criterion)
                 print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
                             .format(epoch, max_epochs, train_loss, valid_loss))
-                
+                print('Current time: ', time.strftime("%H:%M:%S", time.localtime()))
                 if not options['should_tune']:
                     results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
                 self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
