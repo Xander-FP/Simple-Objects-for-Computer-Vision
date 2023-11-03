@@ -3,6 +3,7 @@ from AlexNet import AlexNet
 from Resnet import ResNet, ResidualBlock
 import torch.nn as nn
 import torch
+import torchvision
 from ray import tune
 from ray import train
 import wandb
@@ -33,8 +34,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
-        'architecture': 'AlexNet', # 'ViT' or 'AlexNet'
-        'epochs': 20, # Cifar10: 80, Brain: 70
+        'architecture': 'ViT', # 'ViT' or 'AlexNet'
+        'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 64,
         'learning_rate': 0.001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
@@ -46,7 +47,7 @@ OPTIONS = {
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
-        'image_shape': (1, 28, 28) # channels, height, width
+        'image_shape': (3, 227, 227) # channels, height, width
     }
 
 def experiment(conf):
@@ -72,7 +73,7 @@ def experiment(conf):
     if conf['architecture'] == 'ViT':
         # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
-        model = ViT(OPTIONS['image_shape'], n_patches=7, n_blocks=2, hidden_d=8, n_heads=2, out_d=8).to(device)
+        model = ViT(OPTIONS['image_shape'], n_patches=7, n_blocks=2, hidden_d=8, n_heads=2, out_d=data_dirs[0]['classes']).to(device)
     else:
         # model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=False)
         # torch.save(model.state_dict(), 'alexnet.pth')
