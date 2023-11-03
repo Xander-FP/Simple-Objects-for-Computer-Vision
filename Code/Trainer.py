@@ -199,7 +199,6 @@ class Trainer:
                 outputs = torch.round(
                     torch.mul(self.model(images).view(-1), 100)
                     )
-                print(outputs)
                 # _, predicted = torch.max(outputs, 1)
                 # print(predicted)
                 loss = torch.sqrt(criterion(outputs, labels))
@@ -235,7 +234,7 @@ class Trainer:
         if architecture == 'ResNet':
             size = 224
         else:
-            size = 227
+            size = 280
     
         test_transform = transforms.Compose([
             transforms.Resize((size,size)),

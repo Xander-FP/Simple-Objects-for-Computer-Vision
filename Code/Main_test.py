@@ -31,10 +31,10 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': 'Crop', # Crop or 
+        'dataset_name': 'Crop',
         'regression': True,
-        'architecture': 'AlexNet', # 'ResNet' or 'AlexNet'
-        'epochs': 80, # Cifar10: 80, Brain: 70
+        'architecture': 'AlexNet', # 'ViT' or 'AlexNet'
+        'epochs': 20, # Cifar10: 80, Brain: 70
         'batch_size': 64,
         'learning_rate': 0.001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
