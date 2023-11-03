@@ -10,6 +10,7 @@ class CustomCropDataset(Dataset):
     def __init__(self, data_path, csv_name, transform=None) -> None:
         df = pd.read_csv(os.path.join(data_path, csv_name))
         self.data = df[df['damage'] == 'DR'].reset_index(drop=True)
+        # self.data = df
         self.transform = transform
         if 'Test' in csv_name:
             self.data_dir = os.path.join(data_path,'test')

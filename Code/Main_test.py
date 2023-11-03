@@ -31,12 +31,12 @@ if seed is not None:
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
-        'dataset_name': 'Crop', # 'Cifar10' or 'Brain'
+        'dataset_name': 'Crop', # Crop or 
+        'regression': True,
         'architecture': 'AlexNet', # 'ResNet' or 'AlexNet'
         'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 64,
-        'learning_rate': 0.006, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
-        'criterion': nn.CrossEntropyLoss(),
+        'learning_rate': 0.001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
         'momentum': 0.15, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
@@ -54,20 +54,29 @@ def experiment(conf):
         wandb.init(project="cifar10",config=conf)
 
     # This is akin to using the One-Pass scheduler
-    data_dirs = [
-        # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
-        # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-        {'path': './datasets', 'classes': 10, 'name': 'Crop'} 
+    if conf['regression']:
+        data_dirs = [
+            # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+            # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+            {'path': './datasets', 'classes': 1, 'name': 'Brain'} 
         ]
+        conf['criterion'] = nn.MSELoss()
+    else:
+        data_dirs = [
+            # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
+            # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
+            {'path': './datasets', 'classes': 100, 'name': 'Crop'} 
+        ]
+        conf['criterion'] = nn.CrossEntropyLoss()
 
     if conf['architecture'] == 'ViT':
         # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
         model = ViT(OPTIONS['image_shape'], n_patches=7, n_blocks=2, hidden_d=8, n_heads=2, out_d=100).to(device)
     else:
-        model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
+        # model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=False)
         # torch.save(model.state_dict(), 'alexnet.pth')
-        # model = AlexNet(num_classes=data_dirs[0]['classes'])
+        model = AlexNet(num_classes=data_dirs[0]['classes'])
 
     trainer = Trainer(data_dirs=data_dirs, model=model, device=device, dataset_name = conf['dataset_name'])
 

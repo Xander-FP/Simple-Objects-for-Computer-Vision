@@ -145,12 +145,13 @@ class Trainer:
             for epoch in range(start_epoch, max_epochs):
                 for i, (images, labels) in enumerate(train_loader):  
                     images = images.to(self.device)
-                    labels = labels.to(self.device)
+                    labels = labels.to(self.device).to(torch.float32)
                     
                     # Forward pass
-                    outputs = model(images)
-                    loss = criterion(outputs, labels)
-                    
+                    outputs = torch.round(
+                    torch.mul(self.model(images).view(-1), 100)
+                    )
+                    loss = torch.sqrt(criterion(outputs, labels))
                     # Backward and optimize
                     optimizer.zero_grad()
                     loss.backward()
@@ -195,10 +196,15 @@ class Trainer:
                 images = images.to(self.device)
                 labels = labels.to(self.device)
                 outputs = self.model(images)
-                _, predicted = torch.max(outputs.data, 1)
-                loss = criterion(outputs, labels)
+                outputs = torch.round(
+                    torch.mul(self.model(images).view(-1), 100)
+                    )
+                print(outputs)
+                # _, predicted = torch.max(outputs, 1)
+                # print(predicted)
+                loss = torch.sqrt(criterion(outputs, labels))
                 total += labels.size(0)
-                correct += (predicted == labels).sum().item()
+                correct += (outputs == labels).sum().item()
                 del images, labels, outputs
             print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
         return loss.item(), 100 * correct / total
@@ -220,13 +226,11 @@ class Trainer:
         print('Preparing the data: Adding transforms')
         # TODO: Add the mean and std to the DB and load them here if they exist
         # print(sha256(self.data_dirs[i]['paths'].encode('utf-8')).hexdigest())
-        result = self.data_prep.compute_mean_std(self.train_sets[i])
-        print(result)
+        # result = self.data_prep.compute_mean_std(self.train_sets[i])
+        # print(result)
         normalize = transforms.Normalize(
-            mean= result['mean'],
-            std= result['std'],
-            # mean=[0.485, 0.456, 0.406],
-            # std= [0.229, 0.224, 0.225]
+            mean = [0.4467916627098922, 0.42175631382363743, 0.3320200420338127], 
+            std = [0.2626697991603522, 0.2694901367915744, 0.30393761999531593]
         )
         if architecture == 'ResNet':
             size = 224
