@@ -10,6 +10,7 @@ import wandb
 import pyhopper
 import sys
 from ViT import ViT
+import time
 
 print()
 # Generated simple objects:
@@ -35,8 +36,8 @@ print(device)
 OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
-        'architecture': 'AlexNet', # 'ViT' or 'AlexNet'
-        'epochs': 1, # Cifar10: 80, Brain: 70
+        'architecture': 'ViT', # 'ViT' or 'AlexNet'
+        'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 256,
         'learning_rate': 0.0001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
@@ -48,7 +49,11 @@ OPTIONS = {
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
-        'image_shape': (3, 280, 280) # channels, height, width
+        'image_shape': (3, 280, 280), # channels, height, width
+        'patch_num': 7,
+        'block_num': 5,
+        'hidden_layers_transformer': 12,
+        'head_num': 2 
     }
 
 def experiment(conf):
@@ -74,7 +79,7 @@ def experiment(conf):
     if conf['architecture'] == 'ViT':
         # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
-        model = ViT(OPTIONS['image_shape'], n_patches=7, n_blocks=2, hidden_d=8, n_heads=2, out_d=data_dirs[0]['classes']).to(device)
+        model = ViT(OPTIONS['image_shape'], OPTIONS['patch_num'], OPTIONS['block_num'], OPTIONS['hidden_layers_transformer'], OPTIONS['head_num'], out_d=data_dirs[0]['classes']).to(device)
     else:
         # model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=False)
         # torch.save(model.state_dict(), 'alexnet.pth')
@@ -102,7 +107,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,3), "min", "9h", n_jobs='per-gpu', checkpoint_path="r_b.ckpt")
     else:
-        for i in range(1):
+        for i in range(10):
             experiment(OPTIONS)
 
 
