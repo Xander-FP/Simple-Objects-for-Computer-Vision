@@ -61,11 +61,16 @@ class DataPrep:
         rgb_sum = np.array([0, 0, 0], dtype=np.float64)
         rgb_sum_sqrd = np.array([0, 0, 0], dtype=np.float64)
         count = 0
+        t = 0
         for image, label in data_set:
+            if image == None:
+                break
             stat = ImageStat.Stat(image)
             rgb_sum += np.array(stat.sum)
             rgb_sum_sqrd += np.array(stat.sum2)
             count += stat.count[0]
+            print(t)
+            t += 1
         rgb_mean = rgb_sum / count
         rgb_stddev = np.sqrt(rgb_sum_sqrd/count - rgb_mean**2)
         if normalize:

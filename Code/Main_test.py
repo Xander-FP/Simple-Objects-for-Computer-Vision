@@ -32,7 +32,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
         'dataset_name': 'Crop', # 'Cifar10' or 'Brain'
-        'architecture': 'ViT', # 'ResNet' or 'AlexNet'
+        'architecture': 'AlexNet', # 'ResNet' or 'AlexNet'
         'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 64,
         'learning_rate': 0.006, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
@@ -57,7 +57,7 @@ def experiment(conf):
     data_dirs = [
         # {'path': './datasets/Generated_Set1', 'classes': 5, 'name': 'Generated1'},
         # {'path': './datasets/Generated_Set2', 'classes': 75, 'name': 'Generated2'},
-        {'path': './datasets', 'classes': 8, 'name': 'Crop'} 
+        {'path': './datasets', 'classes': 10, 'name': 'Crop'} 
         ]
 
     if conf['architecture'] == 'ViT':

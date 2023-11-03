@@ -20,6 +20,8 @@ class CustomCropDataset(Dataset):
         return len(self.data.index)
 
     def __getitem__(self, index: int) -> Tuple[Any, Any]:
+        if index >= len(self.data.index):
+            return None, None
         row = self.data.loc[index, :]
         image = Image.open(os.path.join(self.data_dir,row['filename']))
 

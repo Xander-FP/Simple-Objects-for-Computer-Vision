@@ -36,7 +36,6 @@ class Trainer:
         self._load_data(dataset_name)
 
     def test(self, model, batch_size, criterion):
-
         test_loader = torch.utils.data.DataLoader(self.test_sets[-1], batch_size=batch_size, shuffle=True)
 
         with torch.no_grad():
@@ -226,6 +225,8 @@ class Trainer:
         normalize = transforms.Normalize(
             mean= result['mean'],
             std= result['std'],
+            # mean=[0.485, 0.456, 0.406],
+            # std= [0.229, 0.224, 0.225]
         )
         if architecture == 'ResNet':
             size = 224
