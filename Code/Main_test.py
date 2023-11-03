@@ -37,8 +37,8 @@ OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
         'architecture': 'ViT', # 'ViT' or 'AlexNet'
-        'epochs': 10, # Cifar10: 80, Brain: 70
-        'batch_size': 256,
+        'epochs': 5, # Cifar10: 80, Brain: 70
+        'batch_size': 512,
         'learning_rate': 0.0001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
         'momentum': 0.15, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
