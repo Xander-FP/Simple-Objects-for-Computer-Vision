@@ -63,7 +63,7 @@ def experiment(conf):
     if conf['architecture'] == 'ViT':
         # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
-        model = ViT(OPTIONS['image_shape'], n_patches=7, n_blocks=2, hidden_d=8, n_heads=2, out_d=100).to(device)
+        model = ViT(OPTIONS['image_shape'], n_patches=7, n_blocks=2, hidden_d=8, n_heads=2, out_d=8).to(device)
     else:
         model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
         # torch.save(model.state_dict(), 'alexnet.pth')
