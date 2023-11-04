@@ -47,6 +47,9 @@ class EarlyStopping:
         if optimizer is not None:
             optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 
+    def load_checkpoint_for_test(self):
+        pass
+
     def reset(self):
         self.counter = 0
         self.early_stop = False
