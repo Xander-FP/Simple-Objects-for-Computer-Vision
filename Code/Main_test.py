@@ -80,7 +80,7 @@ def experiment(conf):
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
         model = ViT(OPTIONS['image_shape'], OPTIONS['patch_num'], OPTIONS['block_num'], OPTIONS['hidden_layers_transformer'], OPTIONS['head_num'], out_d=data_dirs[0]['classes']).to(device)
     else:
-        # model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=False)
+        # model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
         # torch.save(model.state_dict(), 'alexnet.pth')
         model = AlexNet(num_classes=data_dirs[0]['classes'])
 
@@ -104,7 +104,7 @@ if __name__ == "__main__":
             OPTIONS
         )
 
-        search.run(pyhopper.wrap_n_times(experiment,1), "min", "8h", n_jobs='per-gpu', checkpoint_path="reg_vit2.ckpt")
+        search.run(pyhopper.wrap_n_times(experiment,1), "min", "9h", n_jobs='per-gpu', checkpoint_path="alex_reg2.ckpt")
     else:
         for i in range(1):
             experiment(OPTIONS)

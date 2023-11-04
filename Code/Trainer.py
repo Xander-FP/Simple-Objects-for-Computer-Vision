@@ -37,7 +37,7 @@ class Trainer:
 
     def test(self, model, batch_size, criterion, do_regression):
         test_loader = torch.utils.data.DataLoader(self.test_sets[-1], batch_size=batch_size, shuffle=True)
-        file = open('test_results.csv', 'w')
+        file = open('test_results' + str(time.time()) + '.csv', 'w')
         file.write('ID, extent\n')
 
         with torch.no_grad():
@@ -122,6 +122,7 @@ class Trainer:
 
             min_res = min(self.early_stopping.history, key=lambda x: x['validation_loss'])
             self.early_stopping.load_checkpoint(model, None, min_res['epoch'])
+            print('Loading epoch: ' + str(min_res['epoch']))
             if i != len(self.data_dirs) - 1:
                 self._replace_classifier(model, self.data_dirs[i+1]['classes'], options['architecture'])
             else:
