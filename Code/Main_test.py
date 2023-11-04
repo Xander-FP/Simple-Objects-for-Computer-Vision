@@ -36,7 +36,7 @@ OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
         'architecture': 'ViT', # 'ViT' or 'AlexNet'
-        'epochs': 5, # Cifar10: 80, Brain: 70
+        'epochs': 40, # Cifar10: 80, Brain: 70
         'batch_size': 512,
         'learning_rate': 0.0001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
         'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
@@ -50,9 +50,9 @@ OPTIONS = {
         'new_epoch': 0,
         'image_shape': (3, 280, 280), # channels, height, width
         'patch_num': 7,
-        'block_num': 5,
+        'block_num': 2,
         'hidden_layers_transformer': 12,
-        'head_num': 2 
+        'head_num': 2
     }
 
 def experiment(conf):
@@ -104,9 +104,9 @@ if __name__ == "__main__":
             OPTIONS
         )
 
-        search.run(pyhopper.wrap_n_times(experiment,1), "min", "30min", n_jobs='per-gpu', checkpoint_path="r_t.ckpt")
+        search.run(pyhopper.wrap_n_times(experiment,1), "min", "8h", n_jobs='per-gpu', checkpoint_path="reg_vit2.ckpt")
     else:
-        for i in range(10):
+        for i in range(1):
             experiment(OPTIONS)
 
 
