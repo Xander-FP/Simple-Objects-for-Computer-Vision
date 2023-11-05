@@ -64,6 +64,7 @@ def load_checkpoint_for_test(model, ckpt):
     return model
 
 def experiment(conf):
+    print("Hello")
     if conf['report_logs']:
         wandb.init(project="cifar10",config=conf)
 
@@ -98,14 +99,17 @@ def experiment(conf):
     trainer = Trainer(data_dirs=data_dirs, model=model, device=device, dataset_name = conf['dataset_name'])
 
     # should_checkpoint = config.get("should_checkpoint", False)
-    loss, model, res_file = trainer.start(conf, tune, wandb)
-
+    if OPTIONS['epochs'] == 0:
+        trainer.start(conf, tune, wandb)
+    else:
+        loss, model, res_file = trainer.start(conf, tune, wandb)
     if not conf['should_tune']:
         trainer.test(model, conf['batch_size'], conf['criterion'], conf['regression'])
-
-    return loss
+    # return loss
 
 if __name__ == "__main__":
+    if OPTIONS['test_only']:
+        OPTIONS['epochs'] = 0
     if OPTIONS['should_tune']:
         OPTIONS['learning_rate'] = pyhopper.float(1e-5, 1e-2, log=True, precision=1)
         OPTIONS['weight_decay'] = pyhopper.float(0.001, 0.1, log=True, precision=1)
@@ -116,8 +120,6 @@ if __name__ == "__main__":
         )
 
         search.run(pyhopper.wrap_n_times(experiment,1), "min", "9h", n_jobs='per-gpu', checkpoint_path="alex_reg2.ckpt")
-    if OPTIONS['test_only']:
-        OPTIONS['epochs'] = 0
     else:
         for i in range(1):
             experiment(OPTIONS)

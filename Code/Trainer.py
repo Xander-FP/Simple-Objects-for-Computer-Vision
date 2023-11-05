@@ -36,10 +36,10 @@ class Trainer:
         self._load_data(dataset_name)
 
     def test(self, model, batch_size, criterion, do_regression):
+        print("Writing to file:")
         test_loader = torch.utils.data.DataLoader(self.test_sets[-1], batch_size=batch_size, shuffle=True)
         file = open('test_results' + str(time.time()) + '.csv', 'w')
         file.write('ID, extent\n')
-
         with torch.no_grad():
             model.eval()
             for images, labels in test_loader:
@@ -119,14 +119,14 @@ class Trainer:
                 )
             
             options['start_epoch'] = 0
-
-            min_res = min(self.early_stopping.history, key=lambda x: x['validation_loss'])
-            self.early_stopping.load_checkpoint(model, None, min_res['epoch'])
-            print('Loading epoch: ' + str(min_res['epoch']))
-            if i != len(self.data_dirs) - 1:
-                self._replace_classifier(model, self.data_dirs[i+1]['classes'], options['architecture'])
-            else:
-                return val_loss, model, results_file
+            if options['epochs'] != 0:
+                min_res = min(self.early_stopping.history, key=lambda x: x['validation_loss'])
+                self.early_stopping.load_checkpoint(model, None, min_res['epoch'])
+                print('Loading epoch: ' + str(min_res['epoch']))
+                if i != len(self.data_dirs) - 1:
+                    self._replace_classifier(model, self.data_dirs[i+1]['classes'], options['architecture'])
+                else:
+                    return val_loss, model, results_file
 
     def _train(self, model, tune, wandb, train_loader, valid_loader, options, results_file):
         print('Current time: ', time.strftime("%H:%M:%S", time.localtime()))
@@ -143,42 +143,44 @@ class Trainer:
         start_epoch = options['start_epoch']
         model.train()
         # TRAINING PHASE
-        while not scheduler.converged:
-            print('Training started')
-            for epoch in range(start_epoch, max_epochs):
-                for i, (images, labels) in enumerate(train_loader):  
-                    images = images.to(self.device)
-                    labels = labels.to(self.device)
-                    
-                    if options['regression']:
-                        labels = labels.to(torch.float32)
-                        outputs = torch.round(
-                            torch.mul(model(images).view(-1), 100)
-                        )
-                        loss = torch.sqrt(criterion(outputs, labels))
-                    else:
-                        outputs = model(images)
-                        loss = criterion(outputs, labels)
-                    # Backward and optimize
-                    optimizer.zero_grad()
-                    loss.backward()
-                    optimizer.step()
+        # while not scheduler.converged:
+        print('Training started')
+        if max_epochs == 0:
+            valid_loss = 0
+        for epoch in range(start_epoch, max_epochs):
+            for i, (images, labels) in enumerate(train_loader):  
+                images = images.to(self.device)
+                labels = labels.to(self.device)
+                
+                if options['regression']:
+                    labels = labels.to(torch.float32)
+                    outputs = torch.round(
+                        torch.mul(model(images).view(-1), 100)
+                    )
+                    loss = torch.sqrt(criterion(outputs, labels))
+                else:
+                    outputs = model(images)
+                    loss = criterion(outputs, labels)
+                # Backward and optimize
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
 
-                train_loss = loss.item()
-                valid_loss, acc = self._validate(model, valid_loader, criterion, options['regression'])
-                print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
-                            .format(epoch, max_epochs, train_loss, valid_loss))
-                print('Current time: ', time.strftime("%H:%M:%S", time.localtime()))
-                if not options['should_tune']:
-                    results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
-                self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
-                converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
+            train_loss = loss.item()
+            valid_loss, acc = self._validate(model, valid_loader, criterion, options['regression'])
+            print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
+                        .format(epoch, max_epochs, train_loss, valid_loss))
+            print('Current time: ', time.strftime("%H:%M:%S", time.localtime()))
+            if not options['should_tune']:
+                results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
+            self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
+            converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
-                if converged:
-                    break
+            if converged:
+                break
 
-                if options['report_logs']:
-                    wandb.log({"validation_loss": valid_loss, "training_loss": train_loss, "epoch": epoch, "accuracy": acc})
+            if options['report_logs']:
+                wandb.log({"validation_loss": valid_loss, "training_loss": train_loss, "epoch": epoch, "accuracy": acc})
         print('Training finished')
         if not options['should_tune']:
             results_file.write('\n{******************************Training finished**********************************},\n')
