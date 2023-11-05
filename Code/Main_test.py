@@ -35,22 +35,22 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
-        'architecture': 'ViT', # 'ViT' or 'AlexNet'
-        'epochs': 40, # Cifar10: 80, Brain: 70
-        'batch_size': 512,
-        'learning_rate': 0.0001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
-        'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
-        'momentum': 0.15, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
+        'architecture': 'AlexNet', # 'ViT' or 'AlexNet'
+        'epochs': 13, # Cifar10: 80, Brain: 70
+        'batch_size': 128,
+        'learning_rate': 0.00003, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
+        'weight_decay': 0.04, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
+        'momentum': 0.62, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
         'curriculum': False,
         'report_logs': False,
-        'should_tune': True,
+        'should_tune': False,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
         'image_shape': (3, 280, 280), # channels, height, width
         'patch_num': 7,
-        'block_num': 2,
+        'block_num': 5,
         'hidden_layers_transformer': 12,
         'head_num': 2
     }
@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
         search.run(pyhopper.wrap_n_times(experiment,1), "min", "9h", n_jobs='per-gpu', checkpoint_path="alex_reg2.ckpt")
     else:
-        for i in range(1):
+        for i in range(10):
             experiment(OPTIONS)
 
 

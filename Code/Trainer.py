@@ -209,12 +209,21 @@ class Trainer:
                     )
                     loss = torch.sqrt(criterion(predicted, labels))
                 else:
+                    criterion2 = nn.MSELoss()
+                    labels2 = labels.to(torch.float32)
+                    predicted2 = torch.round(
+                                torch.mul(outputs, 100)
+                            )
+                    _, predicted2 = torch.max(predicted2.data, 1)
+                    loss2 = torch.sqrt(criterion2(predicted2, labels2))
                     _, predicted = torch.max(outputs.data, 1)
                     loss = criterion(outputs, labels)
                 total += labels.size(0)
                 correct += (predicted == labels).sum().item()
                 del images, labels, outputs
             print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
+            if not do_regression:
+                print('RMSE: ' + str(loss2.item()))
         return loss.item(), 100 * correct / total
     
     def _load_data(self, dataset_name):
