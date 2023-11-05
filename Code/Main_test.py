@@ -45,6 +45,7 @@ OPTIONS = {
         'curriculum': False,
         'report_logs': False,
         'should_tune': False,
+        'test_only': True,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
@@ -52,10 +53,18 @@ OPTIONS = {
         'patch_num': 7,
         'block_num': 5,
         'hidden_layers_transformer': 12,
-        'head_num': 2
+        'head_num': 2,
+        'good_checkpoints': ['best_checkpoints/ViT_regression.pt'],
+        'checkpoint_key': 0,
     }
 
+def load_checkpoint_for_test(model, ckpt):
+    checkpoint = torch.load(ckpt)  # Load the checkpoint
+    model.load_state_dict(checkpoint["model_state_dict"])
+    return model
+
 def experiment(conf):
+    print("Hello")
     if conf['report_logs']:
         wandb.init(project="cifar10",config=conf)
 
@@ -84,17 +93,23 @@ def experiment(conf):
         # torch.save(model.state_dict(), 'alexnet.pth')
         model = AlexNet(num_classes=data_dirs[0]['classes'])
 
+    if OPTIONS['test_only']:
+        model = load_checkpoint_for_test(model,OPTIONS['good_checkpoints'][OPTIONS['checkpoint_key']])
+
     trainer = Trainer(data_dirs=data_dirs, model=model, device=device, dataset_name = conf['dataset_name'])
 
     # should_checkpoint = config.get("should_checkpoint", False)
-    loss, model, res_file = trainer.start(conf, tune, wandb)
-
+    if OPTIONS['epochs'] == 0:
+        trainer.start(conf, tune, wandb)
+    else:
+        loss, model, res_file = trainer.start(conf, tune, wandb)
     if not conf['should_tune']:
         trainer.test(model, conf['batch_size'], conf['criterion'], conf['regression'])
-
-    return loss
+    # return loss
 
 if __name__ == "__main__":
+    if OPTIONS['test_only']:
+        OPTIONS['epochs'] = 0
     if OPTIONS['should_tune']:
         OPTIONS['learning_rate'] = pyhopper.float(1e-5, 1e-2, log=True, precision=1)
         OPTIONS['weight_decay'] = pyhopper.float(0.001, 0.1, log=True, precision=1)
