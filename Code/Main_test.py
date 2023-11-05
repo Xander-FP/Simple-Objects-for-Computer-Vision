@@ -64,7 +64,6 @@ def load_checkpoint_for_test(model, ckpt):
     return model
 
 def experiment(conf):
-    print("Hello")
     if conf['report_logs']:
         wandb.init(project="cifar10",config=conf)
 
