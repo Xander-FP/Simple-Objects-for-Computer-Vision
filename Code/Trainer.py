@@ -167,12 +167,12 @@ class Trainer:
                 optimizer.step()
 
             train_loss = loss.item()
-            valid_loss, acc = self._validate(model, valid_loader, criterion, options['regression'])
+            valid_loss, acc, valid_RMSE = self._validate(model, valid_loader, criterion, options['regression'])
             print ('Epoch [{}/{}], Train_Loss: {:.4f}, Valid_Loss: {:.4f}' 
                         .format(epoch, max_epochs, train_loss, valid_loss))
             print('Current time: ', time.strftime("%H:%M:%S", time.localtime()))
             if not options['should_tune']:
-                results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + '},\n')
+                results_file.write('{Epoch ' + str(epoch) + ', Train_Loss: ' + str(train_loss) + ', Valid_Loss: ' + str(valid_loss) + ', Accuracy: ' + str(acc) + ', RMSE: ' + str(valid_RMSE) + '},\n')
             self.early_stopping.save_checkpoint(model, optimizer, epoch, valid_loss)
             converged = scheduler.adjust_available_data(self.early_stopping, train_loss, valid_loss)
 
@@ -210,6 +210,7 @@ class Trainer:
                         torch.mul(outputs.view(-1), 100)
                     )
                     loss = torch.sqrt(criterion(predicted, labels))
+                    loss2 = loss.item()
                 else:
                     criterion2 = nn.MSELoss()
                     labels2 = labels.to(torch.float32)
@@ -218,6 +219,7 @@ class Trainer:
                             )
                     _, predicted2 = torch.max(predicted2.data, 1)
                     loss2 = torch.sqrt(criterion2(predicted2, labels2))
+                    loss2 = loss2.item()
                     _, predicted = torch.max(outputs.data, 1)
                     loss = criterion(outputs, labels)
                 total += labels.size(0)
@@ -225,8 +227,8 @@ class Trainer:
                 del images, labels, outputs
             print('Accuracy of the network on the {} validation images: {} %'.format(total, 100 * correct / total))
             if not do_regression:
-                print('RMSE: ' + str(loss2.item()))
-        return loss.item(), 100 * correct / total
+                print('RMSE: ' + str(loss2))
+        return loss.item(), 100 * correct / total, loss2
     
     def _load_data(self, dataset_name):
         print('loading the data')

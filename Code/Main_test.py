@@ -45,7 +45,7 @@ OPTIONS = {
         'curriculum': False,
         'report_logs': False,
         'should_tune': False,
-        'test_only': True,
+        'test_only': False,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
@@ -64,7 +64,6 @@ def load_checkpoint_for_test(model, ckpt):
     return model
 
 def experiment(conf):
-    print("Hello")
     if conf['report_logs']:
         wandb.init(project="cifar10",config=conf)
 
