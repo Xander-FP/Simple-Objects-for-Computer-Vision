@@ -36,24 +36,32 @@ OPTIONS = {
         'dataset_name': 'Crop',
         'regression': True,
         'architecture': 'ViT', # 'ViT' or 'AlexNet'
-        'epochs': 40, # Cifar10: 80, Brain: 70
-        'batch_size': 512,
-        'learning_rate': 0.0001, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
-        'weight_decay': 0.002, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
-        'momentum': 0.15, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
+        'epochs': 20, # Cifar10: 80, Brain: 70
+        'batch_size': 128,
+        'learning_rate': 0.0008, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
+        'weight_decay': 0.07, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
+        'momentum': 0.45, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
         'curriculum': False,
         'report_logs': False,
-        'should_tune': True,
+        'should_tune': False,
+        'test_only': True,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
         'image_shape': (3, 280, 280), # channels, height, width
         'patch_num': 7,
-        'block_num': 2,
+        'block_num': 5,
         'hidden_layers_transformer': 12,
-        'head_num': 2
+        'head_num': 2,
+        'good_checkpoints': ['best_checkpoints/ViT_regression.pt'],
+        'checkpoint_key': 0,
     }
+
+def load_checkpoint_for_test(model, ckpt):
+    checkpoint = torch.load(ckpt)  # Load the checkpoint
+    model.load_state_dict(checkpoint["model_state_dict"])
+    return model
 
 def experiment(conf):
     if conf['report_logs']:
@@ -84,6 +92,9 @@ def experiment(conf):
         # torch.save(model.state_dict(), 'alexnet.pth')
         model = AlexNet(num_classes=data_dirs[0]['classes'])
 
+    if OPTIONS['test_only']:
+        model = load_checkpoint_for_test(model,OPTIONS['good_checkpoints'][OPTIONS['checkpoint_key']])
+
     trainer = Trainer(data_dirs=data_dirs, model=model, device=device, dataset_name = conf['dataset_name'])
 
     # should_checkpoint = config.get("should_checkpoint", False)
@@ -105,6 +116,8 @@ if __name__ == "__main__":
         )
 
         search.run(pyhopper.wrap_n_times(experiment,1), "min", "9h", n_jobs='per-gpu', checkpoint_path="alex_reg2.ckpt")
+    if OPTIONS['test_only']:
+        OPTIONS['epochs'] = 0
     else:
         for i in range(1):
             experiment(OPTIONS)
