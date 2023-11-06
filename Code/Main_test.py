@@ -34,13 +34,13 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
         'dataset_name': 'Crop',
-        'regression': False,
-        'architecture': 'AlexNet', # 'ViT' or 'AlexNet'
-        'epochs': 12, # Cifar10: 80, Brain: 70
+        'regression': True,
+        'architecture': 'ViT', # 'ViT' or 'AlexNet'
+        'epochs': 10, # Cifar10: 80, Brain: 70
         'batch_size': 128,
-        'learning_rate': 0.0003, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
-        'weight_decay': 0.01, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
-        'momentum': 0.9, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
+        'learning_rate': 0.008, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
+        'weight_decay': 0.07, # 0.002 Res_Cifar: 0.002, Alex_Cifar: 0.008, Alex_brain: 0.03, Res_brain: 0.01
+        'momentum': 0.45, # Res_Cifar: 0.15, Alex_Cifar: 0.9, Alex_brain: 0.69, Res_brain: 0.9
         'opt': 'sgd',
         'curriculum': False,
         'report_logs': False,
