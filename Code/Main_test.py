@@ -54,7 +54,7 @@ OPTIONS = {
         'block_num': 5,
         'hidden_layers_transformer': 12,
         'head_num': 2,
-        'good_checkpoints': ['./best/ViT_regression.pt'],
+        'good_checkpoints': ['./best/epoch8.pt', './best/epoch37.pt', './best/AlexReg7_8.pt', './best/ViTClass7_0.pt'], # AC, VR, AR, VC
         'checkpoint_key': 0,
     }
 
