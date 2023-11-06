@@ -34,8 +34,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
         'dataset_name': 'Crop',
-        'regression': False,
-        'architecture': 'AlexNet', # 'ViT' or 'AlexNet'
+        'regression': True,
+        'architecture': 'ViT', # 'ViT' or 'AlexNet'
         'epochs': 10, # Cifar10: 80, Brain: 70
         'batch_size': 128,
         'learning_rate': 0.008, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003, ViT: 0.008
@@ -45,7 +45,7 @@ OPTIONS = {
         'curriculum': False,
         'report_logs': False,
         'should_tune': False,
-        'test_only': False,
+        'test_only': True,
         'scheduler': 'N', # N for no scheduler, B for BabyStep, R for RootP
         'should_restore': False,
         'new_epoch': 0,
@@ -54,7 +54,7 @@ OPTIONS = {
         'block_num': 5,
         'hidden_layers_transformer': 12,
         'head_num': 2,
-        'good_checkpoints': ['best_checkpoints/ViT_regression.pt'],
+        'good_checkpoints': ['./best/ViT_regression.pt'],
         'checkpoint_key': 0,
     }
 
