@@ -31,6 +31,8 @@ class JSONFileReader:
         data = {}
         json_files = self.list_json_files()
         for file_name in json_files:
+            if not file_name.endswith('.txt'):
+                continue
             file_data = self.read_json_file(file_name)
             if file_data is not None:
                 data[file_name] = file_data
@@ -38,6 +40,8 @@ class JSONFileReader:
     
     def fix_json_file(self, file_name):
         file_path = os.path.join(self.folder_path, file_name)
+        if not file_name.endswith('.txt'):
+            return None
         try:
             with open(file_path, 'r') as file:
                 file_content = file.read()
@@ -51,7 +55,7 @@ class JSONFileReader:
                 quoted_string = string[:1] + '"' + string[1:-1] + '"' + string[-1:]
                 file_content = file_content.replace(string, quoted_string)
 
-            file_content = '[' + file_content + '}]'
+            file_content = '[' + file_content + ']'
             with open(file_path, 'w') as file:
                 file.write(file_content)
         except FileNotFoundError:
