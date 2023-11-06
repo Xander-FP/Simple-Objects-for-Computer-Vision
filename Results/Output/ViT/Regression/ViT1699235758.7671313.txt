@@ -1,8 +1,9 @@
-{Epoch 0, Train_Loss: 19.702390670776367, Valid_Loss: 12.540369987487793, Accuracy: 33.61473522640061},
-{Epoch 1, Train_Loss: 19.56702423095703, Valid_Loss: 7.81581449508667, Accuracy: 34.38219493476593},
-{Epoch 2, Train_Loss: 26.015684127807617, Valid_Loss: 16.803855895996094, Accuracy: 47.50575594781274},
-{Epoch 3, Train_Loss: 20.58295249938965, Valid_Loss: 17.0587215423584, Accuracy: 56.6768994627782},
-{Epoch 4, Train_Loss: 11.332301139831543, Valid_Loss: 13.523731231689453, Accuracy: 37.912509593246355},
-{Epoch 5, Train_Loss: 23.77415657043457, Valid_Loss: 13.708930969238281, Accuracy: 0.5755947812739831},
+[{"Epoch": 0, "Train_Loss": 19.702390670776367, "Valid_Loss": 12.540369987487793, "Accuracy": 33.61473522640061},
+{"Epoch": 1, "Train_Loss": 19.56702423095703, "Valid_Loss": 7.81581449508667, "Accuracy": 34.38219493476593},
+{"Epoch": 2, "Train_Loss": 26.015684127807617, "Valid_Loss": 16.803855895996094, "Accuracy": 47.50575594781274},
+{"Epoch": 3, "Train_Loss": 20.58295249938965, "Valid_Loss": 17.0587215423584, "Accuracy": 56.6768994627782},
+{"Epoch": 4, "Train_Loss": 11.332301139831543, "Valid_Loss": 13.523731231689453, "Accuracy": 37.912509593246355},
+{"Epoch": 5, "Train_Loss": 23.77415657043457, "Valid_Loss": 13.708930969238281, "Accuracy": 0.5755947812739831},
 
-{******************************Training finished**********************************},
+{"Epoch":"None"}
+]

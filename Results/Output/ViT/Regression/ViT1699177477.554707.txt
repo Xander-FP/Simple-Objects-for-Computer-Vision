@@ -1,2 +1,0 @@
-{Epoch 0, Train_Loss: 189.83213806152344, Valid_Loss: 185.34938049316406, Accuracy: 0.0},
-{Epoch 1, Train_Loss: 185.7024383544922, Valid_Loss: 189.83226013183594, Accuracy: 0.0},

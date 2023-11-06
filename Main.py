@@ -13,7 +13,7 @@ def plot_train_final(training):
     fig, ax = plt.subplots()
     ax.set_xlabel('Epochs')
     ax.set_ylabel('Validation Loss')
-    ax.set_title('AlexNet Regression')
+    ax.set_title('ViT Regression')
     Graphing.plot_loss(training, ax, 'Training')
 
     ax.legend()
@@ -34,11 +34,11 @@ def plot_train_generated(experiment1, experiment2):
     ax2.legend()
     plt.show()
 
-reader = JSONFileReader(os.path.join(RESULTS_PATH,VIT_CLASS))
+reader = JSONFileReader(os.path.join(RESULTS_PATH,VIT_REG))
 
 # reader.fix_all_files()
 
-training = reader.read_all_json_files(os.path.join(RESULTS_PATH,ALEX_REG))
+training = reader.read_all_json_files(os.path.join(RESULTS_PATH,VIT_REG))
 
 # base1 = reader.read_all_json_files(os.path.join(RESULTS_PATH,ALEX_BRAIN_BASE_1))
 # base2 = reader.read_all_json_files(os.path.join(RESULTS_PATH,ALEX_BRAIN_BASE_2))
