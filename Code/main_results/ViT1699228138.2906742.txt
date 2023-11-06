@@ -1,0 +1,8 @@
+{Epoch 0, Train_Loss: 30.20761489868164, Valid_Loss: 29.845617294311523, Accuracy: 0.3069838833461243},
+{Epoch 1, Train_Loss: 25.720664978027344, Valid_Loss: 24.395296096801758, Accuracy: 0.03837298541826554},
+{Epoch 2, Train_Loss: 19.75507926940918, Valid_Loss: 27.38017463684082, Accuracy: 0.9593246354566385},
+{Epoch 3, Train_Loss: 18.30660057067871, Valid_Loss: 17.51893424987793, Accuracy: 0.0},
+{Epoch 4, Train_Loss: 22.256282806396484, Valid_Loss: 21.290945053100586, Accuracy: 0.0},
+{Epoch 5, Train_Loss: 15.642385482788086, Valid_Loss: 15.182942390441895, Accuracy: 1.419800460475825},
+
+{******************************Training finished**********************************},
