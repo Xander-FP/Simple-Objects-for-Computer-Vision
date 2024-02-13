@@ -31,7 +31,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 OPTIONS = {
         'dataset_name': 'Cifar10', # 'Cifar10' or 'Brain'
-        'architecture': 'ResNet', # 'ResNet' or 'AlexNet'
+        'architecture': 'AlexNet', # 'ResNet' or 'AlexNet'
         'epochs': 80, # Cifar10: 80, Brain: 70
         'batch_size': 32,
         'learning_rate': 0.006, # Res_Cifar: 0.006, Alex_Cifar: 0.0002, Alex_brain: 0.001, Res_brain: 0.0003
@@ -75,9 +75,9 @@ def experiment(conf):
     if conf['architecture'] == 'ResNet':
         # model = ResNet(ResidualBlock, [3, 4, 6, 3], num_classes=data_dirs[0]['classes'])
         # model.load_state_dict(torch.load('./resnet50.pth'), strict=False)
-        model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=True)
+        model = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', weights='ResNet50_Weights.DEFAULT')
     else:
-        model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
+        model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', weights='AlexNet_Weights.DEFAULT')
         # torch.save(model.state_dict(), 'alexnet.pth')
         # model = AlexNet(num_classes=data_dirs[0]['classes'])
 
